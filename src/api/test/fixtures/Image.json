@@ -1,0 +1,28 @@
+[{
+    "id": 1,
+    "fingerprint": "9aadf7ae171eb2e2b9b84320efd7576ee0f08f0b5cbfc78e3b81a836fc945141",
+    "size": 97845916,
+    "label": "",
+    "description": "Ubuntu xenial amd64 (20180308_03:49)",
+    "autoUpdate": false,
+    "createdAt": "2018-03-08 00:00:00",
+    "uploadedAt": "2018-03-08 00:00:00",
+    "lastUsedAt": "2018-03-08 00:00:00",
+    "expiresAt": "2018-03-08 00:00:00",
+    "osArchitecture": 1,
+    "public": true
+},
+{
+    "id": 2,
+    "fingerprint": "6fce0e9befe843135fc6e5c00dd2ef7158feba80cf0eb022b097d967d318d47d",
+    "size": 231588596,
+    "label": "",
+    "description": "Ubuntu-Core 16 amd64 (20180220_19:01)",
+    "autoUpdate": false,
+    "createdAt": "2018-03-08 00:00:00",
+    "uploadedAt": "2018-03-08 00:00:00",
+    "lastUsedAt": "2018-03-08 00:00:00",
+    "expiresAt": "2018-03-08 00:00:00",
+    "osArchitecture": 2,
+    "public": true
+}]

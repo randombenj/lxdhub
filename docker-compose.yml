@@ -1,0 +1,59 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    volumes:
+      - .:/var/lib/lxdhub/
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=lxdhub
+      - POSTGRES_PASSWORD=lxdhub
+      - POSTGRES_DATABASE=lxdhub
+      - LXD_CRT=certificates/client.crt
+      - LXD_KEY=certificates/client.key
+    depends_on:
+      - db
+    links:
+      - db:postgres
+
+  dbsync:
+    build:
+      context: .
+      dockerfile: Dockerfile.dbsync
+    volumes:
+      - .:/var/lib/lxdhub/
+    environment:
+      - LXD_CRT=certificates/client.crt
+      - LXD_KEY=certificates/client.key
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=lxdhub
+      - POSTGRES_PASSWORD=lxdhub
+      - POSTGRES_DATABASE=lxdhub
+      - LOG_LEVEL=silly
+      - SYNC_INTERVAL=30
+      - LXDHUB_CONFIG=./lxdhub.yml
+    depends_on:
+      - db
+    links:
+      - db:postgres
+
+  db:
+    image: postgres:10.2
+    environment:
+      POSTGRES_USER: lxdhub
+      POSTGRES_DB: lxdhub
+      POSTGRES_PASSWORD: lxdhub
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"
+
+volumes:
+  db:

@@ -1,0 +1,28 @@
+# NodeJS dependencies
+node_modules
+
+# Log files
+**/*.log
+
+# LXD certificates
+certificates/*key
+certificates/*crt
+
+# Build output
+lib/**/*.js
+lib/**/*.ts
+lib/**/*.map
+lib/**/CONTRIBUTING.md
+lib/**/COPYRIGHT
+lib/**/LICENSE
+.gulp-cache
+
+# LXDHUB Configuration File
+lxdhub.yml
+lxdhub*.yml
+
+# Test output
+coverage
+
+# Database files
+db/*.sql

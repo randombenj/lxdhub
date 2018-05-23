@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "stevencl.adddoccomments",
+        "Angular.ng-template",
+        "natewallace.angular2-inline",
+        "christian-kohler.path-intellisense",
+        "eg2.tslint",
+        "kisstkondoros.typelens",
+        "rbbit.typescript-hero",
+        "PeterJausovec.vscode-docker"
+    ]
+}

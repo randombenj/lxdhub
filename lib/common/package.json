@@ -1,0 +1,36 @@
+{
+    "name": "@lxdhub/common",
+    "version": "1.0.0",
+    "description": "Display, search and copy LXD-images using a web interface.",
+    "publishConfig": {
+        "access": "public"
+    },
+    "license": "Apache-2.0",
+    "keywords": [
+        "lxd",
+        "lxc",
+        "lxdhub",
+        "container"
+    ],
+    "homepage": "https://github.com/Roche/lxdhub#README.md",
+    "bugs": {
+        "url": "https://github.com/Roche/lxdhub/issues",
+        "email": "livio.brunner.lb1@roche.com"
+    },
+    "author": {
+        "email": "livio.brunner.lb1@roche.com",
+        "name": "Livio Brunner",
+        "url": "https://brunnerliv.io"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Roche/lxdhub"
+    },
+    "dependencies": {
+        "@nestjs/swagger": "^1.2.2",
+        "class-transformer": "^0.1.9",
+        "class-validator": "^0.8.5",
+        "reflect-metadata": "^0.1.12",
+        "winston": "next"
+    }
+}

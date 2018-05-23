@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "lint",
+            "problemMatcher": [
+                "$tslint5"
+            ]
+        },
+        {
+            "type": "npm",
+            "script": "build:lib",
+            "label": "build:lib",
+            "problemMatcher": [
+                "$gulp-tsc"
+            ]
+        },
+        {
+            "type": "npm",
+            "script": "build",
+            "label": "build",
+            "problemMatcher": [
+                "$gulp-tsc"
+            ]
+        }
+    ]
+}

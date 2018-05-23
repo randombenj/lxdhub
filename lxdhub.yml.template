@@ -1,0 +1,16 @@
+---
+remotes:
+  # The name of the remote which gets displayed on lxdhub
+  - name: images
+    url: https://us.images.linuxcontainers.org:8443
+    protocol: simplestreams
+    public: true
+    # If set to readonly = false, images can be cloned to
+    # this remote
+    readonly: true
+  # - name: local
+  #   url: https://intern-url.com:8443
+  #   protocol: lxc
+  #   public: false
+  #   readonly: false
+

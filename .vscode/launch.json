@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch DBSync",
+            "program": "${workspaceFolder}/bin/start-dbsync.js",
+            "env": {
+                "LXD_CRT": "certificates/client.crt",
+                "LXD_KEY": "certificates/client.key",
+                "POSTGRES_HOST": "127.0.0.1",
+                "POSTGRES_PORT": "5432",
+                "POSTGRES_USER": "lxdhub",
+                "POSTGRES_PASSWORD": "lxdhub",
+                "POSTGRES_DATABASE": "lxdhub",
+                "SYNC_INTERVAL": "1000"
+            },
+            "preLaunchTask": "build"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch API",
+            "program": "${workspaceFolder}/bin/start-api.js",
+            "env": {
+                "LXD_CRT": "certificates/client.crt",
+                "LXD_KEY": "certificates/client.key",
+                "POSTGRES_HOST": "127.0.0.1",
+                "POSTGRES_PORT": "5432",
+                "POSTGRES_USER": "lxdhub",
+                "POSTGRES_PASSWORD": "lxdhub",
+                "POSTGRES_DATABASE": "lxdhub"
+            },
+            "preLaunchTask": "build"
+        }
+    ]
+}

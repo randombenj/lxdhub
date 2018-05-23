@@ -1,0 +1,27 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - test
+  - deploy
+
+# The deployment stage builds the docker image
+# and then pushes it to docker hub
+deploy:
+  stage: deploy
+  only:
+    - tags
+  script:
+    - ./bin/deploy-docker.sh
+
+# The test stage runs all
+# tests and generates a coverage
+# report
+test:
+  image: node:7
+  stage: test
+  script:
+    - npm install
+    - ./bin/run-tests.sh

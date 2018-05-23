@@ -1,0 +1,9 @@
+[{
+    "id": 1,
+    "operatingSystem": 1,
+    "architecture": 1
+}, {
+    "id": 2,
+    "operatingSystem": 2,
+    "architecture": 1
+}]

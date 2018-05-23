@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "serverUrl": "https://images.efiks.ovh:8443",
+        "protocol": "lxd",
+        "readonly": true,
+        "public": true,
+        "name": "images"
+    },
+    {
+        "id": 2,
+        "serverUrl": "https://localhost:8443",
+        "readonly": false,
+        "public": true,
+        "protocol": "lxd",
+        "name": "local-remote",
+        "password": "unsecret"
+    }
+]

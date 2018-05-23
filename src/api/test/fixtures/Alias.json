@@ -1,0 +1,8 @@
+[
+    {
+        "id": 1,
+        "name": "ubuntu/xenial/default",
+        "description": "1",
+        "image": 1
+    }
+]

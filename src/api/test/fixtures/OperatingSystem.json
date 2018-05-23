@@ -1,0 +1,12 @@
+[{
+    "id": 1,
+    "distribution": "ubuntu",
+    "release": "xenial",
+    "version": "16.04"
+},
+{
+    "id": 12,
+    "distribution": "ubuntu-core",
+    "release": "xenial",
+    "version": "16"
+}]

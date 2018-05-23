@@ -1,0 +1,24 @@
+[{
+    "id": 1,
+    "available": true,
+    "image": 1,
+    "remote": 1
+},
+{
+    "id": 4,
+    "available": false,
+    "image": 1,
+    "remote": 2
+},
+{
+    "id": 2,
+    "available": true,
+    "image": 2,
+    "remote": 1
+},
+{
+    "id": 3,
+    "available": true,
+    "image": 2,
+    "remote": 2
+}]
