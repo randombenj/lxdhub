@@ -1,6 +1,6 @@
 {
     "name": "lxdhub",
-    "version": "1.0.0",
+    "version": "0.9.0",
     "description": "Display, search and copy LXD-images using a web interface.",
     "scripts": {
         "start": "npm run start:api",
