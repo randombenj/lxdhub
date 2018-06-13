@@ -1,6 +1,6 @@
 {
     "name": "@lxdhub/api",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Display, search and copy LXD-images using a web interface.",
     "scripts": {
         "start": "node bin/start-api.js"
@@ -9,8 +9,8 @@
         "lxdhub-api": "cli.js"
     },
     "dependencies": {
-        "@lxdhub/common": "^1.0.0",
-        "@lxdhub/db": "^1.0.0",
+        "@lxdhub/common": "^1.0.1",
+        "@lxdhub/db": "^1.0.1",
         "@nestjs/common": "^4.5.9",
         "@nestjs/core": "^4.5.10",
         "@nestjs/microservices": "^4.6.5",
