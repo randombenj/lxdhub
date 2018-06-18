@@ -5,6 +5,7 @@ const nodemon = require('gulp-nodemon');
 const path = require('path');
 const Cache = require('gulp-file-cache');
 const sourcemaps = require('gulp-sourcemaps');
+const log = require('fancy-log');
 
 const cache = new Cache();
 
@@ -70,5 +71,6 @@ modules.forEach(module => {
 })
 
 gulp.task('build', function (cb) {
+    log(`Building to ${dist}`);
     gulpSequence('common', 'db', modules.filter((module) => module !== 'db' && module !== 'common'), cb);
 });

@@ -1,12 +1,12 @@
 import { Component, Inject, Logger } from '@nestjs/common';
-import { LXD } from 'node-lxd-client';
+import { ImageDetail, LXDRemoteClient } from 'node-lxd-client';
 
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { RemoteDto } from '../remote';
 
 @Component()
 export class LXDService {
-    private lxd: LXD;
+    private lxd: LXDRemoteClient;
     private logger: Logger;
     private images: any[] = [];
 
@@ -32,18 +32,30 @@ export class LXDService {
         return config;
     }
 
-    private async loadRemoteImages(remote: RemoteDto) {
+    private async loadRemoteImages(remote: RemoteDto): Promise<ImageDetail[]> {
         const lxdConfig = await this.getLXDClientConfig(remote);
-        this.lxd = new LXD(lxdConfig);
+        this.lxd = new LXDRemoteClient(lxdConfig);
 
         if (remote.password) {
             this.logger.log(`Authorizing certificate for remote ${remote.url}`);
-            await this.lxd.authorizeCertificate();
-            this.logger.log(`Succesfully authorized certificate for remote ${remote.url}`);
+            try {
+                await this.lxd.authorizeCertificate();
+                this.logger.log(`Succesfully authorized certificate for remote ${remote.url}`);
+            } catch (exception) {
+                this.logger.error(`Could not access ${remote.url}`);
+            }
         }
 
         this.logger.log('Fetching remoteImages');
-        const remoteImages: any[] = await this.lxd.image.all(false, true);
+        let remoteImages: ImageDetail[];
+        try {
+            remoteImages = await this.lxd.image.all({
+                lazy: false,
+                sequentially: true
+            });
+        } catch (exception) {
+            this.logger.error(`Could not fetch remote images`);
+        }
         this.logger.log(`Found ${remoteImages.length} images`);
 
         if (!remoteImages) {

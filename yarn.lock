@@ -5058,9 +5058,9 @@ node-int64@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
 
-node-lxd-client@0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/node-lxd-client/-/node-lxd-client-0.0.7.tgz#c1eadd245de5a4bce6286cbaec861975783572b6"
+node-lxd-client@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/node-lxd-client/-/node-lxd-client-0.1.0.tgz#dfceb9dc9f407990662f86b6cc29b416b61a6c5a"
   dependencies:
     async "^2.6.0"
     request "^2.83.0"
