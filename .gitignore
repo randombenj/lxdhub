@@ -9,12 +9,11 @@ certificates/*key
 certificates/*crt
 
 # Build output
-lib/**/*.js
-lib/**/*.ts
-lib/**/*.map
-lib/**/CONTRIBUTING.md
-lib/**/COPYRIGHT
-lib/**/LICENSE
+packages/**/lib
+packages/**/src/**/*.js
+packages/**/src/**/*.map
+packages/**/src/**/*.d.ts
+
 .gulp-cache
 
 # LXDHUB Configuration File

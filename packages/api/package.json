@@ -1,0 +1,70 @@
+{
+    "name": "@lxdhub/api",
+    "version": "1.3.0",
+    "description": "Display, search and copy LXD-images using a web interface.",
+    "main": "lib/index.js",
+    "scripts": {
+        "start": "node bin/start-api.js",
+        "build": "tsc -p tsconfig.build.json",
+        "prepare": "npm run build",
+        "test": "jest --config=jest.json -i",
+        "test:watch": "jest --watch --config=jest.json -i",
+        "test:dev": "jest --watch --config=jest.json -i --coverage --coverageDirectory=coverage",
+        "test:coverage": "jest --config=jest.json -i --coverage --coverageDirectory=coverage"
+    },
+    "bin": {
+        "lxdhub-api": "lib/cli.js"
+    },
+    "dependencies": {
+        "@lxdhub/common": "^1.3.0",
+        "@lxdhub/db": "^1.3.0",
+        "@nestjs/common": "^4.5.9",
+        "@nestjs/core": "^4.5.10",
+        "@nestjs/microservices": "^4.6.5",
+        "@nestjs/swagger": "^1.2.2",
+        "@nestjs/testing": "^4.5.5",
+        "@nestjs/typeorm": "2.0.0",
+        "@nestjs/websockets": "^4.5.8",
+        "chalk": "^2.4.1",
+        "clime": "^0.5.9",
+        "fs-extra": "^6.0.1",
+        "pg": "^7.4.1",
+        "reflect-metadata": "0.1.10",
+        "request": "^2.85.0",
+        "request-promise": "^4.2.2",
+        "rxjs": "^5.5.6",
+        "winston": "next"
+    },
+    "devDependencies": {
+        "jest": "^23.1.0",
+        "ts-jest": "^22.4.6",
+        "typescript": "^2.6.2",
+        "@types/jest": "^23.1.1",
+        "sqlite3": "^3.1.13"
+
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "license": "Apache-2.0",
+    "keywords": [
+        "lxd",
+        "lxc",
+        "lxdhub",
+        "container"
+    ],
+    "homepage": "https://github.com/Roche/lxdhub#README.md",
+    "bugs": {
+        "url": "https://github.com/Roche/lxdhub/issues",
+        "email": "livio.brunner.lb1@roche.com"
+    },
+    "author": {
+        "email": "livio.brunner.lb1@roche.com",
+        "name": "Livio Brunner",
+        "url": "https://brunnerliv.io"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Roche/lxdhub"
+    }
+}
