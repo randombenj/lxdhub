@@ -90,7 +90,7 @@ docker-compose build
 # Run the containers (api, dbsync and db)
 docker-compose up
 
-# Open localhost:3000
+# Open localhost:3000/api/v1/doc
 
 ```
 
