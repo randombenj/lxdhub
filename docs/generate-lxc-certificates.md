@@ -26,7 +26,7 @@ cp -rf ~/.config/lxc/client* certificates
 The files `client.crt` and `client.key` should now appear in the folder `certificates`.
 
 ```
-➜ ls keys
+➜ ls certificates
 client.crt  client.key
 ```
 
