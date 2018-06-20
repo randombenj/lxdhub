@@ -10,7 +10,7 @@ remotes:
     readonly: true
   # - name: local
   #   url: https://intern-url.com:8443
-  #   protocol: lxc
+  #   protocol: lxd
   #   public: false
   #   readonly: false
 
