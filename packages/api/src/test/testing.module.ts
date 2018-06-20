@@ -1,7 +1,5 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Connection } from 'typeorm';
 import { DatabaseModule } from '@lxdhub/db';
+import { Module } from '@nestjs/common';
 
 @Module({
   imports: [
@@ -12,7 +10,4 @@ import { DatabaseModule } from '@lxdhub/db';
  * The Testing Module provides
  * Utility functions for easier testing
  */
-export class TestingModule {
-  constructor() {
-  }
-}
+export class TestingModule { }

@@ -1,6 +1,6 @@
+import { DatabaseModule, DatabaseService } from '@lxdhub/db';
 import { Test } from '@nestjs/testing';
 
-import { DatabaseModule, DatabaseService } from '@lxdhub/db';
 import { TestUtils } from '../test/test.utils';
 import { ImageRepository, ImageRepositoryProvider } from './image.repository';
 
@@ -10,7 +10,8 @@ import { ImageRepository, ImageRepositoryProvider } from './image.repository';
 describe('ImageRepository', () => {
     let imageRepository: ImageRepository;
     let testUtils: TestUtils;
-    beforeEach(async (done) => {
+
+    beforeEach(async done => {
         const module = await Test.createTestingModule({
             imports: [
                 DatabaseModule.forRoot()

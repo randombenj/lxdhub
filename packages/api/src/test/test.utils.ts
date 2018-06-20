@@ -96,7 +96,7 @@ export class TestUtils {
         const fixtureFile = Path.join(__dirname, `../test/fixtures/${entity.name}.json`);
         if (fs.existsSync(fixtureFile)) {
           const items = JSON.parse(fs.readFileSync(fixtureFile, 'utf8'));
-          const result = await repository
+          await repository
             .createQueryBuilder(entity.name)
             .insert()
             .values(items)

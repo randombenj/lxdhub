@@ -7,6 +7,7 @@
         "start": "node bin/start-api.js",
         "build": "tsc -p tsconfig.build.json",
         "prepare": "npm run build",
+        "pretest": "rimraf db",
         "test": "jest --config=jest.json -i",
         "test:watch": "jest --watch --config=jest.json -i",
         "test:dev": "jest --watch --config=jest.json -i --coverage --coverageDirectory=coverage",
@@ -32,16 +33,16 @@
         "reflect-metadata": "0.1.10",
         "request": "^2.85.0",
         "request-promise": "^4.2.2",
+        "rimraf": "^2.6.2",
         "rxjs": "^5.5.6",
         "winston": "next"
     },
     "devDependencies": {
-        "jest": "^23.1.0",
-        "ts-jest": "^22.4.6",
-        "typescript": "^2.6.2",
         "@types/jest": "^23.1.1",
-        "sqlite3": "^3.1.13"
-
+        "jest": "^23.1.0",
+        "sqlite3": "^3.1.13",
+        "ts-jest": "^22.4.6",
+        "typescript": "^2.6.2"
     },
     "publishConfig": {
         "access": "public"
