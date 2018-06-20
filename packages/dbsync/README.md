@@ -21,13 +21,12 @@ You must set up a PostgreSQL on your local machine or inside a docker container
 ### Using Docker
 
 ```bash
-docker pull postgres:10.3
 docker run -p 5432:5432 \
            -e POSTGRES_USER=lxdhub \
            -e POSTGRES_DB=lxdhub \
            -e POSTGRES_PASSWORD=lxdhub \
            -v db:/var/lib/postgresql/data \
-           -d --name db postgres:10.3
+           -d --name db postgres:10.2
 ```
 
 ## NodeJS

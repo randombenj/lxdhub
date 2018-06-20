@@ -5,16 +5,16 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '../../..');
 
-const certPath = process.env.LXD_CERT || path.join(ROOT, 'certificates/client.crt');
-const keyPath = process.env.LXD_KEY || path.join(ROOT, 'certificates/client.key');
+const certPath = process.env.LXD_CERT || 'certificates/client.crt';
+const keyPath = process.env.LXD_KEY || 'certificates/client.key';
 
 new LXDHubAPI({
     hostUrl: '0.0.0.0',
     port: 3000,
     logLevel: 'silly',
     lxd: {
-        cert: fs.readFileSync(certPath),
-        key: fs.readFileSync(keyPath)
+        cert: fs.readFileSync(path.join(ROOT, certPath)),
+        key: fs.readFileSync(path.join(ROOT, keyPath))
     },
     docUrl: '/api/v1/doc',
     database: {

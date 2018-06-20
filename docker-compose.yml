@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile.api
     volumes:
-      - .:/var/lib/lxdhub/
+      - ./certificates:/var/lib/lxdhub/certificates
     ports:
       - "3000:3000"
     environment:
@@ -27,10 +27,9 @@ services:
       context: .
       dockerfile: Dockerfile.dbsync
     volumes:
-      - .:/var/lib/lxdhub/
+      - ./certificates:/var/lib/lxdhub/certificates
+      - ./lxdhub.yml:/var/lib/lxdhub/lxdhub.yml
     environment:
-      - LXD_CRT=certificates/client.crt
-      - LXD_KEY=certificates/client.key
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
       - POSTGRES_USER=lxdhub

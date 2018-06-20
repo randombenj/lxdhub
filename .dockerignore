@@ -1,5 +1,4 @@
-node_modules
-!node_modules/@lxdhub
+**/node_modules
 lib
 package-lock.json
 lxdhub.yml

@@ -1,8 +1,5 @@
 #!/bin/sh
 
-echo ">>>CLEAR DATABASE"
-rm -rf db/test-db.sql
-
 echo ">>>BUILDING THE APPLICATION"
 npm run build
 

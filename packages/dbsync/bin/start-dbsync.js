@@ -9,14 +9,14 @@ const DEFAULT_SYNC_INTERVAL = 3;
 
 const DEFAULT_LXD_CONFIG_PATH = './lxdhub.yml';
 
-const ROOT = path.join(__dirname, '..');
+const ROOT = path.join(__dirname, '../../..');
 
-const certPath = process.env.LXD_CERT || path.join(ROOT, 'certificates/client.crt');
-const keyPath = process.env.LXD_KEY || path.join(ROOT, 'certificates/client.key');
+const certPath = process.env.LXD_CERT || 'certificates/client.crt';
+const keyPath = process.env.LXD_KEY || 'certificates/client.key';
 
 const lxd = {
-    cert: fs.readFileSync(certPath),
-    key: fs.readFileSync(keyPath)
+    cert: fs.readFileSync(path.join(ROOT, certPath)),
+    key: fs.readFileSync(path.join(ROOT, keyPath))
 };
 
 const database = {
@@ -31,7 +31,8 @@ const lxdConfigPath = process.env.LXDHUB_CONFIG || DEFAULT_LXD_CONFIG_PATH;
 const lxdConifgAbsolutePath =
     path.isAbsolute(lxdConfigPath) ?
         lxdConfigPath :
-        path.join(__dirname, '..', lxdConfigPath);
+        path.join(ROOT, lxdConfigPath);
+
 
 // Sync Interval in minutes
 const syncInterval = parseInt((process.env.SYNC_INTERVAL || DEFAULT_SYNC_INTERVAL)) * 1000 * 60;

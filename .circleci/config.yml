@@ -6,22 +6,13 @@ machine:
 
 jobs:
   test:
-    docker:
-      - image: circleci/node:7.10
+    machine: true
     working_directory: ~/lxdhub
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: ./bin/run-tests.sh
-      - run: npm run lint
+      - run: docker build -f Dockerfile.api -t brunnel6/lxdhub-api .
+      - run: docker run -it brunnel6/lxdhub-api test
+      - run: docker run -it brunnel6/lxdhub-api lint
 
   build_docker:
     machine: true
