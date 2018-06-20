@@ -1,6 +1,6 @@
 {
     "name": "@lxdhub/db",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "Display, search and copy LXD-images using a web interface.",
     "main": "lib/index.js",
     "scripts": {
@@ -8,7 +8,7 @@
         "prepare": "npm run build"
     },
     "dependencies": {
-        "@lxdhub/common": "^1.3.0",
+        "@lxdhub/common": "^1.4.0",
         "@nestjs/common": "^4.5.9",
         "@nestjs/core": "^4.5.10",
         "@nestjs/typeorm": "2.0.0",
