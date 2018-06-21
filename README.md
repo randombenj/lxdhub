@@ -6,7 +6,7 @@
 
  <p align="center">
   <a href="https://gitter.im/Roche/lxdhub?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/Roche/lxdhub.svg" alt="Gitter" /></a>
-  <img src="https://circleci.com/gh/Roche/lxdhub.png?circle-token=f41c49274b61c18d8a5867ab9d49b9f27a2227aa&style=shield" alt="Circle CI Status">
+  <a href="https://circleci.com/gh/Roche/lxdhub"><img src="https://circleci.com/gh/Roche/lxdhub.png?circle-token=f41c49274b61c18d8a5867ab9d49b9f27a2227aa&style=shield" alt="Circle CI Status"></a>
  </p>
 
 <p align="center">
@@ -35,22 +35,22 @@ Under the hood, LXDHub is split in five packages. The following graph visualizes
     <td>The LXDHub webinterface</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/Roche/lxdhub/tree/master/lib/api">@lxdhub/api</a></td>
+    <td><a href="https://github.com/Roche/lxdhub/tree/master/packages/api">@lxdhub/api</a></td>
     <td><a href="https://www.npmjs.com/package/@lxdhub/api"><img src="https://badge.fury.io/js/%40lxdhub%2Fapi.svg" alt="npm version" height="18"></a></td>
     <td>The REST API for the LXDHub webinterface</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/Roche/lxdhub/tree/master/lib/dbsync">@lxdhub/dbsync</a></td>
+    <td><a href="https://github.com/Roche/lxdhub/tree/master/packages/dbsync">@lxdhub/dbsync</a></td>
     <td><a href="https://www.npmjs.com/package/@lxdhub/dbsync"><img src="https://badge.fury.io/js/%40lxdhub%2Fdbsync.svg" alt="npm version" height="18"></a></td>
     <td>The script to synchronize multiple LXD remotes with the LXDHub database</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/Roche/lxdhub/tree/master/lib/db">@lxdhub/db</a></td>
+    <td><a href="https://github.com/Roche/lxdhub/tree/master/packages/db">@lxdhub/db</a></td>
     <td><a href="https://www.npmjs.com/package/@lxdhub/db"><img src="https://badge.fury.io/js/%40lxdhub%2Fdb.svg"   alt="npm version" height="18"></a></td>
     <td>The package, which provides database functions for the @lxdhub/api and @lxdhub/dbsync packages</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/Roche/lxdhub/tree/master/lib/common">@lxdhub/common</a></td>
+    <td><a href="https://github.com/Roche/lxdhub/tree/master/packages/common">@lxdhub/common</a></td>
     <td><a href="https://www.npmjs.com/package/@lxdhub/common"><img src="https://badge.fury.io/js/%40lxdhub%2Fcommon.svg"   alt="npm version" height="18"></a></td>
     <td>The package, which provides common functions for all LXDHub-packages.</td>
   </tr>
