@@ -1,6 +1,6 @@
 {
     "name": "@lxdhub/dbsync",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "description": "Display, search and copy LXD-images using a web interface.",
     "main": "lib/index.js",
     "scripts": {
@@ -12,8 +12,8 @@
         "lxdhub-dbsync": "cli.js"
     },
     "dependencies": {
-        "@lxdhub/common": "^1.5.0",
-        "@lxdhub/db": "^1.5.0",
+        "@lxdhub/common": "^1.5.1",
+        "@lxdhub/db": "^1.5.1",
         "@nestjs/common": "^4.6.6",
         "@nestjs/core": "^4.6.6",
         "@nestjs/testing": "^4.6.6",
