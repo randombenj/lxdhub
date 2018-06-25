@@ -1,13 +1,8 @@
-import {
-    AliasDto,
-    ArchitectureDto,
-    Factory,
-    ImageDetailDto,
-    OperatingSystemDto,
-    RemoteImageAvailabilityDto,
-} from '@lxdhub/common';
+import { Factory } from '@lxdhub/common';
 import { Alias, Architecture, Image, ImageAvailability, OperatingSystem } from '@lxdhub/db';
 import { Component } from '@nestjs/common';
+
+import { AliasDto, ArchitectureDto, ImageDetailDto, OperatingSystemDto, RemoteImageAvailabilityDto } from '../dtos';
 
 /**
  * Factory which produces ImageDetailDto

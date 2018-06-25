@@ -1,12 +1,4 @@
-import {
-  CloneImageDto,
-  CloneImageResponseDto,
-  ImageDetailDto,
-  ImageListItemDto,
-  ImageListOptions,
-  PaginationResponseDto,
-  ResponseDto,
-} from '@lxdhub/common';
+import { PaginationResponseDto, ResponseDto } from '@lxdhub/common';
 import {
   BadRequestException,
   Body,
@@ -23,6 +15,7 @@ import {
 } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 
+import { CloneImageDto, CloneImageResponseDto, ImageDetailDto, ImageListItemDto, ImageListOptions } from './dtos';
 import { ImageService } from './image.service';
 import { ImageListItemInterceptor } from './interceptors/image-list-item.interceptor';
 

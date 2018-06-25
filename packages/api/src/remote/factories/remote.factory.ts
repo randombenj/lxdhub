@@ -1,6 +1,8 @@
-import { Factory, RemoteDto } from '@lxdhub/common';
+import { Factory } from '@lxdhub/common';
 import { Remote } from '@lxdhub/db';
 import { Component } from '@nestjs/common';
+
+import { RemoteDto } from '../dtos';
 
 /**
  * Factory which produces RemoteDtos

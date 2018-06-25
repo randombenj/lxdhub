@@ -15,10 +15,13 @@
         "test": "lerna exec npm run test --scope @lxdhub/api",
         "clean": "rimraf packages/**/lib packages/**/src/**/*{.d.ts,.js,.map}",
         "bootstrap": "lerna bootstrap",
-        "prepare": "lerna run prepare"
+        "prepare": "lerna run prepare",
+        "postprepare": "concat -o ./packages/interfaces/lib/api.dtos.d.ts ./packages/api/lib/*.dto.d.ts ./packages/api/lib/**/**/*.dto.d.ts",
+        "prepublish": "npm run prepare"
     },
     "devDependencies": {
         "@types/node": "^8.0.28",
+        "concat": "^1.0.3",
         "lerna": "^2.9.0",
         "rimraf": "^2.6.2",
         "tslint": "^5.10.0",

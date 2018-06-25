@@ -1,9 +1,8 @@
 import { Alias, Image, Remote } from '@lxdhub/db';
 import { Component } from '@nestjs/common';
-import * as Fs from 'fs';
-import * as Url from 'url';
 
-import { AliasDto, SourceDto, SourceImageDto } from '../dto';
+import { AliasDto } from '../../image/dtos';
+import { SourceDto, SourceImageDto } from '../dto';
 
 /**
  * Transforms the image and remotes from the database

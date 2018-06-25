@@ -1,18 +1,11 @@
-import {
-    CloneImageDto,
-    CloneImageResponseDto,
-    ImageDetailDto,
-    ImageListItemDto,
-    PaginationOptionsDto,
-    PaginationResponseDto,
-    ResponseDto,
-} from '@lxdhub/common';
+import { PaginationOptionsDto, PaginationResponseDto, ResponseDto } from '@lxdhub/common';
 import { Inject, NotFoundException } from '@nestjs/common';
 
 import { ImageAvailabilityService } from '../image-availability/image-availability.service';
 import { LXDService } from '../lxd/lxd.service';
 import { RemoteRepository } from '../remote/remote.repository';
 import { SearchDictionary, SearchService } from '../search';
+import { CloneImageDto, CloneImageResponseDto, ImageDetailDto, ImageListItemDto } from './dtos';
 import { ImageDetailFactory, ImageListItemFactory } from './factories';
 import { ImageRepository } from './image.repository';
 import { ImageSearchLiteral } from './interfaces';

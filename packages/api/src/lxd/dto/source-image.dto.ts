@@ -1,16 +1,4 @@
-/**
- * The alias dto for a source image
- */
-export class AliasDto {
-    /**
-     * The name of the alias
-     */
-    name: string;
-    /**
-     * The description of the alias
-     */
-    description: string;
-}
+import { AliasDto } from '../../image/dtos';
 
 /**
  * The source information of an image / remote

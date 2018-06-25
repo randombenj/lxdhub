@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { ImageListItemDto } from '@lxdhub/common';
+import { ImageListItemDto } from '../dtos';
 import { Image } from '@lxdhub/db';
 import { Test } from '@nestjs/testing';
 
