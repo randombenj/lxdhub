@@ -1,4 +1,4 @@
-import { PaginationOptionsDto, PaginationResponseDto, ResponseDto } from '@lxdhub/common';
+import { PaginationOptionsDto, PaginationResponseDto, ResponseDto } from '../shared';
 import { Inject, NotFoundException } from '@nestjs/common';
 
 import { ImageAvailabilityService } from '../image-availability/image-availability.service';

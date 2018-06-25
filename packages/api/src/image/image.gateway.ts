@@ -1,7 +1,7 @@
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
 
-import { ResponseDto } from '@lxdhub/common';
+import { ResponseDto } from '../shared';
 import { CloneStatusDto, ImageDetailDto } from './dtos';
 import { Inject } from '@nestjs/common';
 import { SubscribeMessage, WebSocketGateway, WsResponse } from '@nestjs/websockets';

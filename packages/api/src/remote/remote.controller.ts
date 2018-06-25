@@ -1,4 +1,4 @@
-import { ResponseDto } from '@lxdhub/common';
+import { ResponseDto } from '../shared';
 import { Controller, Get } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 

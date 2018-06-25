@@ -1,4 +1,4 @@
-import { PaginationResponseDto, ResponseDto } from '@lxdhub/common';
+import { PaginationResponseDto, ResponseDto } from '../shared';
 import {
   BadRequestException,
   Body,

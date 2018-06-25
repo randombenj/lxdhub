@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsInt, IsOptional, Min, IsString } from 'class-validator';
-import { PaginationOptionsDto } from '@lxdhub/common';
+import { PaginationOptionsDto } from '../../shared';
 import { ApiModelProperty, ApiModelPropertyOptional } from '@nestjs/swagger';
 
 /**

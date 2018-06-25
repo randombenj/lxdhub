@@ -1,7 +1,7 @@
 import { Image, ImageAvailability } from '@lxdhub/db';
 import { Connection, EntityRepository, Repository } from 'typeorm';
 
-import { PaginationOptionsDto } from '@lxdhub/common';
+import { PaginationOptionsDto } from '../shared';
 import { ImageSearchLiteral } from './interfaces';
 
 /**

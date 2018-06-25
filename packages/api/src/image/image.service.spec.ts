@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { plainToClass } from 'class-transformer';
 
-import { PaginationOptionsDto } from '@lxdhub/common';
+import { PaginationOptionsDto } from '../shared';
 import { ImageAvailabilityService } from '../image-availability/image-availability.service';
 import { LXDService } from '../lxd/lxd.service';
 import { RemoteRepository } from '../remote/remote.repository';

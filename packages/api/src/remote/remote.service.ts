@@ -1,4 +1,4 @@
-import { ResponseDto } from '@lxdhub/common';
+import { ResponseDto } from '../shared';
 import { RemoteDto } from './dtos';
 import { Inject } from '@nestjs/common';
 

@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/map';
 
-import { PaginationResponseDto } from '@lxdhub/common';
+import { PaginationResponseDto } from '../../shared';
 import { ImageListItemDto } from '../dtos';
 import { Interceptor, NestInterceptor } from '@nestjs/common';
 import { Request } from 'express';
