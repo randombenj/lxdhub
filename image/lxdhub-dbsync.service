@@ -1,0 +1,12 @@
+[Unit]
+Description=lxdhub-dbsync - synchronise metadata for remote defined in lxdhub.yml
+Documentation=https://github.com/Roche/lxdhub
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /opt/lxdhub/packages/dbsync/bin/start-dbsync.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
