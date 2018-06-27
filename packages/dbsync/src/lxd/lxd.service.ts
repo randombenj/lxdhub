@@ -46,7 +46,7 @@ export class LXDService {
             }
         }
 
-        this.logger.log('Fetching remoteImages');
+        this.logger.log(`Fetching remote images of ${remote.url}`);
         let remoteImages: ImageDetail[];
         try {
             remoteImages = await this.lxd.image.all({
@@ -55,13 +55,17 @@ export class LXDService {
             });
         } catch (exception) {
             this.logger.error(`Could not fetch remote images`);
+            this.logger.error(exception);
+            return [];
         }
-        this.logger.log(`Found ${remoteImages.length} images`);
 
         if (!remoteImages) {
             this.logger.log('No images found on LXD server');
-            return;
+            return [];
         }
+
+        this.logger.log(`Found ${remoteImages.length} images`);
+
         return remoteImages;
     }
 
