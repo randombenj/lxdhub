@@ -1,8 +1,8 @@
 import { Test } from '@nestjs/testing';
 
+import { RemoteService } from '.';
 import { RemoteFactory } from './factories';
 import { RemoteRepository } from './remote.repository';
-import { RemoteService } from './remote.service';
 
 /**
  * Test cases for the remote service

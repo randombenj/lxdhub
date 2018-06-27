@@ -5834,7 +5834,7 @@ winston@^2.4.0:
     isstream "0.1.x"
     stack-trace "0.0.x"
 
-winston@next:
+winston@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/winston/-/winston-3.0.0.tgz#1f0b24a96586798bcf0cd149fb07ed47cb01a1b2"
   dependencies:

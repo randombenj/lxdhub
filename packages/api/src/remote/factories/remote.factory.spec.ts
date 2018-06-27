@@ -1,7 +1,7 @@
 import { Remote } from '@lxdhub/db';
 import { Test } from '@nestjs/testing';
 
-import { RemoteDto } from '@lxdhub/common';
+import { RemoteDto } from '../dtos';
 import { RemoteFactory } from './remote.factory';
 
 /**

@@ -1,10 +1,10 @@
-import { RemoteDto } from '@lxdhub/common';
 import { Test } from '@nestjs/testing';
 
+import { RemoteService } from '.';
+import { RemoteDto } from './dtos';
 import { RemoteFactory } from './factories';
 import { RemoteController } from './remote.controller';
 import { RemoteRepository } from './remote.repository';
-import { RemoteService } from './remote.service';
 
 /**
  * Test cases for the remote controller
@@ -16,14 +16,16 @@ describe('RemoteController', () => {
     beforeEach(async () => {
         // Mock Image Module
         const module = await Test.createTestingModule({
-            controllers: [RemoteController],
+            controllers: [
+                RemoteController
+            ],
             components: [
-                RemoteService,
                 {
-                    provide: 'RemoteRepository',
-                    useClass: RemoteRepository
+                    provide: RemoteService,
+                    useClass: RemoteService
                 },
-                RemoteFactory
+                RemoteRepository,
+                RemoteFactory,
             ]
         }).compile();
 
