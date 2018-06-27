@@ -1,4 +1,4 @@
-import { PaginationOptionsDto } from '..';
+import { PaginationOptionsDto } from '.';
 
 /**
  * The response wrapper around the requested

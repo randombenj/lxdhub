@@ -1,7 +1,7 @@
 import { Body, Controller, HttpStatus, Post } from '@nestjs/common';
 
 import { LogService } from '.';
-import { LogDto } from '@lxdhub/common';
+import { LogDto } from './dtos';
 
 /**
  * The Remote-Controller, which is the API

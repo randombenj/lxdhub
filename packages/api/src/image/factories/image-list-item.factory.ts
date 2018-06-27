@@ -1,6 +1,8 @@
-import { Factory, ImageListItemDto } from '@lxdhub/common';
+import { Factory } from '@lxdhub/common';
 import { Image } from '@lxdhub/db';
 import { Component } from '@nestjs/common';
+
+import { ImageListItemDto } from '..';
 
 /**
  * Factory which procudes ImageListItemDtos

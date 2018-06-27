@@ -1,7 +1,8 @@
+import { ApiModelProperty, ApiModelPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsInt, IsOptional, Min, Max, IsString } from 'class-validator';
-import { PaginationOptionsDto } from '../';
-import { ApiImplicitParam, ApiModelProperty, ApiModelPropertyOptional } from '@nestjs/swagger';
+import { IsInt, IsOptional, IsString, Min } from 'class-validator';
+
+import { PaginationOptionsDto } from '../../common';
 
 /**
  * This interface represents

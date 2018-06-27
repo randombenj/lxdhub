@@ -1,6 +1,5 @@
-import { Image } from '@lxdhub/db';
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { LogController } from './log.controller';
 
 @Module({

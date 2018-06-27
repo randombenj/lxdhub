@@ -1,4 +1,4 @@
-import { APIDto } from '@lxdhub/common';
+import { APIDto } from './api.dto';
 import { Controller, Get, HttpCode, Inject, Req } from '@nestjs/common';
 import { ApiResponse, ApiOperation } from '@nestjs/swagger';
 import { Request } from 'express';
