@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 
-import { ImageDetailDto, ImageListItemDto } from '@lxdhub/common';
+import { ImageDetailDto, ImageListItemDto } from './dtos';
 import { ImageController } from './image.controller';
 import { ImageService } from './image.service';
 

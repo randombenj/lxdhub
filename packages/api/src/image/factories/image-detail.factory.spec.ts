@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { AliasDto, ArchitectureDto, ImageDetailDto, OperatingSystemDto } from '@lxdhub/common';
+import { AliasDto, ArchitectureDto, ImageDetailDto, OperatingSystemDto } from '..';
 import {
     Alias,
     Architecture,

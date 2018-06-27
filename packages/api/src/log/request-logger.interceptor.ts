@@ -1,8 +1,8 @@
 import 'rxjs/add/operator/do';
 
 import { ExecutionContext, Interceptor, NestInterceptor } from '@nestjs/common';
-import * as Express from 'express';
 import { Observable } from 'rxjs/Observable';
+
 import { LogService } from '.';
 
 @Interceptor()

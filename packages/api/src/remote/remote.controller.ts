@@ -1,7 +1,8 @@
-import { RemoteDto, ResponseDto } from '@lxdhub/common';
 import { Controller, Get } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 
+import { RemoteDto } from '.';
+import { ResponseDto } from '../common';
 import { RemoteService } from './remote.service';
 
 /**

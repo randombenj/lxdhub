@@ -1,6 +1,7 @@
-import { RemoteDto, ResponseDto } from '@lxdhub/common';
 import { Inject } from '@nestjs/common';
 
+import { RemoteDto } from '.';
+import { ResponseDto } from '../common';
 import { RemoteFactory } from './factories';
 import { RemoteRepository } from './remote.repository';
 
