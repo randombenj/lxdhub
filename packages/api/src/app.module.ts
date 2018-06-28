@@ -1,16 +1,15 @@
-import { DynamicModule, Global } from '@nestjs/common';
+import { DatabaseModule } from '@lxdhub/db';
+import { DynamicModule } from '@nestjs/common';
 
 import { LXDHubAPISettings } from '.';
-import { DatabaseModule } from '@lxdhub/db';
+import { AppSettingsModule } from './app-settings';
+import { AppController } from './app.controller';
+import { ImageAvailabilityModule } from './image-availability';
 import { ImageModule } from './image/image.module';
 import { LogModule } from './log';
-import { AppController } from './app.controller';
-import { AppSettingsModule } from './app-settings';
-import { SearchModule } from './search/search.module';
 import { LXDModule } from './lxd';
 import { RemoteModule } from './remote';
-import { ImageAvailabilityModule } from './image-availability';
-import { FsProvider, PathProvider } from './third-party';
+import { SearchModule } from './search/search.module';
 import { ThirdPartyModule } from './third-party/third-party.module';
 
 /**

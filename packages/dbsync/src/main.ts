@@ -1,4 +1,4 @@
-import { ILXDHubService } from '@lxdhub/common';
+import { Interfaces } from '@lxdhub/common';
 import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
@@ -10,7 +10,7 @@ import { LXDHubDbSyncSettings } from './dbsync-settings.interface';
  * Represents the LXDHub Database synchronization script.
  * It synchronizes the database with the given remotes.
  */
-export class LXDHubDbSync implements ILXDHubService {
+export class LXDHubDbSync implements Interfaces.ILXDHubService {
     private app: INestApplication;
     private appService: AppService;
 

@@ -1,6 +1,7 @@
+import { Interfaces } from '@lxdhub/common';
 import { ApiModelProperty } from '@nestjs/swagger';
 
-export class APILinks {
+export class APILinks implements Interfaces.APILinks {
     /**
      * The homepage url of the package
      */
@@ -23,7 +24,7 @@ export class APILinks {
     docs: string;
 }
 
-export class APIDto {
+export class APIDto implements Interfaces.APIDto {
     /**
      * The version of the API
      */
