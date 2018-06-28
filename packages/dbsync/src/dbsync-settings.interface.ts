@@ -1,6 +1,5 @@
+import { Interfaces } from '@lxdhub/common';
 import { IDatabaseSettings } from '@lxdhub/db';
-import { ILXDRemoteAuthentication, ILXDHubConfig } from '@lxdhub/common';
-import { RemoteDto } from './remote';
 
 /**
  * The settings for the LXDHub Database synchronization
@@ -10,11 +9,11 @@ export interface LXDHubDbSyncSettings {
     /**
      * The settings for lxd
      */
-    lxd?: ILXDRemoteAuthentication;
+    lxd?: Interfaces.ILXDRemoteAuthentication;
     /**
      * The LXDHub config
      */
-    lxdhubConfig: ILXDHubConfig;
+    lxdhubConfig: Interfaces.ILXDHubConfig;
     /**
      * The database settings
      */

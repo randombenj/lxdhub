@@ -1,4 +1,3 @@
-
 /**
  * Represents a microservice, which LXDHub offers
  */

@@ -1,4 +1,4 @@
-import { ILXDHubService, ILXDRemoteAuthentication, LogType } from '@lxdhub/common';
+import { Interfaces, LogType } from '@lxdhub/common';
 import { IDatabaseSettings } from '@lxdhub/db';
 import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -22,7 +22,7 @@ export class LXDHubAPISettings {
     @Type(() => String)
     hostUrl?: string = '0.0.0.0';
     database: IDatabaseSettings;
-    lxd?: ILXDRemoteAuthentication;
+    lxd?: Interfaces.ILXDRemoteAuthentication;
     logLevel?: LogType = 'silly';
     docUrl: string = '/api/v1/doc';
 }
@@ -31,7 +31,7 @@ export class LXDHubAPISettings {
  * The LXDHub API is the interface for the
  * LXDHub Web user interface.
  */
-export class LXDHubAPI implements ILXDHubService {
+export class LXDHubAPI  implements Interfaces.ILXDHubService {
     private app: INestApplication;
     private logger: LogService;
     constructor(private settings: LXDHubAPISettings) {

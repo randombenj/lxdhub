@@ -1,4 +1,4 @@
-import { IRemoteConfig } from '@lxdhub/common';
+import { Interfaces } from '@lxdhub/common';
 import { Remote } from '@lxdhub/db';
 import { Component, Inject, Logger } from '@nestjs/common';
 
@@ -32,7 +32,7 @@ export class RemoteService {
         return await this.remoteRepository.save(localRemote);
     }
 
-    public async getOrUpdate(settingsRemote: IRemoteConfig): Promise<Remote> {
+    public async getOrUpdate(settingsRemote: Interfaces.IRemoteConfig): Promise<Remote> {
         const remoteByName = await this.remoteRepository.findOne({ name: settingsRemote.name });
         const remoteByUrl = await this.remoteRepository.findOne({ serverUrl: settingsRemote.url });
         const remote = remoteByName || remoteByUrl;

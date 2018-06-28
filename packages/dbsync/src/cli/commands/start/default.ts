@@ -1,4 +1,4 @@
-import { ILXDHubConfig } from '@lxdhub/common';
+import { Interfaces } from '@lxdhub/common';
 import { Command, command, metadata, option, Options } from 'clime';
 import { File } from 'clime/bld/castable';
 import * as fs from 'fs-extra';
@@ -88,7 +88,7 @@ export default class extends Command {
             // Convert from YAML to JSON
             .then(content => YAML.safeLoad(content))
             // Create the database sync instance
-            .then((lxdhubConfig: ILXDHubConfig) => new LXDHubDbSync({ lxd, database, lxdhubConfig }))
+            .then((lxdhubConfig: Interfaces.ILXDHubConfig) => new LXDHubDbSync({ lxd, database, lxdhubConfig }))
             // Run the database sync script
             .then(dbSync => dbSync.run());
     }
