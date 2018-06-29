@@ -42,7 +42,11 @@ remotes:
     public: false
     readonly: false
 EOF"
-#lxc exec lxdhub -- sh -c 'yarn run start:api &'
-#lxc exec lxdhub -- sh -c 'yarn run start:dbsync &'
+# install services
+lxc file push --uid 0 --gid 0 lxdhub-*.service lxdhub/lib/systemd/system/
+lxc exec lxdhub -- systemctl daemon-reload
+lxc exec lxdhub -- systemctl enable lxdhub-api.service lxdhub-dbsync.service
+lxc exec lxdhub -- systemctl start lxdhub-api.service lxdhub-dbsync.service
+
 
 lxc exec lxdhub -- git clone https://github.com/Roche/lxdhub-web.git
