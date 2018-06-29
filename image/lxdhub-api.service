@@ -5,7 +5,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/node /opt/lxdhub/packages/api/bin/start-api.js
+ExecStart=/usr/bin/node /root/lxdhub/packages/api/bin/start-api.js
 Restart=on-failure
 
 [Install]
