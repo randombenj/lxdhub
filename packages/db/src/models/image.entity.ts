@@ -35,8 +35,8 @@ export class Image extends BaseEntity {
   @Column('varchar')
   expiresAt: Date;
 
-  @Column('varchar')
-  lastUsedAt: Date;
+  @Column({ type: 'varchar', nullable: true })
+  lastUsedAt?: Date;
 
   @Column('varchar')
   uploadedAt: Date;
