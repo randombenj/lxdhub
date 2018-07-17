@@ -88,17 +88,15 @@ export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
         // @ts-ignore
         this.app.useGlobalInterceptors(new RequestLoggerInterceptor());
 
-        // // In development, allow any origin to access the website
-        // if (process.env.NODE_ENV !== 'production') {
-        //     this.app.use(cors({
-        //         origin: true,
-        //         credentials: true
-        //     }));
-        // }
+        // In development, allow any origin to access the website
+        if (process.env.NODE_ENV !== 'production') {
+            this.app.use(cors({
+                origin: true,
+                credentials: true
+            }));
+        }
 
         this.app.use((req, res, next) => {
-            res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
-            res.header('Access-Control-Allow-Credentials', 'true');
             res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, DEVICE_ID, SSO_TOKEN');
 
             next();
