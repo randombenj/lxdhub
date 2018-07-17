@@ -1,6 +1,6 @@
 {
     "name": "lxdhub",
-    "version": "1.3.0",
+    "version": "1.6.0",
     "description": "Display, search and copy LXD-images using a web interface.",
     "private": true,
     "scripts": {
