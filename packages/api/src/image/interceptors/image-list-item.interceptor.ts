@@ -1,4 +1,3 @@
-import 'rxjs/add/operator/map';
 
 import { Interceptor, NestInterceptor } from '@nestjs/common';
 import { Request } from 'express';
@@ -6,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { ImageListItemDto } from '..';
 import { PaginationResponseDto } from '../../common';
+
+import { map } from 'rxjs/operators';
 
 @Interceptor()
 /**
@@ -30,14 +31,16 @@ export class ImageListItemInterceptor implements NestInterceptor {
         const url = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
 
         // Returns the response stream and maps the data
-        return stream$.map(response => {
-            // Updates each image _links object
-            response.results.forEach(image =>
-                image._links = {
-                    // Set the detail url
-                    detail: `${url}/${image.id}`
-                });
-            return response;
-        });
+        return stream$.pipe(
+            map(response => {
+                // Updates each image _links object
+                response.results.forEach(image =>
+                    image._links = {
+                        // Set the detail url
+                        detail: `${url}/${image.id}`
+                    });
+                return response;
+            })
+        );
     }
 }

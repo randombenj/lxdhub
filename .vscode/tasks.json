@@ -9,16 +9,21 @@
             ]
         },
         {
-            "type": "npm",
-            "script": "build:lib",
-            "label": "build:lib",
+            "command": "yarn",
+            "label": "build:api",
+            "args": [
+                "run",
+                "build:api"
+            ],
             "problemMatcher": [
                 "$gulp-tsc"
             ]
         },
         {
-            "type": "npm",
-            "script": "build",
+            "command": "yarn",
+            "args": [
+                "run", "prepare"
+            ],
             "label": "build",
             "problemMatcher": [
                 "$gulp-tsc"
