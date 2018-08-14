@@ -29,10 +29,9 @@ workflows:
       - deploy_docker:
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^v.*/
           requires:
-            - build_docker
             - test
 

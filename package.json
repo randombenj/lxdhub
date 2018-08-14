@@ -12,12 +12,9 @@
         "start": "node bin/start.js",
         "start:api": "lerna exec npm run start --scope @lxdhub/api",
         "start:dbsync": "lerna exec npm run start --scope @lxdhub/dbsync",
-        "start:web": "lerna exec npm run start --scope @lxdhub/web",
-        "test": "npm run test:api && npm run test:web",
+        "test": "npm run test:api",
         "test:api": "lerna exec npm run test --scope @lxdhub/api",
-        "test:web": "lerna exec npm run test --scope @lxdhub/web",
         "build:api": "lerna exec yarn run build --scope @lxdhub/api",
-        "build:web": "lerna exec yarn run build --scope @lxdhub/web",
         "clean": "rimraf packages/**/lib packages/**/src/**/*{.d.ts,.js,.map}",
         "bootstrap": "lerna bootstrap",
         "prepare": "lerna run prepare"
