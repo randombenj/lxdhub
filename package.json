@@ -28,6 +28,9 @@
         "js-yaml": "^3.11.0",
         "fs-extra": "^6.0.1"
     },
+    "dependencies": {
+        "@lxdhub/web": "^1.7.0"
+    },
     "license": "Apache-2.0",
     "keywords": [
         "lxd",
