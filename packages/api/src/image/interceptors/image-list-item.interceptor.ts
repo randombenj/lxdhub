@@ -1,5 +1,5 @@
 
-import { Interceptor, NestInterceptor } from '@nestjs/common';
+import { Injectable, NestInterceptor } from '@nestjs/common';
 import { Request } from 'express';
 import { Observable } from 'rxjs/Observable';
 
@@ -8,7 +8,7 @@ import { PaginationResponseDto } from '../../common';
 
 import { map } from 'rxjs/operators';
 
-@Interceptor()
+@Injectable()
 /**
  * Represents the inteceptor, which sets the URL attributes of the _links
  * object of the ImageListItemDtos
@@ -24,23 +24,21 @@ export class ImageListItemInterceptor implements NestInterceptor {
     intercept(
         req: Request,
         _,
-        stream$: Observable<PaginationResponseDto<ImageListItemDto[]>>)
+        call$: Observable<PaginationResponseDto<ImageListItemDto[]>>)
         : Observable<PaginationResponseDto<ImageListItemDto[]>> {
         // Get url e.g. http://localhost:3000/api/v1/image
         // without any GET-Parameters (?remoteId=1)
         const url = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
 
         // Returns the response stream and maps the data
-        return stream$.pipe(
-            map(response => {
-                // Updates each image _links object
-                response.results.forEach(image =>
-                    image._links = {
-                        // Set the detail url
-                        detail: `${url}/${image.id}`
-                    });
-                return response;
-            })
-        );
+        return call$.map(response => {
+            // Updates each image _links object
+            response.results.forEach(image =>
+                image._links = {
+                    // Set the detail url
+                    detail: `${url}/${image.id}`
+                });
+            return response;
+        });
     }
 }

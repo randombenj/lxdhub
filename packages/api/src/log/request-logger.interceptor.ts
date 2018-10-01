@@ -1,11 +1,11 @@
 import 'rxjs/add/operator/do';
 
-import { ExecutionContext, Interceptor, NestInterceptor } from '@nestjs/common';
+import { ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
 import { Observable } from 'rxjs/Observable';
 
 import { LogService } from '.';
 
-@Interceptor()
+@Injectable()
 /**
  * Logs every request
  */
@@ -28,14 +28,14 @@ export class RequestLoggerInterceptor implements NestInterceptor {
     // @ts-ignore
     intercept(req: any, context: ExecutionContext, stream$: Observable<any>): Observable<any> {
         // Is actually a request
-        if (req.method) {
-            const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-            let message = `Requesting ${req.method}: ${req.originalUrl} with IP ${ip}`;
-            if (context) {
-                message += ` -> ${context.parent.name}:${context.handler.name}`;
-            }
-            this.logger.log(message);
-        }
+        // if (req.method) {
+        //     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        //     let message = `Requesting ${req.method}: ${req.originalUrl} with IP ${ip}`;
+        //     if (context) {
+        //         message += ` -> ${context.parent.name}:${context.handler.name}`;
+        //     }
+        //     this.logger.log(message);
+        // }
         return stream$;
     }
 }

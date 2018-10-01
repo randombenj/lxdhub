@@ -52,11 +52,12 @@ const startDbsync = async () => {
             // Create the database sync instance
             .then(lxdhubConfig => new LXDHubDbSync({ lxd, database, logLevel, lxdhubConfig }))
             // Run the database sync script
-            .then(dbSync => dbSync.run());
+            .then(dbSync => dbSync.run())
+            .catch(err => console.err(err));
 
 
     // Run task when starting
-    intervalTask();
+    intervalTask().then(() => console.log('asdf')).catch(console.err);
 
     // Register interval
     setInterval(() => intervalTask(), syncInterval);
@@ -85,4 +86,4 @@ const startWeb = async () => {
 
 
 startDbsync();
-startWeb();
+// startWeb();

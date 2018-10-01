@@ -1,4 +1,4 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { IDatabaseSettings } from '.';
@@ -17,7 +17,7 @@ export class DatabaseModule {
       imports: [
         TypeOrmModule.forRoot(ormConfig as any)
       ],
-      components: [
+      providers: [
         DatabaseService,
       ],
       exports: [
