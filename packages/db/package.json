@@ -14,7 +14,7 @@
         "@nestjs/typeorm": "5.2.2",
         "fs-extra": "^7.0.0",
         "pg": "^7.4.3",
-        "typeorm": "^0.2.7",
+        "typeorm": "^0.2.2",
         "typescript": "^2.9.2"
     },
     "publishConfig": {

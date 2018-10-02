@@ -16,7 +16,6 @@ export class RemoteService {
      */
     constructor(
         private remoteFactory: RemoteFactory,
-        @Inject('RemoteRepository')
         private remoteRepository: RemoteRepository
     ) { }
 

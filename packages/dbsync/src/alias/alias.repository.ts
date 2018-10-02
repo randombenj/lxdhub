@@ -8,16 +8,3 @@ import { Connection, EntityRepository, Repository } from 'typeorm';
  */
 @EntityRepository(Alias)
 export class AliasRepository extends Repository<Alias> { }
-
-/**
- * This is a workaround, until custom TypeOrm
- * Repositories get supported by NestJS/TypeOrm.
- * See Github nestjs/typeorm#14
- *
- * https://github.com/nestjs/typeorm/issues/14
- */
-export const AliasRepositoryProvider = {
-    provide: 'AliasRepository',
-    useFactory: (connection: Connection) => connection.getCustomRepository(AliasRepository),
-    inject: [Connection]
-};

@@ -1,22 +1,24 @@
 import { Module } from '@nestjs/common';
 
 import { OsArchService } from './os-arch.service';
-import { OperatingSystemArchitectureRepositoryProvider } from './os-arch.repository';
+import { OperatingSystemArchitectureRepository } from './os-arch.repository';
 import { ArchitectureModule } from '../architecture';
 import { ImageModule } from '../image';
 import { LXDModule } from '../lxd';
 import { OperatingSystemModule } from '../operating-system';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { OperatingSystemArchitecture } from '@lxdhub/db';
 
 @Module({
     imports: [
         ImageModule,
         LXDModule,
         ArchitectureModule,
-        OperatingSystemModule
+        OperatingSystemModule,
+        TypeOrmModule.forFeature([OperatingSystemArchitecture, OperatingSystemArchitectureRepository])
     ],
     providers: [
         OsArchService,
-        OperatingSystemArchitectureRepositoryProvider
     ],
     exports: [
         OsArchService

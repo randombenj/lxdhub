@@ -1,15 +1,17 @@
 import { Module } from '@nestjs/common';
 import { ArchitectureService } from './architecture.service';
 import { LXDModule } from '../lxd';
-import { ArchitectureRepositoryProvider } from './architecture.repository';
+import { ArchitectureRepository } from './architecture.repository';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Architecture } from '@lxdhub/db';
 
 @Module({
     imports: [
-        LXDModule
+        LXDModule,
+        TypeOrmModule.forFeature([Architecture, ArchitectureRepository]),
     ],
     providers: [
-        ArchitectureService,
-        ArchitectureRepositoryProvider
+        ArchitectureService
     ],
     exports: [
         ArchitectureService

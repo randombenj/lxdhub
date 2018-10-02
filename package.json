@@ -16,6 +16,7 @@
         "test:api": "lerna exec npm run test --scope @lxdhub/api",
         "build:api": "lerna exec yarn run build --scope @lxdhub/api",
         "build:dbsync": "lerna exec yarn run build --scope @lxdhub/dbsync",
+        "build:db": "lerna exec yarn run build --scope @lxdhub/db",
         "clean": "rimraf packages/**/lib packages/**/src/**/*{.d.ts,.js,.map}",
         "bootstrap": "lerna bootstrap",
         "prepare": "lerna run prepare"
@@ -31,7 +32,8 @@
     },
     "dependencies": {
         "@lxdhub/web": "^1.7.0",
-        "circular-json": "^0.5.7"
+        "circular-json": "^0.5.7",
+        "flatted": "^1.0.2"
     },
     "license": "Apache-2.0",
     "keywords": [

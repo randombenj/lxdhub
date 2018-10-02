@@ -3,8 +3,10 @@ import { Remote } from '@lxdhub/db';
 import { Injectable, Inject, Logger } from '@nestjs/common';
 
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
-import { RemoteDto, RemoteRepository } from './';
+import { RemoteRepository } from './remote.repository';
+import { RemoteDto } from './dtos/remote.dto';
 import { RemoteFactory } from './factories/remote.factory';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class RemoteService {

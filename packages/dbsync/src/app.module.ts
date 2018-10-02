@@ -36,8 +36,8 @@ export class AppModule {
                 ArchitectureModule,
                 AliasModule,
                 ImageModule,
+                ImageAvailabilityModule,
                 OperatingArchitectureModule,
-                ImageAvailabilityModule
             ],
         };
     }

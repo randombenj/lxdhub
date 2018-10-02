@@ -3,20 +3,21 @@ import { Module, Global } from '@nestjs/common';
 import { ImageService } from './image.service';
 import { LXDModule } from '../lxd';
 import { ImageDtoFactory } from './factories';
-import { ImageRepositoryProvider } from './image.repository';
+import { ImageRepository } from './image.repository';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Image } from '@lxdhub/db';
 
 @Module({
     imports: [
-        LXDModule
+        LXDModule,
+        TypeOrmModule.forFeature([Image, ImageRepository])
     ],
     providers: [
-        ImageRepositoryProvider,
         ImageService,
         ImageDtoFactory
     ],
     exports: [
         ImageService,
-        ImageRepositoryProvider
     ]
 })
 @Global()

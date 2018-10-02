@@ -27,11 +27,9 @@ export class ImageGateway {
      */
     constructor(
         private lxdService: LXDService,
-        @Inject('RemoteRepository')
         private remoteRepository: RemoteRepository,
         private imageService: ImageService,
         private imageAvailabilityService: ImageAvailabilityService,
-        @Inject('ImageRepository')
         private imageRepository: ImageRepository
     ) {
         this.logger = new LogService(this.constructor.name);

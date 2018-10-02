@@ -8,16 +8,3 @@ import { Connection, EntityRepository, Repository } from 'typeorm';
  */
 @EntityRepository(Image)
 export class ImageRepository extends Repository<Image> { }
-
-/**
- * This is a workaround, until custom TypeOrm
- * Repositories get supported by NestJS/TypeOrm.
- * See Github nestjs/typeorm#14
- *
- * https://github.com/nestjs/typeorm/issues/14
- */
-export const ImageRepositoryProvider = {
-    provide: 'ImageRepository',
-    useFactory: (connection: Connection) => connection.getCustomRepository(ImageRepository),
-    inject: [Connection]
-};

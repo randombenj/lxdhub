@@ -5,7 +5,7 @@ import Aigle from 'aigle';
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { ImageRepository, ImageService } from '../image';
 import { LXDService } from '../lxd';
-import { RemoteRepository } from '../remote';
+import { RemoteRepository } from '../remote/remote.repository';
 import { ImageAvailabilityRepository } from './image-availability.repository';
 
 @Injectable()
@@ -29,7 +29,6 @@ export class ImageAvailabilityService {
     async fillUpImageAvailablities() {
         const remotes = await this.remoteRepository.find();
         const images = await this.imageRepository.find();
-        const imageAvailabilities = await this.repository.find();
         for (const remote of remotes) {
             for (const image of images) {
                 await this.getOrCreate(image, remote, false);
