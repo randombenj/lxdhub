@@ -1,14 +1,12 @@
-import { Test } from '@nestjs/testing';
-import { Request } from 'express';
-import { of } from 'rxjs/observable/of';
-
-import { ImageListItemDto, PaginationResponseDto } from '../..';
+import { ImageListItemDto } from '@lxdhub/interfaces';
 import { ImageListItemInterceptor } from './image-list-item.interceptor';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
+import { ImageListItemResponse } from '@lxdhub/api/src/image/dtos';
 
 describe('ImageController', () => {
-    let stream$: Observable<PaginationResponseDto<ImageListItemDto[]>>;
-    let req: Request;
+    let stream$: Observable<ImageListItemResponse>;
+    let req;
+    let contextMock;
 
     beforeEach(async () => {
         const results: ImageListItemDto[] = [{
@@ -24,18 +22,30 @@ describe('ImageController', () => {
         } as ImageListItemDto];
 
         req = {
-            baseUrl: '/api/v1/image',
+            _parsedUrl: {
+                pathname: '/api/v1/image'
+            },
             protocol: 'http',
             get: param => param === 'host' ? 'localhost:3000' : 'not-valid'
-        } as Request;
+        };
 
-        const pagination = { results } as PaginationResponseDto<ImageListItemDto[]>;
-        stream$ = of<PaginationResponseDto<ImageListItemDto[]>>(pagination);
+        contextMock = {
+            switchToHttp() {
+                return {
+                    getRequest() {
+                        return req;
+                    }
+                };
+            }
+        };
+
+        const pagination = { results } as ImageListItemResponse;
+        stream$ = of<ImageListItemResponse>(pagination);
     });
 
     describe('intercept', () => {
         it('should generate the correct detail url', async done => {
-            const streamOutput$ = new ImageListItemInterceptor().intercept(req, null, stream$);
+            const streamOutput$ = new ImageListItemInterceptor().intercept(contextMock, stream$);
             streamOutput$.subscribe(response => {
                 expect(response.results[0]._links.detail).toBe('http://localhost:3000/api/v1/image/1');
                 expect(response.results[1]._links.detail).toBe('http://localhost:3000/api/v1/image/2');
