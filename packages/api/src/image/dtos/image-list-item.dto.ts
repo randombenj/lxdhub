@@ -1,3 +1,7 @@
+import { PaginationResponseDto } from '@lxdhub/interfaces';
+
+export type ImageListItemResponse = PaginationResponseDto<ImageListItemDto[]>;
+
 /**
  * The data transfer object,
  * which represents a "not detailed"

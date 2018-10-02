@@ -84,4 +84,4 @@ const startWeb = async () => {
 }
 
 startDbsync();
-// startWeb();
+startWeb();

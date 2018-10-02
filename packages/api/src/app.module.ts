@@ -20,8 +20,8 @@ export class AppModule {
         return {
             module: AppModule,
             imports: [
-                // AppSettingsModule.forRoot(settings),
-                // DatabaseModule.forRoot({ ...settings.database, logLevel: settings.logLevel }),
+                AppSettingsModule.forRoot(settings),
+                DatabaseModule.forRoot({ ...settings.database, logLevel: settings.logLevel }),
                 LogModule,
                 ImageModule,
                 ImageAvailabilityModule,
