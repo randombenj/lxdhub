@@ -32,8 +32,7 @@
     },
     "dependencies": {
         "@lxdhub/web": "^1.7.0",
-        "circular-json": "^0.5.7",
-        "flatted": "^1.0.2"
+        "express": "^4.16.3"
     },
     "license": "Apache-2.0",
     "keywords": [
@@ -56,11 +55,8 @@
         "type": "git",
         "url": "https://github.com/Roche/lxdhub"
     },
-    "workspaces": [
-        "packages/*"
-    ],
-    "nohoist": [
-        "**/@angular",
-        "**/@angular/**"
-    ]
+    "workspaces": {
+        "packages": ["packages/*"],
+        "nohoist": ["**/@angular", "**/angular/**", "**/@nestjs", "**/@nestjs/**"]
+    }
 }

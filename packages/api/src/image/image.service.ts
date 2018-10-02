@@ -9,6 +9,7 @@ import { SearchDictionary, SearchService } from '../search';
 import { ImageDetailFactory, ImageListItemFactory } from './factories';
 import { ImageRepository } from './image.repository';
 import { ImageSearchLiteral } from './interfaces';
+import { InjectRepository } from '@nestjs/typeorm';
 
 /**
  * Interface between the Database and API for
@@ -22,9 +23,9 @@ export class ImageService {
      * @param imageDetaiLFactory The api-image-detail-interface
      */
     constructor(
-        @Inject('ImageRepository')
+        @InjectRepository(ImageRepository)
         private readonly imageRepository: ImageRepository,
-        @Inject('RemoteRepository')
+        @InjectRepository(RemoteRepository)
         private readonly remoteRepository: RemoteRepository,
         private readonly imageListItemFactory: ImageListItemFactory,
         private readonly imageDetailFactory: ImageDetailFactory,
@@ -50,6 +51,7 @@ export class ImageService {
             this.searchService.getLiteral(query, this.imageSearchDictionary, 'desc') :
             {};
 
+        console.log(this.imageRepository);
         const [images, total] = await this.imageRepository.findByRemote(remoteId, pagination, search);
 
         // Return the custom pagination response, so the

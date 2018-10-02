@@ -9,8 +9,10 @@ import { ImageDetailFactory, ImageListItemFactory } from './factories';
 import { ImageSearchDictionaryProvider } from './image-search-dictionary.const';
 import { ImageController } from './image.controller';
 import { ImageGateway } from './image.gateway';
-import { ImageRepositoryProvider } from './image.repository';
+import { ImageRepository } from './image.repository';
 import { ImageService } from './image.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Image } from '@lxdhub/db';
 
 @Module({
   imports: [
@@ -18,16 +20,16 @@ import { ImageService } from './image.service';
     LXDModule,
     RemoteModule,
     ImageAvailabilityModule,
-    LogModule
+    LogModule,
+    TypeOrmModule.forFeature([Image, ImageRepository])
   ],
   controllers: [ImageController],
   providers: [
+    ImageGateway,
     ImageService,
-    ImageRepositoryProvider,
     ImageListItemFactory,
     ImageDetailFactory,
     ImageSearchDictionaryProvider,
-    ImageGateway
   ]
 })
 /**

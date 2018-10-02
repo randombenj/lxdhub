@@ -56,7 +56,7 @@ const startDbsync = async () => {
             .catch(err => console.error(err));
 
     // Run task when starting
-    intervalTask().then(() => console.log('asdf')).catch(console.err);
+    intervalTask();
 
     // Register interval
     setInterval(() => intervalTask(), syncInterval);

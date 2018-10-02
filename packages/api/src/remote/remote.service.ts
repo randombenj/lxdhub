@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 
 import { RemoteDto } from '.';
 import { ResponseDto } from '../common';
@@ -16,6 +17,7 @@ export class RemoteService {
      */
     constructor(
         private remoteFactory: RemoteFactory,
+        @InjectRepository(RemoteRepository)
         private remoteRepository: RemoteRepository
     ) { }
 

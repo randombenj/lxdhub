@@ -14,6 +14,7 @@ import { Application } from 'express';
 import * as Chalk from 'chalk';
 import * as express from 'express';
 import * as cors from 'cors';
+import { IoAdapter } from '@nestjs/websockets';
 
 /**
  * The LXDHub API settings
@@ -63,14 +64,14 @@ export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
      * Creates the Nest App
      */
     private async createNestApp() {
-        const appModule = AppModule.forRoot(this.settings);
         const nestSettings = { logger: this.logger };
 
         if (!this.server) {
             this.server = express();
         }
 
-        this.app = await NestFactory.create(appModule, this.server, nestSettings);
+        this.app = await NestFactory.create(AppModule.forRoot(this.settings), this.server, nestSettings);
+        this.app.useWebSocketAdapter(new IoAdapter(this.app.getHttpServer()));
     }
 
     /**
