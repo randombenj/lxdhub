@@ -63,17 +63,14 @@ export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
      * Creates the Nest App
      */
     private async createNestApp() {
-        // const appModule = AppModule.forRoot(this.settings);
-        // const nestSettings = { logger: this.logger };
+        const appModule = AppModule.forRoot(this.settings);
+        const nestSettings = { logger: this.logger };
 
-        // if (!this.server) {
-        //     this.server = express();
-        // }
+        if (!this.server) {
+            this.server = express();
+        }
 
-        // this.app = await NestFactory.create(appModule, nestSettings);
-        this.app = await NestFactory.create(AppModule.forRoot(this.settings), {
-            logger: this.logger
-        });
+        this.app = await NestFactory.create(appModule, this.server, nestSettings);
     }
 
     /**
