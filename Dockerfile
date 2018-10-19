@@ -2,6 +2,7 @@ FROM node:9.6.1
 
 WORKDIR /var/lib/lxdhub
 
+RUN npm i -g yarn@1.7.0
 COPY package.json yarn.lock lerna.json ./
 RUN yarn --pure-lockfile
 COPY . .

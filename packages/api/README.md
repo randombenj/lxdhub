@@ -8,6 +8,7 @@
 # Prerequisites
 
 - [node >= 9.6.1](https://nodejs.org/en/)
+- [yarn >= 1.7.0](https://yarnpkg.com/en/)
 - [docker >=18.02.0-ce](https://www.docker.com/)
 
 # Installation

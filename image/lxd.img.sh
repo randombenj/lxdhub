@@ -14,6 +14,7 @@ lxc exec lxdhub -- sh -c 'echo "deb https://deb.nodesource.com/node_9.x bionic m
 lxc exec lxdhub -- sh -c 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -'
 lxc exec lxdhub -- sh -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list'
 lxc exec lxdhub -- sh -c 'apt update && apt install nodejs yarn postgresql postgresql-contrib -y'
+lxc exec lxdhub -- sh -c 'npm i -g yarn@1.7.0'
 lxc exec lxdhub -- sh -c 'cd lxdhub && yarn --pure-lockfile && yarn bootstrap'
 lxc exec lxdhub -- sh -c 'lxc remote add mylocal https://localhost:8443 --accept-certificate --password unsecret'
 lxc exec lxdhub -- sh -c 'cd lxdhub && cp ~/.config/lxc/client.* certificates/'
