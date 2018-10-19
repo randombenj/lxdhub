@@ -56,7 +56,14 @@
         "url": "https://github.com/Roche/lxdhub"
     },
     "workspaces": {
-        "packages": ["packages/*"],
-        "nohoist": ["**/@angular", "**/angular/**", "**/@nestjs", "**/@nestjs/**"]
+        "packages": [
+            "packages/*"
+        ],
+        "nohoist": [
+            "**/@angular",
+            "**/angular/**",
+            "**/@nestjs/",
+            "**/@nestjs/**"
+        ]
     }
 }

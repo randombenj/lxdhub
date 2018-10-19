@@ -14,9 +14,9 @@
     "dependencies": {
         "@lxdhub/common": "^1.7.0",
         "@lxdhub/db": "^1.7.0",
-        "@nestjs/common": "^5.3.9",
-        "@nestjs/core": "^5.3.10",
-        "@nestjs/testing": "^5.3.8",
+        "@nestjs/common": "^5.4.0",
+        "@nestjs/core": "^5.4.0",
+        "@nestjs/testing": "^5.4.0",
         "@nestjs/typeorm": "5.2.2",
         "typeorm": "^0.2.2",
         "aigle": "^1.12.0-alpha.6",

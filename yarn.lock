@@ -162,7 +162,7 @@
     typescript "~2.7.2"
     zone.js "^0.8.26"
 
-"@nestjs/common@^5.0.0", "@nestjs/common@^5.3.9":
+"@nestjs/common@^5.0.0":
   version "5.3.9"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-5.3.9.tgz#290dd25d9bf6bf4d3ccc6660f864ee62db8b3023"
   dependencies:
@@ -172,7 +172,17 @@
     multer "1.3.0"
     uuid "3.3.2"
 
-"@nestjs/core@^5.0.0", "@nestjs/core@^5.3.10":
+"@nestjs/common@^5.4.0":
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-5.4.0.tgz#74aa7da0d6931349b0a2cbe813b83ad77c2797ec"
+  dependencies:
+    axios "0.18.0"
+    cli-color "1.2.0"
+    deprecate "1.0.0"
+    multer "1.3.0"
+    uuid "3.3.2"
+
+"@nestjs/core@^5.0.0":
   version "5.3.10"
   resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-5.3.10.tgz#4f552abde7dbad5e8aeaface7627cb4a1b421511"
   dependencies:
@@ -186,9 +196,24 @@
     path-to-regexp "2.2.1"
     uuid "3.3.2"
 
-"@nestjs/microservices@^5.3.8":
-  version "5.3.8"
-  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-5.3.8.tgz#5e85346f9e0f66bc3867d9ff9f10d1b69c9e457c"
+"@nestjs/core@^5.4.0":
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-5.4.0.tgz#0c082ef019b5e435a9330feb3fe0101f3978af4e"
+  dependencies:
+    "@nuxtjs/opencollective" "0.1.0"
+    body-parser "1.18.3"
+    cors "2.8.4"
+    express "4.16.3"
+    fast-safe-stringify "1.2.0"
+    iterare "0.0.8"
+    object-hash "1.3.0"
+    optional "0.1.4"
+    path-to-regexp "2.2.1"
+    uuid "3.3.2"
+
+"@nestjs/microservices@^5.4.0":
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-5.4.0.tgz#5d12743e521a5b927409969c6f629d2d98e96ea8"
   dependencies:
     iterare "0.0.8"
     json-socket "^0.2.1"
@@ -205,9 +230,9 @@
     "@nestjs/common" "^5.0.0"
     "@nestjs/core" "^5.0.0"
 
-"@nestjs/testing@^5.3.8":
-  version "5.3.8"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-5.3.8.tgz#b99d453e1a0b0a6d3439442347900e39d13d138d"
+"@nestjs/testing@^5.4.0":
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-5.4.0.tgz#4728021fc4012243b4dd2ffb4228b59df7770235"
   dependencies:
     deprecate "1.0.0"
     optional "0.1.4"
@@ -218,9 +243,9 @@
   dependencies:
     uuid "3.3.2"
 
-"@nestjs/websockets@^5.3.8":
-  version "5.3.8"
-  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-5.3.8.tgz#841b0d2578265ae658cfdf8b6494b2d309808ca2"
+"@nestjs/websockets@^5.4.0":
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-5.4.0.tgz#3ac836cc29474f177189da1d1e8d6690ee8e74ef"
   dependencies:
     iterare "0.0.8"
     socket.io "^2.1.1"
@@ -584,6 +609,13 @@ axios@0.17.1:
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.17.1.tgz#2d8e3e5d0bdbd7327f91bc814f5c57660f81824d"
   dependencies:
     follow-redirects "^1.2.5"
+    is-buffer "^1.1.5"
+
+axios@0.18.0:
+  version "0.18.0"
+  resolved "http://registry.npmjs.org/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+  dependencies:
+    follow-redirects "^1.3.0"
     is-buffer "^1.1.5"
 
 babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
@@ -1669,7 +1701,7 @@ debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.0, debug@~3.1.0:
+debug@=3.1.0, debug@^3.1.0, debug@~3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -2190,6 +2222,10 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
+fast-safe-stringify@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-1.2.0.tgz#ebd42666fd18fe4f2ba4f0d295065f3f85cade96"
+
 fast-safe-stringify@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.4.tgz#4fe828718aa61dbcf9119c3c24e79cc4dea973b2"
@@ -2282,6 +2318,12 @@ follow-redirects@^1.2.5:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.4.1.tgz#d8120f4518190f55aac65bb6fc7b85fcd666d6aa"
   dependencies:
     debug "^3.1.0"
+
+follow-redirects@^1.3.0:
+  version "1.5.9"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.9.tgz#c9ed9d748b814a39535716e531b9196a845d89c6"
+  dependencies:
+    debug "=3.1.0"
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -6065,6 +6107,24 @@ type-is@^1.6.4, type-is@~1.6.15, type-is@~1.6.16:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typeorm@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.2.2.tgz#c78c3e172c4a047bafe9b54bf6567fd1fe16f06c"
+  dependencies:
+    app-root-path "^2.0.1"
+    buffer "^5.1.0"
+    chalk "^2.3.2"
+    cli-highlight "^1.2.3"
+    debug "^3.1.0"
+    dotenv "^5.0.1"
+    glob "^7.1.2"
+    js-yaml "^3.11.0"
+    mkdirp "^0.5.1"
+    reflect-metadata "^0.1.12"
+    xml2js "^0.4.17"
+    yargonaut "^1.1.2"
+    yargs "^11.1.0"
 
 typeorm@^0.2.2:
   version "0.2.7"
