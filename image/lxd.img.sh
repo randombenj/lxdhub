@@ -45,18 +45,6 @@ EOF"
 # install services
 lxc file push --uid 0 --gid 0 lxdhub-*.service lxdhub/lib/systemd/system/
 lxc exec lxdhub -- systemctl daemon-reload
-lxc exec lxdhub -- systemctl enable lxdhub-api.service lxdhub-dbsync.service
-lxc exec lxdhub -- systemctl start lxdhub-api.service lxdhub-dbsync.service
+lxc exec lxdhub -- systemctl enable lxdhub.service lxdhub-dbsync.service
+lxc exec lxdhub -- systemctl start lxdhub.service lxdhub-dbsync.service
 
-lxc exec lxdhub -- git clone https://github.com/Roche/lxdhub-web.git
-# workaround
-lxc exec lxdhub -- sh -c "cd lxdhub-web && git checkout -b working 5690b25"
-lxc exec lxdhub -- sh -c "cd lxdhub-web && npm install -g --unsafe-perm @angular/cli"
-lxc exec lxdhub -- sed -i 's#@lxdhub/common": "^1.2.18#@lxdhub/common": "^1.2.22#g' lxdhub-web/package.json
-CONTAINERIP=$(lxc info lxdhub | grep inet | head -n1 | awk '{print $3}')
-lxc exec lxdhub -- sh -c "cd lxdhub-web && npm install && API_URL=http://${CONTAINERIP}:3000 npm run build"
-lxc exec lxdhub -- sh -c "apt update && apt install nginx -y"
-lxc exec lxdhub -- sh -c "cd lxdhub-web && cp -f dist/* /usr/share/nginx/html/"
-lxc exec lxdhub -- sh -c "cd lxdhub-web && cp -f nginx-custom.conf /etc/nginx/conf.d/default.conf"
-lxc exec lxdhub -- rm -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-lxc exec lxdhub -- systemctl restart nginx
