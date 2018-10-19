@@ -1,16 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AliasService } from './';
-import { AliasRepositoryProvider } from './alias.repository';
-import { ImageModule, ImageService } from '../image';
+import { AliasRepository } from './alias.repository';
 import { LXDModule } from '../lxd';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Alias } from '@lxdhub/db';
 
 @Module({
     imports: [
         LXDModule,
+        TypeOrmModule.forFeature([Alias, AliasRepository])
     ],
-    components: [
+    providers: [
         AliasService,
-        AliasRepositoryProvider,
     ],
     exports: [
         AliasService

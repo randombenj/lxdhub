@@ -21,9 +21,7 @@ describe('ImageController', () => {
         // Mock Image Module
         const module = await Test.createTestingModule({
             controllers: [ImageController],
-            modules: [
-            ],
-            components: [
+            providers: [
                 {
                     provide: 'ImageService',
                     useClass: ImageServiceMock

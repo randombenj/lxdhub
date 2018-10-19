@@ -15,6 +15,8 @@
         "test": "npm run test:api",
         "test:api": "lerna exec npm run test --scope @lxdhub/api",
         "build:api": "lerna exec yarn run build --scope @lxdhub/api",
+        "build:dbsync": "lerna exec yarn run build --scope @lxdhub/dbsync",
+        "build:db": "lerna exec yarn run build --scope @lxdhub/db",
         "clean": "rimraf packages/**/lib packages/**/src/**/*{.d.ts,.js,.map}",
         "bootstrap": "lerna bootstrap",
         "prepare": "lerna run prepare"
@@ -29,7 +31,8 @@
         "fs-extra": "^6.0.1"
     },
     "dependencies": {
-        "@lxdhub/web": "^1.7.0"
+        "@lxdhub/web": "^1.7.0",
+        "express": "^4.16.3"
     },
     "license": "Apache-2.0",
     "keywords": [
@@ -52,11 +55,13 @@
         "type": "git",
         "url": "https://github.com/Roche/lxdhub"
     },
-    "workspaces": [
-        "packages/*"
-    ],
-    "nohoist": [
-        "**/@angular",
-        "**/@angular/**"
-    ]
+    "workspaces": {
+        "packages": [
+            "packages/*"
+        ],
+        "nohoist": [
+            "**/@nestjs/",
+            "**/@nestjs/**"
+        ]
+    }
 }

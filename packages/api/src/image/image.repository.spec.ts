@@ -2,7 +2,7 @@ import { DatabaseModule, DatabaseService } from '@lxdhub/db';
 import { Test } from '@nestjs/testing';
 
 import { TestUtils } from '../test/test.utils';
-import { ImageRepository, ImageRepositoryProvider } from './image.repository';
+import { ImageRepository } from './image.repository';
 
 /**
  * Test cases for the image repository
@@ -16,9 +16,9 @@ describe('ImageRepository', () => {
             imports: [
                 DatabaseModule.forRoot()
             ],
-            components: [
+            providers: [
                 DatabaseService,
-                ImageRepositoryProvider,
+                ImageRepository,
                 TestUtils
             ]
         }).compile();

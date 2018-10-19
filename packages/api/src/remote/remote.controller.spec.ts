@@ -19,12 +19,15 @@ describe('RemoteController', () => {
             controllers: [
                 RemoteController
             ],
-            components: [
+            providers: [
                 {
                     provide: RemoteService,
                     useClass: RemoteService
                 },
-                RemoteRepository,
+                {
+                    provide: 'RemoteRepositoryRepository',
+                    useClass: RemoteRepository
+                },
                 RemoteFactory,
             ]
         }).compile();

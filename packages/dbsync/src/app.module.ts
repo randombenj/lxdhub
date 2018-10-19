@@ -24,7 +24,7 @@ export class AppModule {
     public static forRoot(settings: LXDHubDbSyncSettings): DynamicModule {
         return {
             module: AppModule,
-            components: [
+            providers: [
                 AppService
             ],
             imports: [
@@ -36,8 +36,8 @@ export class AppModule {
                 ArchitectureModule,
                 AliasModule,
                 ImageModule,
+                ImageAvailabilityModule,
                 OperatingArchitectureModule,
-                ImageAvailabilityModule
             ],
         };
     }

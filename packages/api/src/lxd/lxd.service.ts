@@ -1,19 +1,23 @@
 import { Image, Remote } from '@lxdhub/db';
-import { Component, Inject, InternalServerErrorException } from '@nestjs/common';
+import { Injectable, Inject, InternalServerErrorException } from '@nestjs/common';
 import * as Request from 'request-promise';
 
 import { LXDHubAPISettings } from '..';
 import { SourceImageFactory } from './factories';
+import { LogService } from '../log';
 
-@Component()
+@Injectable()
 export class LXDService {
+    private logger: LogService;
     constructor(
         private sourceImageFactory: SourceImageFactory,
         @Inject('Request')
         private request: Request,
         @Inject('LXDHubAPISettings')
-        private settings: LXDHubAPISettings
-    ) { }
+        private settings: LXDHubAPISettings,
+    ) {
+        this.logger = new LogService(this.constructor.name);
+    }
 
     /**
      * Requests a new image on the given remote

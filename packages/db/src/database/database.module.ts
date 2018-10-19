@@ -1,14 +1,16 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, Global } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { IDatabaseSettings } from '.';
 import { getOrmConfig } from './database-ormconfig.constant';
 import { DatabaseService } from './database.service';
+import { Connection } from 'typeorm';
 
 /**
  * The database module is used for database
  * related services.
  */
+@Global()
 export class DatabaseModule {
   public static forRoot(settings?: IDatabaseSettings): DynamicModule {
     const ormConfig = getOrmConfig(settings);
@@ -17,8 +19,8 @@ export class DatabaseModule {
       imports: [
         TypeOrmModule.forRoot(ormConfig as any)
       ],
-      components: [
-        DatabaseService,
+      providers: [
+        DatabaseService
       ],
       exports: [
         DatabaseService

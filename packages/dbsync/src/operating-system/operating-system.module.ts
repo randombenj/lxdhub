@@ -2,15 +2,17 @@ import { Module } from '@nestjs/common';
 
 import { LXDModule } from '../lxd/lxd.module';
 import { OperatingSystemService } from './operating-system.service';
-import { OperatingSystemRepositoryProvider } from './operating-system.repository';
+import { OperatingSystemRepository } from './operating-system.repository';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { OperatingSystem } from '@lxdhub/db';
 
 @Module({
     imports: [
-        LXDModule
+        LXDModule,
+        TypeOrmModule.forFeature([OperatingSystem, OperatingSystemRepository])
     ],
-    components: [
+    providers: [
         OperatingSystemService,
-        OperatingSystemRepositoryProvider
     ],
     exports: [
         OperatingSystemService

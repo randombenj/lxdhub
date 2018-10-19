@@ -14,8 +14,8 @@ import {
 } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 
-import { CloneImageDto, CloneImageResponseDto, ImageDetailDto, ImageListItemDto, ImageListOptions } from '.';
-import { PaginationResponseDto, ResponseDto } from '../common';
+import { CloneImageDto, CloneImageResponseDto, ImageDetailDto, ImageListOptions, ImageListItemResponse } from '.';
+import { ResponseDto } from '@lxdhub/interfaces';
 import { ImageService } from './image.service';
 import { ImageListItemInterceptor } from './interceptors/image-list-item.interceptor';
 
@@ -42,7 +42,7 @@ export class ImageController {
   async findByRemote(
     @Query(new ValidationPipe({ transform: true }))
     options: ImageListOptions
-  ): Promise<PaginationResponseDto<ImageListItemDto[]>> {
+  ): Promise<ImageListItemResponse> {
     try {
       // Fetches the images
       return await this.imageService
@@ -82,7 +82,7 @@ export class ImageController {
   @ApiResponse({ status: 200, description: 'The image have been successfully cloned' })
   @ApiResponse({ status: 404, description: 'Not Found' })
   @ApiResponse({ status: 403, description: 'Not Authorized' })
-  @ApiResponse({ status: 500, description: 'The destination LXD remote is not reachable'})
+  @ApiResponse({ status: 500, description: 'The destination LXD remote is not reachable' })
   async clone(
     // Convert id to an integer
     @Param('id', new ParseIntPipe())

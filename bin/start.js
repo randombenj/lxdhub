@@ -1,11 +1,10 @@
 #!/usr/bin/env node
-const { LXDHubAPI } = require('@lxdhub/api');
-const { LXDHubWeb } = require('@lxdhub/web');
+const startApiUi = require('./start-api-ui');
 const { LXDHubDbSync } = require('@lxdhub/dbsync');
 const fs = require('fs-extra');
 const path = require('path');
 const YAML = require('js-yaml');
-const express = require('express');
+const lxd = require('./get-app-certs');
 
 // Default time (in minutes) when the interval task should be executed
 const DEFAULT_SYNC_INTERVAL = 3;
@@ -13,14 +12,6 @@ const DEFAULT_SYNC_INTERVAL = 3;
 const DEFAULT_LXD_CONFIG_PATH = './lxdhub.yml';
 
 const ROOT = path.join(__dirname, '..');
-
-const certPath = process.env.LXD_CERT || 'certificates/client.crt';
-const keyPath = process.env.LXD_KEY || 'certificates/client.key';
-
-const lxd = {
-    cert: fs.readFileSync(path.join(ROOT, certPath)),
-    key: fs.readFileSync(path.join(ROOT, keyPath))
-};
 
 const database = {
     host: process.env.POSTGRES_HOST || 'localhost',
@@ -52,8 +43,8 @@ const startDbsync = async () => {
             // Create the database sync instance
             .then(lxdhubConfig => new LXDHubDbSync({ lxd, database, logLevel, lxdhubConfig }))
             // Run the database sync script
-            .then(dbSync => dbSync.run());
-
+            .then(dbSync => dbSync.run())
+            .catch(err => console.error(err));
 
     // Run task when starting
     intervalTask();
@@ -62,27 +53,7 @@ const startDbsync = async () => {
     setInterval(() => intervalTask(), syncInterval);
 }
 
-const startWeb = async () => {
-    let app;
-    app = await new LXDHubWeb({
-        hostUrl: process.env.HOST_URL || '0.0.0.0',
-        port: parseInt(process.env.PORT, 10) || 4200,
-        logLevel,
-        loggingUrl: 'http://localhost:3000/api/v1/log',
-        apiUrl: process.env.API_URL || 'http://localhost:3000'
-    }).bootstrap();
-
-    app = await new LXDHubAPI({
-        hostUrl: '0.0.0.0',
-        port: 3000,
-        logLevel,
-        lxd,
-        docUrl: '/api/v1/doc',
-        database
-    }, app).run();
-    return app;
-}
 
 
 startDbsync();
-startWeb();
+startApiUi();

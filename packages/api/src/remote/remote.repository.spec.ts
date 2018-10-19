@@ -2,7 +2,7 @@ import { DatabaseModule, DatabaseService } from '@lxdhub/db';
 import { Test } from '@nestjs/testing';
 
 import { TestUtils } from '../test/test.utils';
-import { RemoteRepository, RemoteRepositoryProvider } from './remote.repository';
+import { RemoteRepository } from './remote.repository';
 
 /**
  * Test cases for the remote repository
@@ -15,9 +15,12 @@ describe('RemoteRepository', () => {
             imports: [
                 DatabaseModule.forRoot()
             ],
-            components: [
+            providers: [
                 DatabaseService,
-                RemoteRepositoryProvider,
+                {
+                    provide: 'RemoteRepositoryRepository',
+                    useClass: RemoteRepository
+                },
                 TestUtils
             ]
         }).compile();

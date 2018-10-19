@@ -1,25 +1,23 @@
-import { Image } from '@lxdhub/db';
+import { Remote } from '@lxdhub/db';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { RemoteFactory } from './factories';
 import { RemoteController } from './remote.controller';
-import { RemoteRepositoryProvider } from './remote.repository';
+import { RemoteRepository } from './remote.repository';
 import { RemoteService } from './remote.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Image])
+    TypeOrmModule.forFeature([Remote, RemoteRepository])
   ],
   controllers: [RemoteController],
-  components: [
+  providers: [
     RemoteFactory,
     RemoteService,
-    RemoteRepositoryProvider
   ],
   exports: [
     RemoteService,
-    RemoteRepositoryProvider,
     RemoteFactory
   ]
 })

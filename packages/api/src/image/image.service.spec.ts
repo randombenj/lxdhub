@@ -52,9 +52,12 @@ describe('ImageService', () => {
     beforeEach(async done => {
         // Mock Image Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 ImageService,
-                ImageRepository,
+                {
+                    provide: 'ImageRepositoryRepository',
+                    useClass: ImageRepository
+                },
                 ImageListItemFactory,
                 ImageDetailFactory,
                 {
@@ -66,7 +69,7 @@ describe('ImageService', () => {
                     useFactory: () => searchDitionary
                 },
                 {
-                    provide: 'RemoteRepository',
+                    provide: 'RemoteRepositoryRepository',
                     useClass: RemoteRepositoryMock
                 },
                 {
@@ -83,8 +86,8 @@ describe('ImageService', () => {
         // Get the imageService in the Testing Module Context
         imageListItemFactory = module.get<ImageListItemFactory>(ImageListItemFactory);
         imageDetailFactory = module.get<ImageDetailFactory>(ImageDetailFactory);
-        imageRepository = module.get<ImageRepository>(ImageRepository);
-        remoteRepository = module.get<RemoteRepository>(RemoteRepository);
+        imageRepository = module.get<ImageRepository>('ImageRepositoryRepository');
+        remoteRepository = module.get<RemoteRepository>('RemoteRepositoryRepository');
         lxdService = module.get<LXDService>(LXDService);
         imageAvailabilityService = module.get<ImageAvailabilityService>(ImageAvailabilityService);
         imageService = module.get<ImageService>(ImageService);

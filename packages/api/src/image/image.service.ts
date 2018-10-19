@@ -9,6 +9,7 @@ import { SearchDictionary, SearchService } from '../search';
 import { ImageDetailFactory, ImageListItemFactory } from './factories';
 import { ImageRepository } from './image.repository';
 import { ImageSearchLiteral } from './interfaces';
+import { InjectRepository } from '@nestjs/typeorm';
 
 /**
  * Interface between the Database and API for
@@ -22,9 +23,9 @@ export class ImageService {
      * @param imageDetaiLFactory The api-image-detail-interface
      */
     constructor(
-        @Inject('ImageRepository')
+        @InjectRepository(ImageRepository)
         private readonly imageRepository: ImageRepository,
-        @Inject('RemoteRepository')
+        @InjectRepository(RemoteRepository)
         private readonly remoteRepository: RemoteRepository,
         private readonly imageListItemFactory: ImageListItemFactory,
         private readonly imageDetailFactory: ImageDetailFactory,

@@ -1,5 +1,5 @@
 import { Interfaces } from '@lxdhub/common';
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, INestApplicationContext } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
@@ -11,7 +11,7 @@ import { LXDHubDbSyncSettings } from './dbsync-settings.interface';
  * It synchronizes the database with the given remotes.
  */
 export class LXDHubDbSync implements Interfaces.ILXDHubService {
-    private app: INestApplication;
+    private app: INestApplicationContext;
     private appService: AppService;
 
     /**
@@ -25,7 +25,7 @@ export class LXDHubDbSync implements Interfaces.ILXDHubService {
      * and requests the app service
      */
     private async bootstrap() {
-        this.app = await NestFactory.create(AppModule.forRoot(this.settings));
+        this.app = await NestFactory.createApplicationContext(AppModule.forRoot(this.settings));
         this.appService = this.app
             .get(AppService);
     }

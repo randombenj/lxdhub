@@ -15,9 +15,12 @@ describe('RemoteService', () => {
     beforeEach(async done => {
         // Mock Remote Module
         const module = await Test.createTestingModule({
-            components: [
+            providers: [
                 RemoteService,
-                RemoteRepository,
+                {
+                    provide: 'RemoteRepositoryRepository',
+                    useClass: RemoteRepository
+                },
                 RemoteFactory,
             ]
         }).compile();
@@ -25,7 +28,7 @@ describe('RemoteService', () => {
         // Get the remoteService in the Testing Module Context
         remoteService = module.get<RemoteService>(RemoteService);
         remoteFactory = module.get<RemoteFactory>(RemoteFactory);
-        remoteRepository = module.get<RemoteRepository>(RemoteRepository);
+        remoteRepository = module.get<RemoteRepository>('RemoteRepositoryRepository');
         done();
     });
 

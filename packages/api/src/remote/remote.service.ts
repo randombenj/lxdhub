@@ -1,4 +1,5 @@
-import { Inject, Component } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 
 import { RemoteDto } from '.';
 import { ResponseDto } from '../common';
@@ -9,14 +10,14 @@ import { RemoteRepository } from './remote.repository';
  * Interface between the Database and API for
  * Remote operations.
  */
-@Component()
+@Injectable()
 export class RemoteService {
     /**
      * Initializes the RemoteService.
      */
     constructor(
         private remoteFactory: RemoteFactory,
-        @Inject('RemoteRepository')
+        @InjectRepository(RemoteRepository)
         private remoteRepository: RemoteRepository
     ) { }
 
