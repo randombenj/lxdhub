@@ -24,7 +24,10 @@ describe('RemoteController', () => {
                     provide: RemoteService,
                     useClass: RemoteService
                 },
-                RemoteRepository,
+                {
+                    provide: 'RemoteRepositoryRepository',
+                    useClass: RemoteRepository
+                },
                 RemoteFactory,
             ]
         }).compile();
