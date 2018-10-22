@@ -44,7 +44,7 @@ remotes:
     readonly: false
 EOF"
 # install services
-lxc file push --uid 0 --gid 0 lxdhub-*.service lxdhub/lib/systemd/system/
+lxc file push --uid 0 --gid 0 lxdhub*.service lxdhub/lib/systemd/system/
 lxc exec lxdhub -- systemctl daemon-reload
 lxc exec lxdhub -- systemctl enable lxdhub.service lxdhub-dbsync.service
 lxc exec lxdhub -- systemctl start lxdhub.service lxdhub-dbsync.service
