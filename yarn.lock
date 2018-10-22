@@ -131,9 +131,9 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@lxdhub/web@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.7.0.tgz#fe3614db2bfa1328b64bd9be21bfd3ae9b36c52f"
+"@lxdhub/web@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.7.1.tgz#71b71d69976d4f09157e7bfaa7bab426602dd16a"
   dependencies:
     "@angular/animations" "^6.0.7"
     "@angular/cdk" "^6.3.2"

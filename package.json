@@ -31,7 +31,7 @@
         "fs-extra": "^6.0.1"
     },
     "dependencies": {
-        "@lxdhub/web": "^1.7.0",
+        "@lxdhub/web": "^1.7.1",
         "express": "^4.16.3",
         "minimist": "^1.2.0"
     },

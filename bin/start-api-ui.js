@@ -6,7 +6,7 @@ const express = require('express');
 const port = parseInt(process.env.PORT, 10) || 3000;
 const hostUrl = process.env.HOST_URL || '0.0.0.0';
 const logLevel = process.env.LOG_LEVEL;
-const apiUrl = `http://${hostUrl}:${port}`;
+const apiUrl = `/`;
 const loggingUrl = `/api/v1/log`;
 
 const database = {
