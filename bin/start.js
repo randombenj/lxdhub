@@ -5,6 +5,9 @@ const fs = require('fs-extra');
 const path = require('path');
 const YAML = require('js-yaml');
 const lxd = require('./get-app-certs');
+const argv = require('minimist')(process.argv.slice(2));
+
+const servicesToStart = argv._.length ? argv._ : ['api', 'dbsync', 'ui'];
 
 // Default time (in minutes) when the interval task should be executed
 const DEFAULT_SYNC_INTERVAL = 3;
@@ -54,6 +57,9 @@ const startDbsync = async () => {
 }
 
 
-
-startDbsync();
-startApiUi();
+if (servicesToStart.indexOf('dbsync') !== -1) {
+    startDbsync();
+}
+if (servicesToStart.indexOf('api') !== -1 && servicesToStart.indexOf('ui') !== -1) {
+    startApiUi();
+}
