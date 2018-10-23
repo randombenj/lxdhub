@@ -3,14 +3,14 @@ import {
   Body,
   Controller,
   Get,
-  HttpException,
-  HttpStatus,
   Param,
   ParseIntPipe,
   Post,
   Query,
   UseInterceptors,
   ValidationPipe,
+  NotFoundException,
+  InternalServerErrorException,
 } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 
@@ -39,6 +39,7 @@ export class ImageController {
   @UseInterceptors(ImageListItemInterceptor)
   @ApiResponse({ status: 200, description: 'The images have been successfully requested' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 404, description: 'Remote not found' })
   async findByRemote(
     @Query(new ValidationPipe({ transform: true }))
     options: ImageListOptions
@@ -46,15 +47,18 @@ export class ImageController {
     try {
       // Fetches the images
       return await this.imageService
-        .findByRemote(options.remoteId, options, options.query ? options.query.trim() : null);
+        .findByRemote(options.remote, options, options.query ? options.query.trim() : null);
     }
     catch (err) {
       if (err instanceof TypeError) {
-        // Is a search error
+        // Is a search query error
         throw new BadRequestException(err.message);
+      } else if (err instanceof NotFoundException) {
+        // Not found
+        throw err;
       } else {
         // Unknwon error. Should not occur
-        throw new HttpException('Internal Server Error', HttpStatus.INTERNAL_SERVER_ERROR);
+        throw new InternalServerErrorException('Internal Server Error');
       }
     }
   }

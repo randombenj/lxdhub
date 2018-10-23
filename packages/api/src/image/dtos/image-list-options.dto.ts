@@ -10,14 +10,13 @@ import { PaginationOptionsDto } from '../../common';
  */
 export class ImageListOptions extends PaginationOptionsDto {
     /**
-     * The id of the remote, from which the images should
-     * be from. If none is given, take the first remote
+     * The name of the remote, from which the images should
+     * be from.
      */
-    @IsInt()
-    @Min(1)
-    @Type(() => Number)
+    @IsString()
+    @Type(() => String)
     @ApiModelProperty()
-    readonly remoteId: number;
+    readonly remote: string;
 
     /**
      * The query-string which filters the image.

@@ -4,12 +4,12 @@ import { CloneImageDto, CloneImageResponseDto, ImageDetailDto, ImageListItemDto 
 import { PaginationOptionsDto, PaginationResponseDto, ResponseDto } from '../common';
 import { ImageAvailabilityService } from '../image-availability/image-availability.service';
 import { LXDService } from '../lxd/lxd.service';
-import { RemoteRepository } from '../remote/remote.repository';
 import { SearchDictionary, SearchService } from '../search';
 import { ImageDetailFactory, ImageListItemFactory } from './factories';
 import { ImageRepository } from './image.repository';
 import { ImageSearchLiteral } from './interfaces';
 import { InjectRepository } from '@nestjs/typeorm';
+import { RemoteService } from '../remote';
 
 /**
  * Interface between the Database and API for
@@ -25,33 +25,32 @@ export class ImageService {
     constructor(
         @InjectRepository(ImageRepository)
         private readonly imageRepository: ImageRepository,
-        @InjectRepository(RemoteRepository)
-        private readonly remoteRepository: RemoteRepository,
         private readonly imageListItemFactory: ImageListItemFactory,
         private readonly imageDetailFactory: ImageDetailFactory,
         private readonly searchService: SearchService,
+        private readonly remoteService: RemoteService,
         @Inject('ImageSearchDictionary')
         private readonly imageSearchDictionary: SearchDictionary[],
         @Inject('LXDService')
         private readonly lxdService: LXDService,
-        private readonly imageAvailabilityService: ImageAvailabilityService
     ) { }
 
     /**
      * Returns images, limited by the given pagination options, filtered
      * by the query parameter and transforms the database images into data-transfer-objects
-     * @param remoteId The id of the remote
+     * @param remoteName The name of the remote
      * @param query The The query-string which filters the image. Search for image os name or arch Name
      * @param pagination The options to paginate through the request data
      */
-    async findByRemote(remoteId: number, pagination: PaginationOptionsDto, query?: string)
+    async findByRemote(remoteName: string, pagination: PaginationOptionsDto, query?: string)
         : Promise<PaginationResponseDto<ImageListItemDto[]>> {
 
         const search: ImageSearchLiteral = query ?
             this.searchService.getLiteral(query, this.imageSearchDictionary, 'desc') :
             {};
 
-        const [images, total] = await this.imageRepository.findByRemote(remoteId, pagination, search);
+        const remote = await this.remoteService.findByName(remoteName);
+        const [images, total] = await this.imageRepository.findByRemote(remote.id, pagination, search);
 
         // Return the custom pagination response, so the
         // data is wrapped around with metadata
@@ -94,10 +93,10 @@ export class ImageService {
         const image = await this.imageRepository.findOneItem(imageId);
         if (!image) throw new NotFoundException('Image not found');
 
-        const sourceRemote = await this.remoteRepository.findOneItem(cloneImageDto.sourceRemoteId);
+        const sourceRemote = await this.remoteService.findById(cloneImageDto.sourceRemoteId);
         if (!sourceRemote) throw new NotFoundException('Source Remote not found');
 
-        const destinationRemote = await this.remoteRepository.findOneItem(cloneImageDto.destinationRemoteId);
+        const destinationRemote = await this.remoteService.findById(cloneImageDto.destinationRemoteId);
         if (!destinationRemote) throw new NotFoundException('Destination Remote not found');
 
         const uuid = await this.lxdService.cloneImage(
