@@ -9,6 +9,7 @@ import { SearchDictionary, SearchService } from '../search';
 import { ImageDetailFactory, ImageListItemFactory } from './factories';
 import { ImageRepository } from './image.repository';
 import { ImageService } from './image.service';
+import { RemoteService } from '../remote';
 
 const searchDitionary: SearchDictionary[] = [
     {
@@ -37,6 +38,11 @@ class ImageAvailabilityServiceMock {
     getOrCreate() { }
 }
 
+const remoteServiceMock = () => ({
+    findByName: () => ({ id: 1 }),
+    findById: id => ({ id })
+});
+
 /**
  * Test cases for the image service
  */
@@ -48,6 +54,21 @@ describe('ImageService', () => {
     let imageDetailFactory: ImageDetailFactory;
     let lxdService: LXDService;
     let imageAvailabilityService: ImageAvailabilityService;
+    let remoteService: RemoteService;
+
+    const remoteName = 'my-remote';
+    const remoteId = 1;
+    const images = [{
+        fingerprint: 'fingerprint1',
+        description: 'desc1',
+        uploadedAt: new Date(),
+        id: 1
+    }, {
+        fingerprint: 'fingerprint2',
+        description: 'desc2',
+        uploadedAt: new Date(),
+        id: 2
+    }];
 
     beforeEach(async done => {
         // Mock Image Module
@@ -60,6 +81,7 @@ describe('ImageService', () => {
                 },
                 ImageListItemFactory,
                 ImageDetailFactory,
+                { provide: RemoteService, useFactory: remoteServiceMock },
                 {
                     provide: SearchService,
                     useClass: SearchServiceMock
@@ -91,46 +113,38 @@ describe('ImageService', () => {
         lxdService = module.get<LXDService>(LXDService);
         imageAvailabilityService = module.get<ImageAvailabilityService>(ImageAvailabilityService);
         imageService = module.get<ImageService>(ImageService);
+        remoteService = module.get<RemoteService>(RemoteService);
         done();
     });
 
     describe('findByRemote', () => {
         it('should return ImageListItem', async () => {
-            const results = [{
-                fingerprint: 'fingerprint1',
-                description: 'desc1',
-                uploadedAt: new Date(),
-                id: 1
-            }, {
-                fingerprint: 'fingerprint2',
-                description: 'desc2',
-                uploadedAt: new Date(),
-                id: 2
-            }];
-
-            jest.spyOn(imageRepository, 'findByRemote').mockImplementation(() => [results, results.length]);
-            jest.spyOn(imageListItemFactory, 'entitiesToDto').mockImplementation(() => results);
+            jest.spyOn(imageRepository, 'findByRemote').mockImplementation(() => [images, images.length]);
+            jest.spyOn(imageListItemFactory, 'entitiesToDto').mockImplementation(() => images);
+            jest.spyOn(remoteService, 'findByName').mockReturnValue({ id: 1, name: remoteName });
 
             // Convert to PagintaionOptionsDto
             // with using the class-validator validation
             const options = plainToClass(PaginationOptionsDto, { limit: 2, offset: 0 });
-            expect(await imageService.findByRemote(1, options)).toEqual({
-                results,
+            expect(await imageService.findByRemote(remoteName, options)).toEqual({
+                results: images,
                 offset: 0,
                 limit: 2,
-                total: results.length,
+                total: images.length,
             });
         });
 
         it('should call ImageRepository correctly without search-query-string', async () => {
             jest.spyOn(imageRepository, 'findByRemote').mockImplementation(() => []);
             jest.spyOn(imageListItemFactory, 'entitiesToDto').mockImplementation(() => []);
+            jest.spyOn(remoteService, 'findByName').mockImplementation(name => ({ id: remoteId, name }));
 
             // Convert to PagintaionOptionsDto
             // with using the class-validator validation
             const options = plainToClass(PaginationOptionsDto, { limit: 2, offset: 0 });
-            await imageService.findByRemote(1, options);
-            expect(imageRepository.findByRemote).toHaveBeenCalledWith(1, options, {});
+            await imageService.findByRemote(remoteName, options);
+            expect(remoteService.findByName).toHaveBeenCalledWith(remoteName);
+            expect(imageRepository.findByRemote).toHaveBeenCalledWith(remoteId, options, {});
         });
     });
 

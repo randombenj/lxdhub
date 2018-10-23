@@ -63,12 +63,12 @@ export class ImageRepository extends Repository<Image> {
 
         // Filter for version
         if (search.version) {
-            query = query.andWhere('lower(os.version) LIKE lower(:version)', { version: `%${search.version}%`});
+            query = query.andWhere('lower(os.version) LIKE lower(:version)', { version: `%${search.version}%` });
         }
 
         // Filter for release
         if (search.release) {
-            query = query.andWhere('lower(os.release) LIKE Lower(:release)', { release: `%${search.release}%`});
+            query = query.andWhere('lower(os.release) LIKE Lower(:release)', { release: `%${search.release}%` });
         }
 
         // Apply pagintaion options
