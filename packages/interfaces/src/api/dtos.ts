@@ -214,10 +214,10 @@ export interface ImageListItemDto {
  */
 export interface ImageListOptions {
     /**
-     * The id of the remote, from which the images should
+     * The name of the remote, from which the images should
      * be from. If none is given, take the first remote
      */
-    remoteId: number;
+    remote: string;
     /**
      * The query-string which filters the image.
      * Search for image OS name or Arch Name
