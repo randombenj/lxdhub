@@ -8,6 +8,7 @@ Environment=SYNC_INTERVAL=20
 Type=simple
 ExecStart=/usr/bin/node /var/lib/lxdhub/lxdhub/bin/start.js dbsync
 Restart=on-failure
+User=lxdhub
 
 [Install]
 WantedBy=multi-user.target
