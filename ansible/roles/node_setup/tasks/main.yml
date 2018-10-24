@@ -1,0 +1,25 @@
+---
+- name: install key
+  apt_key:
+    url: "{{ item }}"
+    state: present
+  with_items:
+    - https://dl.yarnpkg.com/debian/pubkey.gpg
+    - https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+
+- name: install not repository
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_9.x bionic main
+    state: present
+    filename: node_9.x
+
+- name: install not repository
+  apt_repository:
+    repo: deb https://dl.yarnpkg.com/debian/ stable main
+    state: present
+    filename: yarn
+
+- name: install node and yarn
+  apt:
+    name: ['nodejs', 'yarn']
+    state: present

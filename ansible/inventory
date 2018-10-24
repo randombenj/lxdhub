@@ -1,0 +1,2 @@
+[containers]
+lxdhub ansible_connection=lxd

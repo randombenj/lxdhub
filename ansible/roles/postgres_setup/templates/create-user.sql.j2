@@ -1,0 +1,3 @@
+SELECT pg_catalog.set_config('search_path', '', false);
+CREATE ROLE lxdhub PASSWORD '{{ lxdhub_password }}' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;
+CREATE DATABASE lxdhub;

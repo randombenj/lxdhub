@@ -1,0 +1,12 @@
+[Unit]
+Description=lxdhub-api - rest-api backend
+Documentation=https://github.com/Roche/lxdhub
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /var/lib/lxdhub/lxdhub/bin/start.js api ui
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

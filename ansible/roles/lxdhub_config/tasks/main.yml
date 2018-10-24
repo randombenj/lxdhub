@@ -1,0 +1,49 @@
+---
+- name: new lxdhub group
+  group:
+    name: lxdhub
+    system: yes
+
+- name: new lxdhub user
+  user:
+    name: lxdhub
+    groups: lxdhub,lxd
+    shell: /bin/bash
+    system: yes
+    home: /var/lib/lxdhub
+
+- name: install git
+  apt:
+    name: git
+    state: present
+
+- name: clone git repository
+  git:
+    repo: 'https://github.com/Roche/lxdhub.git'
+    dest: /var/lib/lxdhub/lxdhub
+    version: master
+  become: yes
+  become_user: lxdhub
+
+- name: configure lxdhub.yml
+  template:
+    src: lxdhub.yml.j2
+    dest: /var/lib/lxdhub/lxdhub/lxdhub.yml
+
+- name: generate lxd certificates for lxdhub user
+  command: lxc remote add mylocal https://localhost:8443 --accept-certificate --password unsecret
+  args:
+    chdir: /var/lib/lxdhub/lxdhub
+  become: yes
+  become_user: lxdhub
+  ignore_errors: yes
+
+- name: copy client certificates
+  command: cp /var/lib/lxdhub/.config/lxc/client.crt /var/lib/lxdhub/lxdhub/certificates/
+  become: yes
+  become_user: lxdhub
+
+- name: copy client certificates key
+  command: cp /var/lib/lxdhub/.config/lxc/client.key /var/lib/lxdhub/lxdhub/certificates/
+  become: yes
+  become_user: lxdhub

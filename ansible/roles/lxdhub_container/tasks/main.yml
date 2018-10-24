@@ -1,0 +1,19 @@
+---
+- name: Create a started container
+  lxd_container:
+    name: lxdhub
+    state: started
+    source:
+      type: image
+      mode: pull
+      server: https://images.linuxcontainers.org
+      protocol: simplestreams
+      alias: ubuntu/bionic/amd64
+    profiles: ["default"]
+    config: {"security.nesting": "true"}
+    url: unix:/var/snap/lxd/common/lxd/unix.socket
+    wait_for_ipv4_addresses: true
+    timeout: 600
+
+- name: install python in container
+  command: lxc exec lxdhub -- sh -c "apt update && apt install -y python"
