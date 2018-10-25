@@ -38,16 +38,22 @@ export class ImageAvailabilityService {
 
     async markAsUnavailable(fingerprints: string[], remote: Remote) {
         const imageAvailabilities: ImageAvailability[] = await this.repository
-            .createQueryBuilder('imageAvailability')
-            .leftJoin('imageAvailability.image', 'image')
-            .leftJoin('imageAvailability.remote', 'remote')
-            .where('remote.id = :id AND image.fingerprint NOT IN (:fingerprints)', { id: remote.id, fingerprints })
-            .printSql()
-            .getMany();
+            .find({
+                relations: ['image', 'remote'],
+                where: {
+                    remote: { id: remote.id },
+                    available: true,
+                }
+            });
 
-        await Promise.all(imageAvailabilities.map(async imageAvailability => {
+        const notAvailableImages = imageAvailabilities.filter(ai => fingerprints.indexOf(ai.image.fingerprint) === -1);
+        if (notAvailableImages.length === 0) {
+            return;
+        }
+        this.logger.log(`${notAvailableImages.length} images have been removed on the remote "${remote.name}"`);
+        await Promise.all(notAvailableImages.map(async imageAvailability => {
             imageAvailability.available = false;
-            this.logger.log(`Updating Image Avaialbility to false #${imageAvailability.id} on remote #${remote.id}`);
+            this.logger.log(`Updating Image Availability to false #${imageAvailability.id} on remote #${remote.id}`);
             return await this.repository.save(imageAvailability);
         }));
     }
@@ -102,7 +108,8 @@ export class ImageAvailabilityService {
                         const image = await this.imageService.getImage(remoteImage);
                         return await this.updateOrCreate(image, localRemote);
                     });
-                await this.markAsUnavailable(images.map(image => image.fingerprint), remote);
+
+                await this.markAsUnavailable(images.map(image => image.fingerprint), localRemote);
             });
         await this.fillUpImageAvailablities();
         this.logger.log('-> Finished image-availability synchronization');
