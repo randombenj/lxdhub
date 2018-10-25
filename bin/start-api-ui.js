@@ -4,6 +4,7 @@ const lxd = require('./get-app-certs');
 const express = require('express');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
+const googleAnalytics = process.env.GOOGLE_ANALYTICS;
 const hostUrl = process.env.HOST_URL || '0.0.0.0';
 const logLevel = process.env.LOG_LEVEL;
 const apiUrl = `/`;
@@ -26,6 +27,7 @@ const startApiUi = async () => {
         logLevel,
         loggingUrl,
         apiUrl,
+        googleAnalytics,
     }, server).bootstrap();
 
     app = await new LXDHubAPI({
