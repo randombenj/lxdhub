@@ -1,0 +1,15 @@
+---
+- name: initialize lxdhub
+  command: yarn --pure-lockfile
+  args:
+    chdir: /var/lib/lxdhub/lxdhub
+  become: yes
+  become_user: lxdhub
+
+- name: bootstrap lxdhub
+  command: yarn bootstrap
+  args:
+    chdir: /var/lib/lxdhub/lxdhub
+  become: yes
+  become_user: lxdhub
+

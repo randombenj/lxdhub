@@ -1,0 +1,15 @@
+---
+- name: install postgres
+  apt:
+    name: ['postgresql', 'postgresql-contrib']
+    state: present
+
+- name: copy user sql script
+  template:
+    src: create-user.sql.j2
+    dest: /tmp/create-user.sql
+
+- name: create db #todo use ansbible module here
+  command: psql --file=/tmp/create-user.sql
+  become: yes
+  become_user: postgres

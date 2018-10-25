@@ -1,0 +1,11 @@
+---
+- hosts: containers
+  connection: lxd
+  gather_facts: True
+  roles:
+    - role: lxd_setup
+    - role: node_setup
+    - role: postgres_setup
+    - role: lxdhub_config
+    - role: build
+    - role: lxdhub_service

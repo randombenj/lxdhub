@@ -1,0 +1,19 @@
+---
+- name: install lxd
+  apt:
+    name: lxd
+    state: present
+
+- name: install zfs
+  apt:
+    name: zfsutils-linux
+    state: present
+
+- name: copy lxd.seed
+  copy:
+    src: lxd.seed
+    dest: /tmp/lxd.seed
+
+- name: preseed lxd configuration
+  shell: cat /tmp/lxd.seed | lxd init --preseed
+  become: yes

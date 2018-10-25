@@ -1,0 +1,22 @@
+---
+- name: copy services
+  copy:
+    src: "{{ item }}"
+    dest: "/lib/systemd/system/{{ item }}"
+  with_items:
+    - lxdhub-dbsync.service
+    - lxdhub.service
+
+- name: just force systemd to reread configs
+  systemd:
+    daemon_reload: yes
+
+- name: enable and start services
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - lxdhub-dbsync.service
+    - lxdhub.service
+

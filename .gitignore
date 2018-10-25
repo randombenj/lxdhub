@@ -25,3 +25,6 @@ coverage
 
 # Database files
 db/*.sql
+
+# ansible
+*.retry
