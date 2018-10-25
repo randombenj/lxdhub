@@ -1,8 +1,5 @@
 ---
 - name: initialize lxdhub
-  command: npm i -g yarn@1.7.0
-
-- name: initialize lxdhub
   command: yarn --pure-lockfile
   args:
     chdir: /var/lib/lxdhub/lxdhub
