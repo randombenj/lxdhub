@@ -13,4 +13,4 @@
   register: publish_date
 
 - name: publish lxdhub local image
-  command: lxc publish local:lxdhub --alias lxdhub "description=lxdhub {{ hostvars['lxdhub']['hash'] }} ({{ publish_date.stdout }})"
+  command: lxc publish local:lxdhub --alias lxdhub "description=lxdhub {{ hostvars['lxdhub']['hash'] }} ({{ publish_date.stdout }})" --public
