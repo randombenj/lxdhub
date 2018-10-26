@@ -1,6 +1,6 @@
 {
     "name": "@lxdhub/common",
-    "version": "1.7.1",
+    "version": "1.8.0",
     "description": "Display, search and copy LXD-images using a web interface.",
     "main": "lib/index.js",
     "scripts": {
@@ -32,7 +32,7 @@
         "url": "https://github.com/Roche/lxdhub"
     },
     "dependencies": {
-        "@lxdhub/interfaces": "^1.7.0",
+        "@lxdhub/interfaces": "^1.8.0",
         "@types/node": "^10.3.4",
         "chalk": "^2.4.1",
         "winston": "^3.0.0"
