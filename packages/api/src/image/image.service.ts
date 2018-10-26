@@ -63,17 +63,12 @@ export class ImageService {
     /**
      * Finds one image and returns detailed image information
      * in a DTO.
-     * @param id The id of the image
+     * @param fingerprint The fingerprint of the image
      * @throws {Error} Will throw an error if the image is not found
      */
-    async findOne(id: number): Promise<ResponseDto<ImageDetailDto>> {
+    async findOne(fingerprint: string): Promise<ResponseDto<ImageDetailDto>> {
         // Fetch the image from the database
-        const image = await this.imageRepository.findOneItem(id);
-
-        // Throw error when no image was found
-        if (!image) {
-            throw new Error('Image not found');
-        }
+        const image = await this.imageRepository.findOneByFingerprint(fingerprint);
 
         // Map the data around a response and map the
         // database data to DTOs

@@ -17,7 +17,7 @@ export class ImageListItemFactory extends Factory<ImageListItemDto> {
     entityToDto(image: Image): ImageListItemDto {
         const imageListItem = new ImageListItemDto();
         imageListItem.id = image.id;
-        imageListItem.fingerprint = image.fingerprint;
+        imageListItem.fingerprint = image.fingerprint.substring(0, 12);
         imageListItem.uploadedAt = image.uploadedAt;
         imageListItem.description = image.description;
         return imageListItem;

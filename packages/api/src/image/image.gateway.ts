@@ -68,7 +68,7 @@ export class ImageGateway {
         await this.imageAvailabilityService.getOrCreate(image, destinationRemote, true);
 
         // Return image detail
-        const imageDetail = await this.imageService.findOne(image.id);
+        const imageDetail = await this.imageService.findOne(image.fingerprint);
 
         return { data: imageDetail, event: 'clone-status' };
     }

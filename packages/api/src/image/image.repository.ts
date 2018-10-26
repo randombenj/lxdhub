@@ -93,4 +93,17 @@ export class ImageRepository extends Repository<Image> {
             .leftJoinAndSelect('imageAvailability.remote', 'remote')
             .getOne();
     }
+
+    async findOneByFingerprint(fingerprint: string): Promise<Image> {
+        return await this
+            .createQueryBuilder('image')
+            .where('fingerprint LIKE :fingerprint', { fingerprint: `${fingerprint}%` })
+            .leftJoinAndSelect('image.aliases', 'alias')
+            .leftJoinAndSelect('image.osArchitecture', 'osArchitecture')
+            .leftJoinAndSelect('osArchitecture.architecture', 'arch')
+            .leftJoinAndSelect('osArchitecture.operatingSystem', 'os')
+            .leftJoinAndSelect('image.imageAvailabilities', 'imageAvailability')
+            .leftJoinAndSelect('imageAvailability.remote', 'remote')
+            .getOne();
+    }
 }

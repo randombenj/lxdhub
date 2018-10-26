@@ -73,7 +73,9 @@ export class ImageDetailFactory extends Factory<ImageDetailDto> {
     entityToDto(image: Image): ImageDetailDto {
         const imageDetail = new ImageDetailDto();
         imageDetail.id = image.id;
-        imageDetail.fingerprint = image.fingerprint;
+
+        imageDetail.fingerprint = image.fingerprint.substring(0, 12);
+        imageDetail.fullFingerprint = image.fingerprint;
         imageDetail.uploadedAt = image.uploadedAt;
         imageDetail.description = image.description;
         imageDetail.aliases = image.aliases.map(alias => this.aliasToDto(alias));
