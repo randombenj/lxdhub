@@ -65,17 +65,16 @@ export class ImageController {
 
   /**
    * Returns a detail image with the given id
-   * @param {number} id The id of the image
+   * @param {number} fingerprint The fingerprint of the image
    */
-  @Get('/:id')
+  @Get('/:fingerprint')
   @ApiResponse({ status: 200, description: 'The image have been successfully requested' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   async findOne(
-    // Convert id to an integer
-    @Param('id', new ParseIntPipe())
-    id: number
+    @Param('fingerprint')
+    fingerprint: string
   ): Promise<ResponseDto<ImageDetailDto>> {
-    return await this.imageService.findOne(id);
+    return await this.imageService.findOne(fingerprint);
   }
 
   /**

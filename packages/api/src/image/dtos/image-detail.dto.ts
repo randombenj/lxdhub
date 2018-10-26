@@ -41,11 +41,18 @@ export class RemoteImageAvailabilityDto {
  */
 export class ImageDetailDto {
     id: number;
+    /**
+     * The human readable fingerprint of the image (12 characters long)
+     */
     fingerprint: string;
+    /**
+     * The full fingerprint of the image
+     */
+    fullFingerprint: string;
     uploadedAt: Date;
     createdAt: Date;
     description: string;
-    size: number;
+    size: { humanReadable: string, raw: number };
     label: string;
     serial: string;
     autoUpdate: boolean;

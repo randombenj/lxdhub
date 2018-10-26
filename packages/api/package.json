@@ -33,6 +33,7 @@
         "cors": "^2.8.4",
         "fs-extra": "^6.0.1",
         "pg": "^7.4.1",
+        "pretty-bytes": "^5.1.0",
         "reflect-metadata": "0.1.12",
         "request": "^2.85.0",
         "request-promise": "^4.2.2",

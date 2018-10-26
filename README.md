@@ -17,6 +17,27 @@
 
 **LXDHub** is a management system for [linux containers (LXC)](https://linuxcontainers.org/). With LXDHub you can visualize **LXC images** of multiple (private & public) remotes. One of the key features of LXDHub is to **clone LXC images** from one remote to another. Therefor you can *mirror* public remotes to your private remote.
 
+# Installation
+
+## Prerequisites
+
+- [lxc >= 3.x](https://linuxcontainers.org/)
+
+The fastest way to run LXDHub on your computer is by pulling the LXDHub LXC image from
+our [public remote](https://lxdhub.xyz/remote/lxdhub/images).
+
+```bash
+
+lxc remote add lxdhub https://lxdhub.xyz:8443 --accept-certificate --public
+lxc launch lxdhub:lxdhub mylxdhub
+lxc info mylxdhub | grep "eth0:.*inet" | head -n1 | awk '{print "Open http://"$3":3000 in your browser"}'
+
+```
+
+LXDHub can also be installed with other technologies:
+
+- [Install from source with docker-compose](docs/install-from-source.md)
+
 # Packages
 
 Under the hood, LXDHub is split in five packages. The following graph visualizes the dependencies of each package.
@@ -58,42 +79,6 @@ Under the hood, LXDHub is split in five packages. The following graph visualizes
 
 The packages `@lxdhub/db` and `@lxdhub/common` are solely libraries, which can not be run seperatly. Whereas the packages `@lxdhub/web`, `@lxdhub/api` and `@lxdhub/dbsync` can be run seperatly via [Docker](https://www.docker.com/) or [NodeJS](https://nodejs.org/en/).
 
-# Installation
-
-## Prerequisites
-
-- [git >= 2.x.x](https://git-scm.com/)
-- [docker >=18.02.0-ce](https://www.docker.com/)
-- [docker-compose >=1.19.0](https://docs.docker.com/compose/install/#install-compose)
-
-## Generate LXC Certificate
-
-Before you can start the application, you need to add your LXC certificates.
-More information on [generate-lxc-certificates.md](docs/generate-lxc-certificates.md)
-
-## Install
-
-Run the following commands in your terminal prompt.
-
-```bash
-
-# Clone the repository locally
-git clone git@github.com:Roche/lxdhub.git lxdhub
-cd lxdhub
-
-mv lxdhub.yml.template lxdhub.yml
-# Edit the configuration template
-vi lxdhub.yml
-
-# Build the containers
-docker-compose build
-# Run the containers (api, dbsync and db)
-docker-compose up
-
-# Open localhost:3000/api/v1/doc
-
-```
-
 # Tests
 
 ## Prerequisites
@@ -112,29 +97,6 @@ docker run -it brunnel6/lxdhub test
 docker run -it brunnel6/lxdhub lint
 
 ```
-
-## Environment for Manual Testing
-
-### LXC
-
-Run the command `./bin/setup-local-test-remote.sh` which uses the port `8443`
-for your local LXC REST API. The default password for your local remote is `unsecret`.
-
-### LXDHub API
-
-The LXDHub API offers a test environment, which can be tested manually.
-To run the tests exectue the following commands in your terminal prompt.
-
-```bash
-
-# Install the dependencies (optional)
-npm install
-./bin/start-lxdhub-api-test-env.sh
-
-```
-
-The data will no be loaded from your local SQLite database. The model data inside the test environment,
- are defined inside the `src/api/test/fixtures/*.json` files.
 
 # Related
 

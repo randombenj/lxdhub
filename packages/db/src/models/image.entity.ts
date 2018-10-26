@@ -49,4 +49,11 @@ export class Image extends BaseEntity {
 
   @Column('boolean')
   public: boolean;
+
+  /**
+   * Returns a 12 character long fingerprint
+   */
+  get readableFingerprint() {
+    return this.fingerprint.substring(0, 12);
+  }
 }

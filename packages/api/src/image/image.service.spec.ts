@@ -158,7 +158,7 @@ describe('ImageService', () => {
                 fingerprint: 'fingerprint1'
             };
 
-            const imageRepositoryMock = jest.spyOn(imageRepository, 'findOneItem').mockImplementation(() => result);
+            const imageRepositoryMock = jest.spyOn(imageRepository, 'findOneByFingerprint').mockImplementation(() => result);
             const imageDetailFactoryMock = jest.spyOn(imageDetailFactory, 'entityToDto').mockImplementation(() => result);
 
             expect(await imageService.findOne(1)).toEqual({ results: result });
