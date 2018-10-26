@@ -1,7 +1,7 @@
 import { Factory } from '@lxdhub/common';
 import { Alias, Architecture, Image, ImageAvailability, OperatingSystem } from '@lxdhub/db';
 import { Injectable } from '@nestjs/common';
-
+import * as PrettyBytes from 'pretty-bytes';
 import { AliasDto, ArchitectureDto, ImageDetailDto, OperatingSystemDto, RemoteImageAvailabilityDto } from '..';
 
 /**
@@ -88,7 +88,10 @@ export class ImageDetailFactory extends Factory<ImageDetailDto> {
         imageDetail.autoUpdate = image.autoUpdate;
         imageDetail.createdAt = image.createdAt;
         imageDetail.expiresAt = image.expiresAt;
-        imageDetail.size = image.size;
+        imageDetail.size = {
+            raw: image.size,
+            humanReadable: PrettyBytes(image.size)
+        };
         imageDetail.public = image.public;
         imageDetail.remotes = image.imageAvailabilities
             .map(imageAvailability => this.imageAvailabilityToDto(imageAvailability));

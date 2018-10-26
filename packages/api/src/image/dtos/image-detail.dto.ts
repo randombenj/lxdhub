@@ -52,7 +52,7 @@ export class ImageDetailDto {
     uploadedAt: Date;
     createdAt: Date;
     description: string;
-    size: number;
+    size: { humanReadable: string, raw: number };
     label: string;
     serial: string;
     autoUpdate: boolean;
