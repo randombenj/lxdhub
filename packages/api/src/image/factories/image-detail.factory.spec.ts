@@ -67,7 +67,7 @@ describe('ImageDetailFactory', () => {
         alias.id = 1;
         alias.description = 'desc1';
 
-        image1.fingerprint = 'fingerprint1';
+        image1.fingerprint = '03c3d194601003c3d194601003c3d1946010';
         image1.uploadedAt = date1;
         image1.description = 'desc1';
         image1.id = 1;
@@ -100,17 +100,21 @@ describe('ImageDetailFactory', () => {
         osDto.release = 'xenial';
         osDto.version = '16.04';
 
-        dto1.fingerprint = 'fingerprint1';
+        dto1.fingerprint = '03c3d1946010';
         dto1.uploadedAt = date1;
         dto1.description = 'desc1';
         dto1.aliases = [aliasDto];
+        dto1.fullFingerprint = '03c3d194601003c3d194601003c3d1946010';
         dto1.autoUpdate = true;
         dto1.architecture = architectureDto;
         dto1.operatingSystem = osDto;
         dto1.id = 1;
         dto1.expiresAt = date1;
         dto1.createdAt = date1;
-        dto1.size = 13;
+        dto1.size = {
+            humanReadable: '13 B',
+            raw: 13
+        };
         dto1.public = true;
         dto1.cloneable = false;
         dto1.remotes = [
