@@ -12,7 +12,7 @@
 - debug:
     msg: "container url: {{ lxd_url }}"
 
-- name: Create a started container
+- name: Create and start container
   lxd_container:
     name: "{{ container_name }}"
     state: started

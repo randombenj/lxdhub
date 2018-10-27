@@ -12,7 +12,7 @@
 - debug:
     msg: "container url: {{ lxd_url }}"
 
-- name: stop lxdhub container
+- name: stop container
   lxd_container:
     name: "{{ container_name }}"
     state: stopped
