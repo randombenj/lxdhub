@@ -30,9 +30,9 @@
   become_user: lxdhub
   register: lxdhub_commit
 
-- name: add git hash Hash to dummy host
+- name: add git hash to dummy git host
   add_host:
-    name: lxdhub
+    name: git
     hash: "{{ lxdhub_commit.after[:7] }}"
 
 - name: configure lxdhub.yml

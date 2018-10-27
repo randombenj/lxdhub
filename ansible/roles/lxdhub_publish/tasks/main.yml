@@ -19,11 +19,11 @@
     url: "{{ lxd_url }}"
 
 - debug:
-    msg: "lxdhub current has is {{ hostvars['lxdhub']['hash'] }}"
+    msg: "{{ container_name }} current hash is {{ hostvars['git']['hash'] }}"
 
 - name: generate publish date
   command: date +%Y%m%d_%H:%M
   register: publish_date
 
 - name: publish lxdhub local image
-  command: lxc publish "local:{{ container_name }}" --alias "{{ container_name }}" "description=lxdhub {{ hostvars['lxdhub']['hash'] }} ({{ publish_date.stdout }})" --public
+  command: lxc publish "local:{{ container_name }}" --alias "{{ container_name }}" "description=lxdhub {{ hostvars['git']['hash'] }} ({{ publish_date.stdout }})" --public
