@@ -1,0 +1,5 @@
+---
+lxdhub_local_remote_password: unsecret
+lxdhub_home: /var/lib/lxdhub
+lxdhub_version: master
+
