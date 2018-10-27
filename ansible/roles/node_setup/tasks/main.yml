@@ -7,13 +7,13 @@
     - https://dl.yarnpkg.com/debian/pubkey.gpg
     - https://deb.nodesource.com/gpgkey/nodesource.gpg.key
 
-- name: install not repository
+- name: install node repository
   apt_repository:
-    repo: deb https://deb.nodesource.com/node_9.x bionic main
+    repo: "deb https://deb.nodesource.com/{{ node_version }} {{ ansible_distribution_release }} main"
     state: present
-    filename: node_9.x
+    filename: "{{ node_version }}"
 
-- name: install not repository
+- name: install yarn repository
   apt_repository:
     repo: deb https://dl.yarnpkg.com/debian/ stable main
     state: present
