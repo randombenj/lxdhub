@@ -2,11 +2,15 @@
 - hosts: localhost
   connection: local
   gather_facts: False
+  vars:
+    container_name: lxdhub
   roles:
     - role: lxdhub_container
 - hosts: containers
   connection: lxd
   gather_facts: True
+  vars:
+    container_name: lxdhub
   roles:
     - role: lxd_setup
     - role: node_setup
@@ -17,5 +21,7 @@
 - hosts: localhost
   connection: local
   gather_facts: False
+  vars:
+    container_name: lxdhub
   roles:
     - role: lxdhub_publish

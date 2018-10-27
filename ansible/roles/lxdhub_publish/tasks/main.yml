@@ -1,7 +1,7 @@
 ---
 - name: stop lxdhub container
   lxd_container:
-    name: lxdhub
+    name: "{{ container_name }}"
     state: stopped
     url: unix:/var/snap/lxd/common/lxd/unix.socket
 
@@ -13,4 +13,4 @@
   register: publish_date
 
 - name: publish lxdhub local image
-  command: lxc publish local:lxdhub --alias lxdhub "description=lxdhub {{ hostvars['lxdhub']['hash'] }} ({{ publish_date.stdout }})" --public
+  command: lxc publish "local:{{ container_name }}" --alias "{{ container_name }}" "description=lxdhub {{ hostvars['lxdhub']['hash'] }} ({{ publish_date.stdout }})" --public

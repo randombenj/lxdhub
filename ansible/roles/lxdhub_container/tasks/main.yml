@@ -1,7 +1,7 @@
 ---
 - name: Create a started container
   lxd_container:
-    name: lxdhub
+    name: "{{ container_name }}"
     state: started
     source:
       type: image
@@ -16,4 +16,4 @@
     timeout: 600
 
 - name: install python in container
-  command: lxc exec lxdhub -- sh -c "apt update && apt install -y python"
+  command: 'lxc exec {{ container_name }} -- sh -c "apt update && apt install -y python"'
