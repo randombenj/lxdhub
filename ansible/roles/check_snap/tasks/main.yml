@@ -1,0 +1,16 @@
+---
+- name: check for snap lxd
+  shell: which lxd | grep -qa snap
+  ignore_errors: yes
+  register: snap_lxd
+
+- debug:
+    msg: "running on snap: {{ snap_lxd.rc }}"
+
+- name: add snap_lxd to dummy host
+  add_host:
+    name: "{{ container_name }}"
+    groups: containers
+    snap: "{{ snap_lxd.rc }}"
+    ansible_connection: lxd
+ 

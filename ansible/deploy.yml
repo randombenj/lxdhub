@@ -5,6 +5,7 @@
   vars:
     container_name: lxdhub
   roles:
+    - role: check_snap
     - role: lxdhub_container
 - hosts: containers
   connection: lxd
