@@ -34,6 +34,24 @@ lxc info mylxdhub | grep "eth0:.*inet" | head -n1 | awk '{print "Open http://"$3
 
 ```
 
+Adding your remotes:
+
+```bash
+
+lxc exec mylxdhub -- su -l lxdhub -c "cat << EOF >> ~/lxdhub/lxdhub.yml
+  - name: efiks
+    url: https://images.efiks.ovh:8443
+    protocol: lxd
+    public: true
+    readonly: true
+EOF"
+
+# restart the services
+lxc exec mylxdhub -- systemctl restart lxdhub-dbsync.service
+lxc exec mylxdhub -- systemctl restart lxdhub.service
+
+```
+
 LXDHub can also be installed with other technologies:
 
 - [Install from source with docker-compose](docs/install-from-source.md)
