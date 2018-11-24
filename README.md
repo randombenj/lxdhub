@@ -56,6 +56,36 @@ LXDHub can also be installed with other technologies:
 
 - [Install from source with docker-compose](docs/install-from-source.md)
 
+# Configuration Management
+
+## Ansible
+
+Important Note:
+these playbooks were tested in the following environment:
+* ansible >= 2.5.1
+* Ubuntu
+* lxc (snap/native)
+
+one can use the roles in the `ansible` folder to deploy lxdhub on their own server.
+
+```bash
+cd ansible
+ansible-playbook deploy.yml -D -vv
+```
+
+one can also parametrize the container_name and lxdhub_version to be checked out as extra-vars.
+
+```
+ansible-playbook deploy.yml -D -vv -e "container_name=next-lxdhub" -e "lxdhub_version=v1.8.0"
+```
+
+This call will:
+
+  1. create you a local `lxdhub` container (default)
+  1. clone, build lxdhub inside of this container
+  1. setup systemctl services
+  1. publish an image in your local: remote
+
 # Packages
 
 Under the hood, LXDHub is split in five packages. The following graph visualizes the dependencies of each package.

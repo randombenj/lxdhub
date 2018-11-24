@@ -10,40 +10,52 @@
     groups: lxdhub,lxd
     shell: /bin/bash
     system: yes
-    home: /var/lib/lxdhub
+    home: "{{ lxdhub_home }}"
 
 - name: install git
   apt:
     name: git
     state: present
 
+- debug:
+    msg: "let's use lxdhub version: {{ lxdhub_version }}"
+
 - name: clone git repository
   git:
-    repo: 'https://github.com/Roche/lxdhub.git'
-    dest: /var/lib/lxdhub/lxdhub
-    version: master
+    repo: '{{ lxdhub_git_repo }}'
+    dest: "{{ lxdhub_home }}/lxdhub"
+    version: "{{ lxdhub_version }}"
+    force: yes
   become: yes
   become_user: lxdhub
+  register: lxdhub_commit
+
+- name: add git hash to dummy git host
+  add_host:
+    name: git
+    hash: "{{ lxdhub_commit.after[:7] }}"
 
 - name: configure lxdhub.yml
   template:
     src: lxdhub.yml.j2
-    dest: /var/lib/lxdhub/lxdhub/lxdhub.yml
+    dest: "{{ lxdhub_home }}/lxdhub/lxdhub.yml"
+  become: yes
+  become_user: lxdhub
 
 - name: generate lxd certificates for lxdhub user
-  command: lxc remote add mylocal https://localhost:8443 --accept-certificate --password unsecret
+  command: 'lxc remote add mylocal https://localhost:8443 --accept-certificate --password {{ lxdhub_local_remote_password }}'
   args:
-    chdir: /var/lib/lxdhub/lxdhub
+    chdir: "{{ lxdhub_home }}/lxdhub"
   become: yes
   become_user: lxdhub
   ignore_errors: yes
 
 - name: copy client certificates
-  command: cp /var/lib/lxdhub/.config/lxc/client.crt /var/lib/lxdhub/lxdhub/certificates/
+  command: 'cp {{ lxdhub_home }}/.config/lxc/client.crt {{ lxdhub_home }}/lxdhub/certificates/'
   become: yes
   become_user: lxdhub
 
 - name: copy client certificates key
-  command: cp /var/lib/lxdhub/.config/lxc/client.key /var/lib/lxdhub/lxdhub/certificates/
+  command: 'cp {{ lxdhub_home }}/.config/lxc/client.key {{ lxdhub_home }}/lxdhub/certificates/'
   become: yes
   become_user: lxdhub

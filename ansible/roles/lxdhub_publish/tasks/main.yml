@@ -12,21 +12,18 @@
 - debug:
     msg: "container url: {{ lxd_url }}"
 
-- name: Create and start container
+- name: stop container
   lxd_container:
     name: "{{ container_name }}"
-    state: started
-    source:
-      type: image
-      mode: pull
-      server: https://images.linuxcontainers.org
-      protocol: simplestreams
-      alias: ubuntu/bionic/amd64
-    profiles: ["default"]
-    config: {"security.nesting": "true"}
+    state: stopped
     url: "{{ lxd_url }}"
-    wait_for_ipv4_addresses: true
-    timeout: 600
 
-- name: install python in container
-  command: 'lxc exec {{ container_name }} -- sh -c "apt update && apt install -y python"'
+- debug:
+    msg: "{{ container_name }} current hash is {{ hostvars['git']['hash'] }}"
+
+- name: generate publish date
+  command: date +%Y%m%d_%H:%M
+  register: publish_date
+
+- name: publish lxdhub local image
+  command: lxc publish "local:{{ container_name }}" --alias "{{ container_name }}" "description=lxdhub {{ hostvars['git']['hash'] }} ({{ publish_date.stdout }})" --public
