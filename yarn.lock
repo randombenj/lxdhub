@@ -2076,7 +2076,7 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
-clime@^0.5.10, clime@^0.5.100:
+clime@^0.5.10, clime@^0.5.10:
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/clime/-/clime-0.5.10.tgz#b4862cc41fbd5d0d01bd0504b8ccb8ae639c341a"
   integrity sha512-FpqeE23ukoEzsS7IkRNWf5ssg1BoiKBr55ra8fxrMXZuaHhsRY+gCJwMOUIrQrVEuIYAaUxzBd/2Q6kek6ecRg==
