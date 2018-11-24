@@ -39,6 +39,8 @@
   template:
     src: lxdhub.yml.j2
     dest: "{{ lxdhub_home }}/lxdhub/lxdhub.yml"
+  become: yes
+  become_user: lxdhub
 
 - name: generate lxd certificates for lxdhub user
   command: 'lxc remote add mylocal https://localhost:8443 --accept-certificate --password {{ lxdhub_local_remote_password }}'
