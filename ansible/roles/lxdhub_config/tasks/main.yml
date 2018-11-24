@@ -22,7 +22,7 @@
 
 - name: clone git repository
   git:
-    repo: 'https://github.com/Roche/lxdhub.git'
+    repo: '{{ lxdhub_git_repo }}'
     dest: "{{ lxdhub_home }}/lxdhub"
     version: "{{ lxdhub_version }}"
     force: yes
