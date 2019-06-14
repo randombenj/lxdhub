@@ -63,7 +63,9 @@
         ],
         "nohoist": [
             "**/@nestjs/",
-            "**/@nestjs/**"
+            "**/@nestjs/**",
+            "**/typeorm/",
+            "**/typeorm/**"
         ]
     }
 }

@@ -8,13 +8,14 @@
         "prepare": "npm run build"
     },
     "dependencies": {
+        "@brunnerlivio/typeorm": "0.2.18",
         "@lxdhub/common": "^1.8.1",
         "@nestjs/common": "^6.3.1",
         "@nestjs/core": "^6.3.1",
         "@nestjs/typeorm": "6.1.2",
         "fs-extra": "^8.0.1",
         "pg": "^7.11.0",
-        "typeorm": "0.2.18",
+        "typeorm": "npm:@brunnerlivio/typeorm",
         "typescript": "^3.5.2"
     },
     "publishConfig": {
