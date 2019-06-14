@@ -15,7 +15,7 @@
         "fs-extra": "^8.0.1",
         "pg": "^7.11.0",
         "typeorm": "0.2.18",
-        "typescript": "^3.5.1"
+        "typescript": "^3.5.2"
     },
     "publishConfig": {
         "access": "public"

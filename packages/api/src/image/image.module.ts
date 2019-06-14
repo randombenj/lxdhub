@@ -12,7 +12,6 @@ import { ImageController } from './image.controller';
 import { ImageGateway } from './image.gateway';
 import { ImageRepository } from './image.repository';
 import { ImageService } from './image.service';
-import { Connection } from 'typeorm';
 import { Image } from '@lxdhub/db';
 
 @Module({
@@ -31,14 +30,6 @@ import { Image } from '@lxdhub/db';
     ImageListItemFactory,
     ImageDetailFactory,
     ImageSearchDictionaryProvider,
-    {
-      provide: 'ImageRepository',
-      useFactory: (connection: Connection) => {
-        console.log(connection);
-        return connection.manager.getCustomRepository(ImageRepository);
-      },
-      inject: [Connection]
-    }
   ]
 })
 /**
