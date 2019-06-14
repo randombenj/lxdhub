@@ -1,27 +1,28 @@
-import { Architecture, OperatingSystem, OperatingSystemArchitecture } from '@lxdhub/db';
+import { Architecture, OperatingSystem, OperatingSystemArchitecture, Image } from '@lxdhub/db';
 import { Injectable, Inject, Logger } from '@nestjs/common';
 import Aigle from 'aigle';
 import * as _ from 'lodash';
 
-import { OperatingSystemArchitectureRepository, OsArchDto } from '.';
+import { OsArchDto } from '.';
 import { ArchitectureService } from '../architecture/architecture.service';
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
-import { ImageRepository } from '../image';
 import { ImageService } from '../image/image.service';
 import { LXDService } from '../lxd';
 import { OperatingSystemService } from '../operating-system';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class OsArchService {
     private logger: Logger;
     constructor(
-        @Inject('OperatingSystemArchitectureRepository')
-        private osArchRepository: OperatingSystemArchitectureRepository,
+        @InjectRepository(OperatingSystemArchitecture)
+        private osArchRepository: Repository<OperatingSystemArchitecture>,
         private architectureService: ArchitectureService,
         private operatingSystemService: OperatingSystemService,
         private imageService: ImageService,
-        @Inject('ImageRepository')
-        private imageRepository: ImageRepository,
+        @InjectRepository(Image)
+        private imageRepository: Repository<Image>,
         @Inject('LXDHubDbSyncSettings')
         private dbSyncSettings: LXDHubDbSyncSettings,
         private lxdService: LXDService

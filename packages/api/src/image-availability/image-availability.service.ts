@@ -1,5 +1,5 @@
 import { Image, ImageAvailability, Remote } from '@lxdhub/db';
-import { Inject } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 
 import { ImageAvailabilityRepository } from './image-availability.repository';
 
@@ -13,7 +13,7 @@ export class ImageAvailabilityService {
      * @param imageAvailability The image availability repository
      */
     constructor(
-        @Inject('ImageAvailabilityRepository')
+        @InjectRepository(ImageAvailability)
         private readonly imageAvailabilityRepository: ImageAvailabilityRepository,
     ) { }
 

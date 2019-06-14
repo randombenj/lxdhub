@@ -1,5 +1,5 @@
 
-import { Injectable, NestInterceptor, ExecutionContext } from '@nestjs/common';
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ export class ImageListItemInterceptor
      */
     intercept(
         context: ExecutionContext,
-        call$: Observable<ImageListItemResponse>)
+        next: CallHandler)
         : Observable<ImageListItemResponse> {
         const req = context.switchToHttp().getRequest();
         // Get url e.g. http://localhost:3000/api/v1/image
@@ -28,7 +28,7 @@ export class ImageListItemInterceptor
         const url = `${req.protocol}://${req.get('host')}${req._parsedUrl.pathname}`;
 
         // Returns the response stream and maps the data
-        return call$.pipe(
+        return next.handle().pipe(
             map(response => {
                 // Updates each image _links object
                 response.results.forEach(image =>

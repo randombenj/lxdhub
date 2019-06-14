@@ -8,7 +8,8 @@ import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { ImageService } from '../image';
 import { LXDService } from '../lxd';
 import { trimIfPossible } from '../util';
-import { AliasRepository } from './';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AliasService {
@@ -16,8 +17,8 @@ export class AliasService {
 
     constructor(
         private imageService: ImageService,
-        @Inject('AliasRepository')
-        private aliasRepository: AliasRepository,
+        @InjectRepository(Alias)
+        private aliasRepository: Repository<Alias>,
         @Inject('LXDHubDbSyncSettings')
         private dbSyncSettings: LXDHubDbSyncSettings,
         private lxdService: LXDService

@@ -3,18 +3,18 @@ import { Remote } from '@lxdhub/db';
 import { Injectable, Inject, Logger } from '@nestjs/common';
 
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
-import { RemoteRepository } from './remote.repository';
 import { RemoteDto } from './dtos/remote.dto';
 import { RemoteFactory } from './factories/remote.factory';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class RemoteService {
     private logger: Logger;
 
     constructor(
-        @Inject('RemoteRepository')
-        private remoteRepository: RemoteRepository,
+        @InjectRepository(Remote)
+        private remoteRepository: Repository<Remote>,
         private remoteFactory: RemoteFactory,
         @Inject('LXDHubDbSyncSettings')
         private dbSyncSettings: LXDHubDbSyncSettings

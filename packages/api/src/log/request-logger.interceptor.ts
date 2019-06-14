@@ -1,7 +1,5 @@
-import 'rxjs/add/operator/do';
-
-import { ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { Observable } from 'rxjs/Observable';
+import { ExecutionContext, Injectable, NestInterceptor, CallHandler } from '@nestjs/common';
+import { Observable } from 'rxjs';
 
 import { LogService } from '.';
 
@@ -25,7 +23,7 @@ export class RequestLoggerInterceptor implements NestInterceptor {
      * @param call$ The stream to for callback
      */
     // @ts-ignore
-    intercept(context: ExecutionContext, call$: Observable<any>): Observable<any> {
+    intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
         // Is actually a request
         const req = context.switchToHttp().getRequest();
         if (req.method) {
@@ -34,6 +32,6 @@ export class RequestLoggerInterceptor implements NestInterceptor {
             message += ` -> ${context.getClass().name}:${context.getHandler().name}`;
             this.logger.log(message);
         }
-        return call$;
+        return next.handle();
     }
 }

@@ -3,21 +3,21 @@ import { Injectable, Inject, Logger } from '@nestjs/common';
 import Aigle from 'aigle';
 
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
-import { ImageRepository, ImageService } from '../image';
+import { ImageService } from '../image';
 import { LXDService } from '../lxd';
-import { RemoteRepository } from '../remote/remote.repository';
-import { ImageAvailabilityRepository } from './image-availability.repository';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ImageAvailabilityService {
     private logger: Logger;
     constructor(
-        @Inject('ImageAvailabilityRepository')
-        private repository: ImageAvailabilityRepository,
-        @Inject('RemoteRepository')
-        private remoteRepository: RemoteRepository,
-        @Inject('ImageRepository')
-        private imageRepository: ImageRepository,
+        @InjectRepository(ImageAvailability)
+        private repository: Repository<ImageAvailability>,
+        @InjectRepository(Remote)
+        private remoteRepository: Repository<Remote>,
+        @InjectRepository(Image)
+        private imageRepository: Repository<Image>,
         private imageService: ImageService,
         @Inject('LXDHubDbSyncSettings')
         private dbSyncSettings: LXDHubDbSyncSettings,

@@ -3,18 +3,20 @@ import { Injectable, Inject, Logger } from '@nestjs/common';
 import Aigle from 'aigle';
 import * as _ from 'lodash';
 
-import { ArchitectureDto, ArchitectureRepository } from '.';
+import { ArchitectureDto } from '.';
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { LXDService } from '../lxd';
 import { trimIfPossible } from '../util';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class ArchitectureService {
     private logger: Logger;
 
     constructor(
-        @Inject('ArchitectureRepository')
-        private architectureRepository: ArchitectureRepository,
+        @InjectRepository(Architecture)
+        private architectureRepository: Repository<Architecture>,
         @Inject('LXDHubDbSyncSettings')
         private dbSyncSettings: LXDHubDbSyncSettings,
         private lxdService: LXDService

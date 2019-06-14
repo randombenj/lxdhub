@@ -14,7 +14,8 @@ import { Application } from 'express';
 import * as Chalk from 'chalk';
 import * as express from 'express';
 import * as cors from 'cors';
-import { IoAdapter } from '@nestjs/websockets';
+import { IoAdapter } from '@nestjs/platform-socket.io';
+import { NestExpressApplication, ExpressAdapter } from '@nestjs/platform-express';
 
 /**
  * The LXDHub API settings
@@ -37,7 +38,7 @@ export class LXDHubAPISettings {
  * LXDHub Web user interface.
  */
 export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
-    private app: INestApplication;
+    private app: NestExpressApplication;
     private logger: LogService;
     private url: string;
 
@@ -70,7 +71,12 @@ export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
             this.server = express();
         }
 
-        this.app = await NestFactory.create(AppModule.forRoot(this.settings), this.server, nestSettings);
+        this.app = await NestFactory.create<NestExpressApplication>(
+            AppModule.forRoot(this.settings),
+            new ExpressAdapter(this.server),
+            nestSettings
+        );
+
         this.app.useWebSocketAdapter(new IoAdapter(this.app.getHttpServer()));
     }
 
@@ -83,7 +89,6 @@ export class LXDHubAPI implements Interfaces.ILXDHubHttpService {
         // Global execution handler
         this.app.useGlobalFilters(new HttpExceptionFilter());
         // Global request logger
-        // @ts-ignore
         this.app.useGlobalInterceptors(new RequestLoggerInterceptor());
 
         // In development, allow any origin to access the website

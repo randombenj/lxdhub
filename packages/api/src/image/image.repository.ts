@@ -1,5 +1,5 @@
-import { Image, ImageAvailability } from '@lxdhub/db';
-import { Connection, EntityRepository, Repository } from 'typeorm';
+import { Image } from '@lxdhub/db';
+import { EntityRepository, Repository } from 'typeorm';
 
 import { PaginationOptionsDto } from '../common';
 import { ImageSearchLiteral } from './interfaces';
@@ -11,7 +11,6 @@ import { ImageSearchLiteral } from './interfaces';
  */
 @EntityRepository(Image)
 export class ImageRepository extends Repository<Image> {
-
     /**
      * Finds all images of an remote, filters them by the given
      * query attributes and applies the given pagination

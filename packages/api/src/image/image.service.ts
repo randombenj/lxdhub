@@ -23,7 +23,7 @@ export class ImageService {
      * @param imageDetaiLFactory The api-image-detail-interface
      */
     constructor(
-        @InjectRepository(ImageRepository)
+        @Inject('ImageRepository')
         private readonly imageRepository: ImageRepository,
         private readonly imageListItemFactory: ImageListItemFactory,
         private readonly imageDetailFactory: ImageDetailFactory,
@@ -50,7 +50,9 @@ export class ImageService {
             {};
 
         const remote = await this.remoteService.findByName(remoteName);
+        console.log('bsd');
         const [images, total] = await this.imageRepository.findByRemote(remote.id, pagination, search);
+        console.log('asdf');
 
         // Return the custom pagination response, so the
         // data is wrapped around with metadata
