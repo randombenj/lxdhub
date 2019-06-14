@@ -1,4 +1,5 @@
 import { Inject, NotFoundException } from '@nestjs/common';
+import { Image } from '@lxdhub/db';
 
 import { CloneImageDto, CloneImageResponseDto, ImageDetailDto, ImageListItemDto } from '.';
 import { PaginationOptionsDto, PaginationResponseDto, ResponseDto } from '../common';
@@ -10,6 +11,7 @@ import { ImageRepository } from './image.repository';
 import { ImageSearchLiteral } from './interfaces';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RemoteService } from '../remote';
+import { Connection } from 'typeorm';
 
 /**
  * Interface between the Database and API for
@@ -23,7 +25,6 @@ export class ImageService {
      * @param imageDetaiLFactory The api-image-detail-interface
      */
     constructor(
-        @Inject('ImageRepository')
         private readonly imageRepository: ImageRepository,
         private readonly imageListItemFactory: ImageListItemFactory,
         private readonly imageDetailFactory: ImageDetailFactory,
@@ -33,7 +34,14 @@ export class ImageService {
         private readonly imageSearchDictionary: SearchDictionary[],
         @Inject('LXDService')
         private readonly lxdService: LXDService,
-    ) { }
+        readonly connection: Connection
+    ) {
+      // FIXME: Remove this
+      // @ts-ignore
+      imageRepository['manager'] = connection.manager;
+      // @ts-ignore
+      imageRepository['metadata'] = connection.getMetadata(Image);
+    }
 
     /**
      * Returns images, limited by the given pagination options, filtered
