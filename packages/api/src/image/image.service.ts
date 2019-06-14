@@ -34,14 +34,7 @@ export class ImageService {
         private readonly imageSearchDictionary: SearchDictionary[],
         @Inject('LXDService')
         private readonly lxdService: LXDService,
-        readonly connection: Connection
-    ) {
-      // FIXME: Remove this
-      // @ts-ignore
-      imageRepository['manager'] = connection.manager;
-      // @ts-ignore
-      imageRepository['metadata'] = connection.getMetadata(Image);
-    }
+    ) { }
 
     /**
      * Returns images, limited by the given pagination options, filtered
@@ -58,9 +51,7 @@ export class ImageService {
             {};
 
         const remote = await this.remoteService.findByName(remoteName);
-        console.log('bsd');
         const [images, total] = await this.imageRepository.findByRemote(remote.id, pagination, search);
-        console.log('asdf');
 
         // Return the custom pagination response, so the
         // data is wrapped around with metadata
