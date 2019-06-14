@@ -7,14 +7,15 @@ import { OperatingSystemDto } from '.';
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { LXDService } from '../lxd';
 import { trimIfPossible } from '../util';
-import { OperatingSystemRepository } from './operating-system.repository';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class OperatingSystemService {
     private logger: Logger;
     constructor(
-        @Inject('OperatingSystemRepository')
-        private operatingSystemRepository: OperatingSystemRepository,
+        @InjectRepository(OperatingSystem)
+        private operatingSystemRepository: Repository<OperatingSystem>,
         private lxdService: LXDService,
         @Inject('LXDHubDbSyncSettings')
         private dbSyncSettings: LXDHubDbSyncSettings

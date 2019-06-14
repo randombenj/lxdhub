@@ -2,17 +2,18 @@ import { Image } from '@lxdhub/db';
 import { Injectable, Inject, Logger } from '@nestjs/common';
 import Aigle from 'aigle';
 
-import { ImageRepository } from '.';
 import { LXDHubDbSyncSettings } from '../dbsync-settings.interface';
 import { LXDService } from '../lxd';
 import { ImageDtoFactory } from './factories/image-dto.factory';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class ImageService {
     private logger: Logger;
     constructor(
-        @Inject('ImageRepository')
-        private imageRepository: ImageRepository,
+        @InjectRepository(Image)
+        private imageRepository: Repository<Image>,
         private imageDtoFactory: ImageDtoFactory,
         @Inject('LXDHubDbSyncSettings')
         private dbSyncSettings: LXDHubDbSyncSettings,

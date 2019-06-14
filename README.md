@@ -141,8 +141,8 @@ Run the automated test cases with NodeJS.
 ```bash
 
 docker build -t $USER/lxdhub .
-docker run -it brunnel6/lxdhub test
-docker run -it brunnel6/lxdhub lint
+docker run -it $USER/lxdhub test
+docker run -it $USER/lxdhub lint
 
 ```
 

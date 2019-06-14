@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ImageAvailabilityModule } from '../image-availability/';
 import { LogModule } from '../log';
@@ -11,7 +12,7 @@ import { ImageController } from './image.controller';
 import { ImageGateway } from './image.gateway';
 import { ImageRepository } from './image.repository';
 import { ImageService } from './image.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Connection } from 'typeorm';
 import { Image } from '@lxdhub/db';
 
 @Module({
@@ -30,6 +31,14 @@ import { Image } from '@lxdhub/db';
     ImageListItemFactory,
     ImageDetailFactory,
     ImageSearchDictionaryProvider,
+    {
+      provide: 'ImageRepository',
+      useFactory: (connection: Connection) => {
+        console.log(connection);
+        return connection.manager.getCustomRepository(ImageRepository);
+      },
+      inject: [Connection]
+    }
   ]
 })
 /**
@@ -37,4 +46,4 @@ import { Image } from '@lxdhub/db';
  * operational or processable image related
  * modules, controllers and components
  */
-export class ImageModule { }
+export class ImageModule {}

@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 
 import { RemoteFactory, RemoteService } from './';
-import { RemoteRepository } from './remote.repository';
 import { LXDModule } from '../lxd';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Remote } from '@lxdhub/db';
@@ -9,7 +8,7 @@ import { Remote } from '@lxdhub/db';
 @Module({
     imports: [
         LXDModule,
-        TypeOrmModule.forFeature([Remote, RemoteRepository])
+        TypeOrmModule.forFeature([Remote])
     ],
     providers: [
         RemoteFactory,

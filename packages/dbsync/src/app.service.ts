@@ -8,7 +8,6 @@ import { ImageAvailabilityService } from './image-availability';
 import { OperatingSystemService } from './operating-system';
 import { OsArchService } from './os-arch';
 import { RemoteService } from './remote';
-import { NestEnvironment } from '@nestjs/common/enums/nest-environment.enum';
 
 @Injectable()
 /**
