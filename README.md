@@ -15,6 +15,8 @@
 
 # Purpose
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Roche/lxdhub.svg)](https://greenkeeper.io/)
+
 **LXDHub** is a management system for [linux containers (LXC)](https://linuxcontainers.org/). With LXDHub you can visualize **LXC images** of multiple (private & public) remotes. One of the key features of LXDHub is to **clone LXC images** from one remote to another. Therefor you can *mirror* public remotes to your private remote.
 
 # Installation
