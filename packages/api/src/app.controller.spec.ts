@@ -57,7 +57,7 @@ describe('AppController', () => {
             jest.spyOn(path, 'join')
                 .mockImplementation((...paths: string[]) => packageJsonPath);
             jest.spyOn(fs, 'readFile')
-                .mockImplementation(async (path_: string) => JSON.stringify(packageJsonData));
+                .mockImplementation(async (path_: string) => Promise.resolve(JSON.stringify(packageJsonData) as any));
         });
 
         it('should read the correct file', async () => {
@@ -85,7 +85,7 @@ describe('AppController', () => {
                 }
             };
             jest.spyOn(fs, 'readFile')
-                .mockImplementation(async (path_: string) => JSON.stringify(packageJsondata));
+                .mockImplementation(async (path_: string) => Promise.resolve(JSON.stringify(packageJsondata) as any));
             const data = await appController.apiInfo(request);
 
             expect(data._links.repository).toBe('https://repo.com');
@@ -98,7 +98,7 @@ describe('AppController', () => {
 
         it('should throw an error, if the package.json is not valid', async () => {
             jest.spyOn(fs, 'readFile')
-                .mockImplementation(async (path_: string) => 'not valid data');
+                .mockImplementation(async (path_: string) => Promise.resolve('not valid data' as any));
             // workaround for async error catching
             // https://github.com/facebook/jest/issues/1377
             try {
