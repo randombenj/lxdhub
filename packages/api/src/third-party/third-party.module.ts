@@ -1,17 +1,18 @@
 import { Global, Module } from '@nestjs/common';
 
-import { FsProvider, PathProvider, RequestProvider } from '.';
+import { FsProvider, PathProvider } from '.';
+import { AxiosProvider } from './axios.provider';
 
 @Module({
     providers: [
         FsProvider,
         PathProvider,
-        RequestProvider
+        AxiosProvider,
     ],
     exports: [
         FsProvider,
         PathProvider,
-        RequestProvider
+        AxiosProvider,
     ]
 })
 @Global()

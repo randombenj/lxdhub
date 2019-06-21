@@ -4,7 +4,7 @@
  * libraries are usually no injectable through
  * NestJS. This module tries to bypass this.
  */
-export * from './request.provider';
+export * from './axios.provider';
 export * from './fs.provider';
 export * from './fs.mock';
 export * from './path.provider';

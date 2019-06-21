@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { LXDService } from './lxd.service';
 import { SourceImageFactory } from './factories';
-import { RequestProvider } from '../third-party/';
-import { AppSettingsModule } from '../app-settings';
+import { AxiosProvider } from '../third-party/';
 
 /**
  * The LXDModule, which bundles all
@@ -10,11 +9,8 @@ import { AppSettingsModule } from '../app-settings';
  * modules, controllers and components
  */
 @Module({
-    providers: [
-        LXDService,
-        SourceImageFactory,
-        RequestProvider
-    ],
-    exports: [LXDService]
+  imports: [],
+  providers: [LXDService, SourceImageFactory, AxiosProvider],
+  exports: [LXDService]
 })
-export class LXDModule { }
+export class LXDModule {}
