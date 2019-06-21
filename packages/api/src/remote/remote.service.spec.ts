@@ -2,52 +2,71 @@ import { Test } from '@nestjs/testing';
 
 import { RemoteService } from '.';
 import { RemoteFactory } from './factories';
-import { RemoteRepository } from './remote.repository';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { Remote } from '@lxdhub/db';
+import { RemoteDto } from './dtos';
+
+const results = [
+  {
+    name: 'images',
+    serverUrl: 'https://images.efiks.ovh:8443'
+  }
+];
+
+const remoteRepositoryMock = {
+  createQueryBuilder() {
+    return {
+      getManyAndCount: jest
+        .fn()
+        .mockImplementation(() => Promise.resolve([results, results.length]))
+    };
+  },
+  findOne() {
+    return jest.fn().mockImplementation(() => Promise.resolve(results[0]));
+  }
+};
+
+const remoteFactoryMock = {
+  entitiesToDto() {
+    return results as RemoteDto[];
+  }
+};
 
 /**
  * Test cases for the remote service
  */
 describe('RemoteService', () => {
-    let remoteService: RemoteService;
-    let remoteRepository: RemoteRepository;
-    let remoteFactory: RemoteFactory;
+  let remoteService: RemoteService;
 
-    beforeEach(async done => {
-        // Mock Remote Module
-        const module = await Test.createTestingModule({
-            providers: [
-                RemoteService,
-                {
-                    provide: 'RemoteRepositoryRepository',
-                    useClass: RemoteRepository
-                },
-                RemoteFactory,
-            ]
-        }).compile();
+  beforeEach(async done => {
+    // Mock Remote Module
+    const module = await Test.createTestingModule({
+      providers: [
+        RemoteService,
+        {
+          provide: getRepositoryToken(Remote),
+          useValue: remoteRepositoryMock
+        },
+        {
+          provide: RemoteFactory,
+          useValue: remoteFactoryMock,
+        }
+      ]
+    }).compile();
 
-        // Get the remoteService in the Testing Module Context
-        remoteService = module.get<RemoteService>(RemoteService);
-        remoteFactory = module.get<RemoteFactory>(RemoteFactory);
-        remoteRepository = module.get<RemoteRepository>('RemoteRepositoryRepository');
-        done();
+    // Get the remoteService in the Testing Module Context
+    remoteService = module.get<RemoteService>(RemoteService);
+    done();
+  });
+
+  describe('findAll', () => {
+    /**
+     * Shoul return a list of remote dtos
+     */
+    it('should return RemoteDtos', async () => {
+      expect(await remoteService.findAll()).toEqual({
+        results
+      });
     });
-
-    describe('findAll', () => {
-        /**
-         * Shoul return a list of remote dtos
-         */
-        it('should return RemoteDtos', async () => {
-            const results = [{
-                name: 'images',
-                serverUrl: 'https://images.efiks.ovh:8443'
-            }];
-
-            jest.spyOn(remoteRepository, 'findAll').mockImplementation(() => [results, results.length]);
-            jest.spyOn(remoteFactory, 'entitiesToDto').mockImplementation(() => results);
-
-            expect(await remoteService.findAll()).toEqual({
-                results,
-            });
-        });
-    });
+  });
 });
