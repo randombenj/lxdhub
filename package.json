@@ -1,6 +1,6 @@
 {
     "name": "lxdhub",
-    "version": "1.8.1",
+    "version": "1.9.0",
     "description": "Display, search and copy LXD-images using a web interface.",
     "private": true,
     "scripts": {
@@ -22,16 +22,16 @@
         "prepare": "lerna run prepare"
     },
     "devDependencies": {
-        "@types/node": "^12.0.8",
+        "@types/node": "^12.0.12",
         "lerna": "^3.15.0",
         "rimraf": "^2.6.3",
-        "tslint": "^5.17.0",
+        "tslint": "^5.18.0",
         "typescript": "^3.5.2",
         "js-yaml": "^3.13.1",
-        "fs-extra": "^8.0.1"
+        "fs-extra": "^8.1.0"
     },
     "dependencies": {
-        "@lxdhub/web": "^1.8.2",
+        "@lxdhub/web": "^1.9.0",
         "express": "^4.17.1",
         "minimist": "^1.2.0",
         "sqlite3": "^4.0.9"
