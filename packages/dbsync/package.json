@@ -12,22 +12,22 @@
         "lxdhub-dbsync": "cli.js"
     },
     "dependencies": {
-        "@lxdhub/common": "^1.9.0",
-        "@lxdhub/db": "^1.9.0",
-        "@nestjs/common": "^6.3.1",
-        "@nestjs/core": "^6.3.1",
-        "@nestjs/testing": "^6.3.1",
+        "@lxdhub/common": "1.9.0",
+        "@lxdhub/db": "1.9.0",
+        "@nestjs/common": "6.3.1",
+        "@nestjs/core": "6.3.1",
+        "@nestjs/testing": "6.3.1",
         "@nestjs/typeorm": "6.1.2",
-        "aigle": "^1.14.0",
-        "clime": "^0.5.10",
-        "fs-extra": "^8.0.1",
-        "js-yaml": "^3.13.1",
-        "lodash": "^4.17.11",
+        "aigle": "1.14.0",
+        "clime": "0.5.10",
+        "fs-extra": "8.0.1",
+        "js-yaml": "3.13.1",
+        "lodash": "4.17.11",
         "node-lxd-client": "0.1.0",
-        "pg": "^7.11.0",
-        "reflect-metadata": "^0.1.13",
-        "rxjs": "^6.5.2",
-        "typeorm": "^0.2.18"
+        "pg": "7.11.0",
+        "reflect-metadata": "0.1.13",
+        "rxjs": "6.5.2",
+        "typeorm": "0.2.18"
     },
     "publishConfig": {
         "access": "public"
