@@ -1201,6 +1201,36 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@lxdhub/common@1.9.0", "@lxdhub/common@^1.8.1", "@lxdhub/common@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/common/-/common-1.9.0.tgz#578c8374cf75611a592d785d2ee9b6ecce1617d7"
+  integrity sha512-HupQG2kEGpK7j3doNrED6mJYrQBy0GlUo/sCMq5gWhVtkGqOYLi67TZtBFzl7L+w3ovHA/LkSDmuGXWawIhOPw==
+  dependencies:
+    "@lxdhub/interfaces" "^1.8.0"
+    "@types/node" "^12.0.8"
+    chalk "^2.4.2"
+    winston "^3.2.1"
+
+"@lxdhub/db@1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/db/-/db-1.9.0.tgz#a635d8b4d239ecdc0190a87c8d895674c93b27c2"
+  integrity sha512-NvMSg1TRLmGyYDKRlFfBefalG9DIUyB/XOhf5dj0nFbzQllRH6U13ZeE0v7iI9nLVR2m3XAdAEX8VAVTiF5/Yw==
+  dependencies:
+    "@brunnerlivio/typeorm" "0.2.18"
+    "@lxdhub/common" "^1.9.0"
+    "@nestjs/common" "^6.3.1"
+    "@nestjs/core" "^6.3.1"
+    "@nestjs/typeorm" "6.1.2"
+    fs-extra "^8.0.1"
+    pg "^7.11.0"
+    typeorm "npm:@brunnerlivio/typeorm"
+    typescript "^3.5.2"
+
+"@lxdhub/interfaces@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/interfaces/-/interfaces-1.8.0.tgz#eaa7e343ad830d908541e710e7d6c093d934594e"
+  integrity sha512-mWquJN5tLcRE3adY16MAqKSUw9usbQsdv6YXHyUeaHI7/NT1LhdF9BS+oCc6WHxhfHctbD/EJbvFGwiZg8MuBg==
+
 "@lxdhub/web@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.9.0.tgz#2e7e2df0d68e4c66fc66d58ade2530c2d706cd11"
@@ -1250,6 +1280,15 @@
     cli-color "1.4.0"
     uuid "3.3.2"
 
+"@nestjs/common@^6.3.1":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.5.0.tgz#05fdd4da769dce2f970abc3a11d2d823e85e1ce4"
+  integrity sha512-i2m2e/AXFGq0l7IPtwv2SrDHbxRPe4ZsuG54B/V68escu1LMpMZcTCjfANTamRvnNR258QQcSVNBMTUX1nTV8w==
+  dependencies:
+    axios "0.19.0"
+    cli-color "1.4.0"
+    uuid "3.3.2"
+
 "@nestjs/core@6.3.1":
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.3.1.tgz#e32e76a776d0de71f218f5da582ea3ee6524b27e"
@@ -1258,6 +1297,18 @@
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.6"
     iterare "1.1.2"
+    object-hash "1.3.1"
+    optional "0.1.4"
+    uuid "3.3.2"
+
+"@nestjs/core@^6.3.1":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.5.0.tgz#c2b390e585ca579f17237918d7e6f857cbe6c459"
+  integrity sha512-VtHeqX7chP1HHPJ1eogKbtSSYIm4LXE4balQEiId2moFm9fdn2ekctBthhhfVwtQqs8vEMvgRixMxZrCJTSuoQ==
+  dependencies:
+    "@nuxtjs/opencollective" "0.2.2"
+    fast-safe-stringify "2.0.6"
+    iterare "1.2.0"
     object-hash "1.3.1"
     optional "0.1.4"
     uuid "3.3.2"
@@ -1296,10 +1347,10 @@
     lodash "4.17.11"
     path-to-regexp "3.0.0"
 
-"@nestjs/testing@6.3.1":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.3.1.tgz#7f7cc67c9798a4632cb7d8b9cf19b23c52c9197b"
-  integrity sha512-2eTZhFzrl61I3+bmvh2jZvk7elah+P+ndVfHCzJzKA8jKNGOqdTjvj2beqxhjOsE4o8BsqOQm2eUXUzItjoHRg==
+"@nestjs/testing@6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.5.0.tgz#bab3910ff9419636f0a81455f20fabe3549c9639"
+  integrity sha512-4K3yAjXsboKuCf3+Evpc4UvoDiMe8p66p8wXQ+BJA78JN14YFJMg2wDKL3xnz/zfd12tMrTVPf8wE8AXvGAYbw==
   dependencies:
     optional "0.1.4"
 
@@ -1480,7 +1531,7 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/node@12.6.1":
+"@types/node@12.6.1", "@types/node@^12.0.8":
   version "12.6.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.1.tgz#d5544f6de0aae03eefbb63d5120f6c8be0691946"
   integrity sha512-rp7La3m845mSESCgsJePNL/JQyhkOJA6G4vcwvVgkDAwHhGdq5GCumxmPjEk1MZf+8p5ZQAUE7tqgQRQTXN7uQ==
@@ -3729,7 +3780,7 @@ fs-extra@8.0.1:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
-fs-extra@8.1.0:
+fs-extra@8.1.0, fs-extra@^8.0.1:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
   integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
@@ -4701,6 +4752,11 @@ iterare@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/iterare/-/iterare-1.1.2.tgz#32e65fe03c72f727b1ae5fd002ed6a215f523ae8"
   integrity sha512-25rVYmj/dDvTR6zOa9jY1Ihd6USLa0J508Ub2iy7Aga+xu9JMbjDds2Uh03ReDGbva/YN3s3Ybi+Do0nOX6wAg==
+
+iterare@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/iterare/-/iterare-1.2.0.tgz#7427f5ed45986e4b73e2fea903579f1117f3dd15"
+  integrity sha512-RxMV9p/UzdK0Iplnd8mVgRvNdXlsTOiuDrqMRnDi3wIhbT+JP4xDquAX9ay13R3CH72NBzQ91KWe0+C168QAyQ==
 
 jest-changed-files@^24.8.0:
   version "24.8.0"
@@ -6639,7 +6695,7 @@ pg-types@~2.0.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@7.11.0:
+pg@7.11.0, pg@^7.11.0:
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/pg/-/pg-7.11.0.tgz#a8b9ae9cf19199b7952b72957573d0a9c5e67c0c"
   integrity sha512-YO4V7vCmEMGoF390LJaFaohWNKaA2ayoQOEZmiHVcAUF+YsRThpf/TaKCgSvsSE7cDm37Q/Cy3Gz41xiX/XjTw==
@@ -8348,6 +8404,11 @@ typescript@3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
   integrity sha512-7KxJovlYhTX5RaRbUdkAXN1KUZ8PwWlTzQdHV6xNqvuFOs7+WBo10TQUqT19Q/Jz2hk5v9TQDIhyLhhJY4p5AA==
+
+typescript@^3.5.2:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
+  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
 
 uglify-js@^3.1.4:
   version "3.6.0"
