@@ -1361,12 +1361,12 @@
   dependencies:
     uuid "3.3.2"
 
-"@nestjs/websockets@6.3.1":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-6.3.1.tgz#f2cae8842a64f06d80cfcfeea196813152ec8db6"
-  integrity sha512-kkzDn2oULL7RpBUZ9Fh755rebXe9pqp67Pn84/1OMErLpk3XMSMXcfABomFNHKY2pbevxOk4ojpnm5WZdw3S9w==
+"@nestjs/websockets@6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-6.5.0.tgz#c42fa27845c6929d2b0933bf5a28c5a0b6bae1e5"
+  integrity sha512-HJ2c66O15cRUsueWqAKfl7FqsT76doEpyVMSh9CQ2KWgv++8Eugl8/lV8iCoDcuXIZDKX+Sw3XUuKdtmYPdqeA==
   dependencies:
-    iterare "1.1.2"
+    iterare "1.2.0"
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
