@@ -1201,6 +1201,21 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@lxdhub/common@1.9.0", "@lxdhub/common@^1.8.1":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/common/-/common-1.9.0.tgz#578c8374cf75611a592d785d2ee9b6ecce1617d7"
+  integrity sha512-HupQG2kEGpK7j3doNrED6mJYrQBy0GlUo/sCMq5gWhVtkGqOYLi67TZtBFzl7L+w3ovHA/LkSDmuGXWawIhOPw==
+  dependencies:
+    "@lxdhub/interfaces" "^1.8.0"
+    "@types/node" "^12.0.8"
+    chalk "^2.4.2"
+    winston "^3.2.1"
+
+"@lxdhub/interfaces@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/interfaces/-/interfaces-1.8.0.tgz#eaa7e343ad830d908541e710e7d6c093d934594e"
+  integrity sha512-mWquJN5tLcRE3adY16MAqKSUw9usbQsdv6YXHyUeaHI7/NT1LhdF9BS+oCc6WHxhfHctbD/EJbvFGwiZg8MuBg==
+
 "@lxdhub/web@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.9.0.tgz#2e7e2df0d68e4c66fc66d58ade2530c2d706cd11"
@@ -1250,14 +1265,14 @@
     cli-color "1.4.0"
     uuid "3.3.2"
 
-"@nestjs/core@6.3.1":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.3.1.tgz#e32e76a776d0de71f218f5da582ea3ee6524b27e"
-  integrity sha512-GiH64nX5Z/HrHESo0huiSFH894/hzs0qRuSVNSq4MWIgHgTjdFlqu/VcXlPz21pJXhoimegpk1x1wsm2hu+WUw==
+"@nestjs/core@6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.5.0.tgz#c2b390e585ca579f17237918d7e6f857cbe6c459"
+  integrity sha512-VtHeqX7chP1HHPJ1eogKbtSSYIm4LXE4balQEiId2moFm9fdn2ekctBthhhfVwtQqs8vEMvgRixMxZrCJTSuoQ==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.6"
-    iterare "1.1.2"
+    iterare "1.2.0"
     object-hash "1.3.1"
     optional "0.1.4"
     uuid "3.3.2"
@@ -1480,7 +1495,7 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/node@12.6.1":
+"@types/node@12.6.1", "@types/node@^12.0.8":
   version "12.6.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.1.tgz#d5544f6de0aae03eefbb63d5120f6c8be0691946"
   integrity sha512-rp7La3m845mSESCgsJePNL/JQyhkOJA6G4vcwvVgkDAwHhGdq5GCumxmPjEk1MZf+8p5ZQAUE7tqgQRQTXN7uQ==
