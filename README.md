@@ -7,6 +7,7 @@
  <p align="center">
   <a href="https://gitter.im/Roche/lxdhub?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/Roche/lxdhub.svg" alt="Gitter" /></a>
   <a href="https://circleci.com/gh/Roche/lxdhub"><img src="https://circleci.com/gh/Roche/lxdhub.png?circle-token=f41c49274b61c18d8a5867ab9d49b9f27a2227aa&style=shield" alt="Circle CI Status"></a>
+  <a href="https://greenkeeper.io/"><img src=">https://badges.greenkeeper.io/Roche/lxdhub.svg" alt="Greenkeeper Badge"/></a>
  </p>
 
 <p align="center">
@@ -14,8 +15,6 @@
 </p>
 
 # Purpose
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/Roche/lxdhub.svg)](https://greenkeeper.io/)
 
 **LXDHub** is a management system for [linux containers (LXC)](https://linuxcontainers.org/). With LXDHub you can visualize **LXC images** of multiple (private & public) remotes. One of the key features of LXDHub is to **clone LXC images** from one remote to another. Therefor you can *mirror* public remotes to your private remote.
 
