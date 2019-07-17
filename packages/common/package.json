@@ -33,7 +33,7 @@
     },
     "dependencies": {
         "@lxdhub/interfaces": "1.8.0",
-        "@types/node": "12.6.4",
+        "@types/node": "12.6.6",
         "chalk": "2.4.2",
         "winston": "3.2.1"
     }
