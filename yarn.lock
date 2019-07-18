@@ -286,6 +286,7 @@
     to-fast-properties "^2.0.0"
 
 "@brunnerlivio/typeorm@0.2.18", "typeorm@npm:@brunnerlivio/typeorm":
+  name typeorm
   version "0.2.18"
   resolved "https://registry.yarnpkg.com/@brunnerlivio/typeorm/-/typeorm-0.2.18.tgz#1798ec01e42efd4a2a6f52bf63d7df7875fe4e05"
   integrity sha512-GvU3e2u94MGC/bcQPOdu8zQa8vv5xk/Nw1+3m0e8JF8BjIe9LT5e7QMYWYienx5tFXqQeFCltfIjkXSo47M5eg==
@@ -1374,10 +1375,10 @@
   dependencies:
     uuid "3.3.2"
 
-"@nestjs/websockets@6.5.0":
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-6.5.0.tgz#c42fa27845c6929d2b0933bf5a28c5a0b6bae1e5"
-  integrity sha512-HJ2c66O15cRUsueWqAKfl7FqsT76doEpyVMSh9CQ2KWgv++8Eugl8/lV8iCoDcuXIZDKX+Sw3XUuKdtmYPdqeA==
+"@nestjs/websockets@6.5.3":
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/websockets/-/websockets-6.5.3.tgz#3da3e9d3da9a65483ea259a5e8247bf865faf75f"
+  integrity sha512-YrCvmLHTW0OBusTiUOPrG0PNrw/3Gatty/bh3ro5cEoiovcaJxGSMsTC+JSVXqPwRJjEtoHMCr5Qje2rAepIzQ==
   dependencies:
     iterare "1.2.0"
 
