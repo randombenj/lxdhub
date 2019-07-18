@@ -23,7 +23,7 @@
     },
     "devDependencies": {
         "@types/node": "12.6.7",
-        "lerna": "3.15.0",
+        "lerna": "3.16.0",
         "rimraf": "2.6.3",
         "tslint": "5.18.0",
         "typescript": "3.5.2",
