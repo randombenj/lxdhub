@@ -5,6 +5,7 @@ services:
       context: .
     volumes:
       - ./certificates:/var/lib/lxdhub/certificates
+      - ./lxdhub.yml:/var/lib/lxdhub/lxdhub.yml
     ports:
       - "3000:3000"
     environment:
