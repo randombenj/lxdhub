@@ -18,7 +18,7 @@ export class Remote extends BaseEntity {
     @Column({ type: 'boolean', default: false })
     public: boolean;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'varchar', nullable: true })
     name: string;
 
     @OneToMany(type => ImageAvailability, imageAvailability => imageAvailability.remote)

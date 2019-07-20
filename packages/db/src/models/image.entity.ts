@@ -1,4 +1,12 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn
+} from 'typeorm';
 
 import { Alias, ImageAvailability, OperatingSystemArchitecture } from '.';
 
@@ -7,15 +15,18 @@ export class Image extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToMany(type => ImageAvailability, imageAvailability => imageAvailability.image)
+  @OneToMany(
+    type => ImageAvailability,
+    imageAvailability => imageAvailability.image
+  )
   @JoinColumn()
   imageAvailabilities: ImageAvailability[];
 
-  @Column({ unique: true, type: 'varchar' })
-  fingerprint: string;
+  @Column({ unique: true, type: 'varchar', nullable: true })
+  fingerprint?: string;
 
-  @Column('integer')
-  size: number;
+  @Column({ type: 'integer', nullable: true })
+  size?: number;
 
   @Column({ type: 'varchar', nullable: true })
   label?: string;
@@ -29,17 +40,17 @@ export class Image extends BaseEntity {
   @Column({ type: 'boolean', nullable: true })
   autoUpdate?: boolean;
 
-  @Column('varchar')
-  createdAt: Date;
+  @Column({ type: 'varchar', nullable: true })
+  createdAt?: Date;
 
-  @Column('varchar')
-  expiresAt: Date;
+  @Column({ type: 'varchar', nullable: true })
+  expiresAt?: Date;
 
   @Column({ type: 'varchar', nullable: true })
   lastUsedAt?: Date;
 
-  @Column('varchar')
-  uploadedAt: Date;
+  @Column({ type: 'varchar', nullable: true })
+  uploadedAt?: Date;
 
   @ManyToOne(type => OperatingSystemArchitecture)
   osArchitecture: OperatingSystemArchitecture;
@@ -47,8 +58,8 @@ export class Image extends BaseEntity {
   @OneToMany(type => Alias, alias => alias.image)
   aliases: Alias[];
 
-  @Column('boolean')
-  public: boolean;
+  @Column({ type: 'boolean', nullable: true })
+  public?: boolean;
 
   /**
    * Returns a 12 character long fingerprint
