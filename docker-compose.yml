@@ -17,6 +17,8 @@ services:
       - POSTGRES_DATABASE=lxdhub
       - LXD_CRT=certificates/client.crt
       - LXD_KEY=certificates/client.key
+      - SYNC_INTERVAL=30
+    command: ["start", "api", "ui"]
     depends_on:
       - db
     links:
@@ -41,6 +43,7 @@ services:
       - db
     links:
       - db:postgres
+    command: ["start", "dbsync"]
 
   db:
     image: postgres:10.2

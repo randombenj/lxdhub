@@ -285,7 +285,8 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@brunnerlivio/typeorm@0.2.18", "typeorm@npm:@brunnerlivio/typeorm":
+"@brunnerlivio/typeorm@0.2.18", typeorm@0.2.18, "typeorm@npm:@brunnerlivio/typeorm":
+  name typeorm
   version "0.2.18"
   resolved "https://registry.yarnpkg.com/@brunnerlivio/typeorm/-/typeorm-0.2.18.tgz#1798ec01e42efd4a2a6f52bf63d7df7875fe4e05"
   integrity sha512-GvU3e2u94MGC/bcQPOdu8zQa8vv5xk/Nw1+3m0e8JF8BjIe9LT5e7QMYWYienx5tFXqQeFCltfIjkXSo47M5eg==
@@ -6030,10 +6031,10 @@ node-int64@^0.4.0:
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
   integrity sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=
 
-node-lxd-client@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/node-lxd-client/-/node-lxd-client-0.1.2.tgz#da6cec9dcb20e9efda0d884cfe35bf76ca112c14"
-  integrity sha512-VuFeaMmAJoyKqDLkPzHIhXIIMN4zDs99ShwWGFxt5nM+zvif6EUlsteE2FkJ6/ZtEKX2kaX5avdLxYYaI/13Tg==
+node-lxd-client@0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/node-lxd-client/-/node-lxd-client-0.1.3.tgz#de3e71606ef2e3b8ba321f2817ce367f4df137b5"
+  integrity sha512-nb7X4T4a432v2e1WLzfKMfaGeTZy+aAETubFlYW8H/jau0gXmNOXSkoNxXHMMdjEioQL4Lf/RWRiTGMyhwBzmQ==
   dependencies:
     async "^3.1.0"
     request "^2.88.0"
@@ -8430,26 +8431,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typeorm@0.2.18:
-  version "0.2.18"
-  resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.2.18.tgz#8ae1d21104117724af41ddc11035c40a705e1de8"
-  integrity sha512-S553GwtG5ab268+VmaLCN7gKDqFPIzUw0eGMTobJ9yr0Np62Ojfx8j1Oa9bIeh5p7Pz1/kmGabAHoP1MYK05pA==
-  dependencies:
-    app-root-path "^2.0.1"
-    buffer "^5.1.0"
-    chalk "^2.4.2"
-    cli-highlight "^2.0.0"
-    debug "^4.1.1"
-    dotenv "^6.2.0"
-    glob "^7.1.2"
-    js-yaml "^3.13.1"
-    mkdirp "^0.5.1"
-    reflect-metadata "^0.1.13"
-    tslib "^1.9.0"
-    xml2js "^0.4.17"
-    yargonaut "^1.1.2"
-    yargs "^13.2.1"
 
 typescript@3.4.5:
   version "3.4.5"

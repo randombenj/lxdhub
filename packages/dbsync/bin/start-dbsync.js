@@ -35,9 +35,7 @@ const lxdConifgAbsolutePath =
 
 
 // Sync Interval in minutes
-const syncInterval = parseInt((process.env.SYNC_INTERVAL || DEFAULT_SYNC_INTERVAL)) * 1000 * 60;
-
-const logLevel = process.env.LOG_LEVEL;
+const syncInterval = (parseInt(process.env.SYNC_INTERVAL) || DEFAULT_SYNC_INTERVAL) * 1000 * 60;
 
 // Function, which will be run as interval
 const intervalTask = () =>
@@ -46,7 +44,7 @@ const intervalTask = () =>
         // Convert from YAML to JSON
         .then(content => YAML.safeLoad(content))
         // Create the database sync instance
-        .then(lxdhubConfig => new LXDHubDbSync({ lxd, database, logLevel, lxdhubConfig }))
+        .then(lxdhubConfig => new LXDHubDbSync({ lxd, database, lxdhubConfig }))
         // Run the database sync script
         .then(dbSync => dbSync.run());
 

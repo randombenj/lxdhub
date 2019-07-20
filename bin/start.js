@@ -10,7 +10,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const servicesToStart = argv._.length ? argv._ : ['api', 'dbsync', 'ui'];
 
 // Default time (in minutes) when the interval task should be executed
-const DEFAULT_SYNC_INTERVAL = 3;
+const DEFAULT_SYNC_INTERVAL = 10;
 
 const DEFAULT_LXD_CONFIG_PATH = './lxdhub.yml';
 
@@ -32,9 +32,8 @@ const lxdConifgAbsolutePath =
 
 
 // Sync Interval in minutes
-const syncInterval = parseInt((process.env.SYNC_INTERVAL || DEFAULT_SYNC_INTERVAL)) * 1000 * 60;
-
-const logLevel = process.env.LOG_LEVEL;
+const syncInterval = (parseInt(process.env.SYNC_INTERVAL) || DEFAULT_SYNC_INTERVAL) * 1000 * 60;
+const logLevel = process.env.LOG_LEVEL || 'silly';
 
 const startDbsync = async () => {
     // Function, which will be run as interval

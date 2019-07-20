@@ -40,7 +40,7 @@ export class RemoteService {
         const remote = remoteByName || remoteByUrl;
         if (remote) {
             return await this.updateRemote(settingsRemote, remote);
-        } else {
+        } else if (settingsRemote.name) {
             return await this.createRemote(settingsRemote);
         }
     }
