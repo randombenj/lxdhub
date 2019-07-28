@@ -1,0 +1,1 @@
+export const SETTINGS = 'DATABASE_SYNC_SETTINGS';

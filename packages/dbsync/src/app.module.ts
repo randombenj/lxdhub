@@ -11,34 +11,35 @@ import { ImageModule } from './image';
 import { AliasModule } from './alias/alias.module';
 import { OperatingArchitectureModule } from './os-arch';
 import { ImageAvailabilityModule } from './image-availability';
+import { SyncRunModule } from './sync-run';
 import { AppService } from './app.service';
+import { SETTINGS } from './app.tokens';
 
 /**
  * The main appliaction module for LXDHub database sync
  */
 export class AppModule {
-    /**
-     * Returns the app module with the applied settings
-     * @param settings The settings of the synchronization task
-     */
-    public static forRoot(settings: LXDHubDbSyncSettings): DynamicModule {
-        return {
-            module: AppModule,
-            providers: [
-                AppService
-            ],
-            imports: [
-                DatabaseModule.forRoot({ ...settings.database }),
-                AppSettingsModule.forRoot(settings),
-                LXDModule,
-                RemoteModule,
-                OperatingSystemModule,
-                ArchitectureModule,
-                AliasModule,
-                ImageModule,
-                ImageAvailabilityModule,
-                OperatingArchitectureModule,
-            ],
-        };
-    }
+  /**
+   * Returns the app module with the applied settings
+   * @param settings The settings of the synchronization task
+   */
+  public static forRoot(settings: LXDHubDbSyncSettings): DynamicModule {
+    return {
+      module: AppModule,
+      providers: [AppService, { provide: SETTINGS, useValue: settings }],
+      imports: [
+        DatabaseModule.forRoot({ ...settings.database }),
+        AppSettingsModule.forRoot(settings),
+        LXDModule,
+        RemoteModule,
+        OperatingSystemModule,
+        ArchitectureModule,
+        AliasModule,
+        ImageModule,
+        ImageAvailabilityModule,
+        OperatingArchitectureModule,
+        SyncRunModule
+      ]
+    };
+  }
 }

@@ -8,3 +8,4 @@
  */
 export * from './models';
 export * from './database';
+export { SyncState } from './models/sync-run.entity';

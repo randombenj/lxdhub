@@ -22,9 +22,9 @@ export class DatabaseService {
      * connected
      */
     async closeConnection() {
-        const connection = (await this.connection);
+        const connection = this.connection;
         if (connection.isConnected) {
-            await (await this.connection).close();
+            await this.connection.close();
         }
     }
 }

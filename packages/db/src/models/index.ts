@@ -5,3 +5,4 @@ export * from './architecture.entity';
 export * from './alias.entity';
 export * from './remote.entity';
 export * from './operating-sytem-architecture.entity';
+export { SyncRun } from './sync-run.entity';
