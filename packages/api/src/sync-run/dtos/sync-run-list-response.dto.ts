@@ -11,8 +11,8 @@ export type SyncRunListResponseDto = PaginationResponseDto<SyncRunItemDto[]>;
 export class SyncRunItemDto {
   id: number;
   state: SyncState;
-  created: Date;
-  started?: Date;
-  ended?: Date;
+  created: number;
+  started?: number;
+  ended?: number;
   error?: string;
 }

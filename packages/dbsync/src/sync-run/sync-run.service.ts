@@ -21,7 +21,7 @@ export class SyncRunService {
   async startSyncRun(id: number): Promise<SyncRun> {
     const syncRun = await this.findOne(id);
     syncRun.state = SyncState.RUNNING;
-    syncRun.started = new Date(Date.now());
+    syncRun.started = Date.now();
     return syncRun.save();
   }
 
@@ -29,14 +29,14 @@ export class SyncRunService {
     const syncRun = await this.findOne(id);
     syncRun.state = SyncState.FAILED;
     syncRun.error = message;
-    syncRun.ended = new Date(Date.now());
+    syncRun.ended = Date.now();
     return syncRun.save();
   }
 
   async finishSyncRun(id: number): Promise<SyncRun> {
     const syncRun = await this.findOne(id);
     syncRun.state = SyncState.SUCCEEDED;
-    syncRun.ended = new Date(Date.now());
+    syncRun.ended = Date.now();
     return syncRun.save();
   }
 

@@ -16,13 +16,13 @@ export class SyncRun extends BaseEntity {
   id: number;
 
   @Column({ type: 'varchar', default: Date.now() })
-  created: Date;
+  created: number;
 
   @Column({ type: 'varchar', nullable: true })
-  started?: Date;
+  started?: number;
 
   @Column({ type: 'varchar', nullable: true })
-  ended?: Date;
+  ended?: number;
 
   @Column({ type: 'enum', enum: SyncState, default: SyncState.NOT_STARTED  })
   state: SyncState;
