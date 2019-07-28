@@ -11,27 +11,32 @@ import { LXDModule } from './lxd';
 import { RemoteModule } from './remote';
 import { SearchModule } from './search/search.module';
 import { ThirdPartyModule } from './third-party/third-party.module';
+import { SyncRunModule } from './sync-run/sync-run.module';
 
 /**
  * The main appliaction module for LXDHub
  */
 export class AppModule {
-    static forRoot(settings: LXDHubAPISettings): DynamicModule {
-        return {
-            module: AppModule,
-            imports: [
-                AppSettingsModule.forRoot(settings),
-                DatabaseModule.forRoot({ ...settings.database, logLevel: settings.logLevel }),
-                LogModule,
-                ImageModule,
-                ImageAvailabilityModule,
-                RemoteModule,
-                SearchModule,
-                LXDModule,
-                RemoteModule,
-                ThirdPartyModule
-            ],
-            controllers: [AppController]
-        };
-    }
+  static forRoot(settings: LXDHubAPISettings): DynamicModule {
+    return {
+      module: AppModule,
+      imports: [
+        AppSettingsModule.forRoot(settings),
+        DatabaseModule.forRoot({
+          ...settings.database,
+          logLevel: settings.logLevel
+        }),
+        LogModule,
+        ImageModule,
+        ImageAvailabilityModule,
+        SyncRunModule,
+        RemoteModule,
+        SearchModule,
+        LXDModule,
+        RemoteModule,
+        ThirdPartyModule
+      ],
+      controllers: [AppController]
+    };
+  }
 }
