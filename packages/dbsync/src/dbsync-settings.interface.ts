@@ -18,4 +18,8 @@ export interface LXDHubDbSyncSettings {
      * The database settings
      */
     database: IDatabaseSettings;
+    /*
+     * Whether it should ignore if other dbsyncs are running
+     */
+    force?: boolean;
 }
