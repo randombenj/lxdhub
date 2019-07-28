@@ -16,7 +16,7 @@ describe('SyncRunListResponseFactory', () => {
 
   it('should transform the SyncRun class to the dto', () => {
     const syncRun = new SyncRun();
-    const date = new Date(Date.now());
+    const date = Date.now();
     syncRun.created = date;
     syncRun.id = 1;
     syncRun.state = 1;

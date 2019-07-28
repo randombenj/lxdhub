@@ -16,6 +16,7 @@ export class SyncRunRepository extends Repository<SyncRun> {
     return this.createQueryBuilder()
       .offset(pagination.offset)
       .limit(pagination.limit)
+      .orderBy('created', 'DESC')
       .getManyAndCount();
   }
 }

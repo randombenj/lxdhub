@@ -1210,6 +1210,21 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@lxdhub/common@^1.8.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@lxdhub/common/-/common-1.9.1.tgz#6a9123fca5cf03dfc146d10c62f827abb5388e83"
+  integrity sha512-/gL7R8U36WjWURZPa62y4PfaLPf0yXJlS/Aq4Ca1up2zndEhlTW/Mn56lWHtHtl+RIOSqRfpX0OJUTvB6DuRWg==
+  dependencies:
+    "@lxdhub/interfaces" "1.8.0"
+    "@types/node" "12.6.8"
+    chalk "2.4.2"
+    winston "3.2.1"
+
+"@lxdhub/interfaces@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/interfaces/-/interfaces-1.8.0.tgz#eaa7e343ad830d908541e710e7d6c093d934594e"
+  integrity sha512-mWquJN5tLcRE3adY16MAqKSUw9usbQsdv6YXHyUeaHI7/NT1LhdF9BS+oCc6WHxhfHctbD/EJbvFGwiZg8MuBg==
+
 "@lxdhub/web@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.9.0.tgz#2e7e2df0d68e4c66fc66d58ade2530c2d706cd11"
