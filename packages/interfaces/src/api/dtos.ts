@@ -195,7 +195,7 @@ export interface ImageDetailDto {
 
 /**
  * The data transfer object,
- * which represents a "not detailed"
+ * which represents a 'not detailed'
  * image item. This class is used for
  * larger image lists, which do not require
  * any detailed data of an image.
@@ -316,7 +316,7 @@ export interface SourceImageDto {
      */
     properties: SourceImagePropertiesDto;
     /**
-     * Set initial aliases ("image_create_aliases" API extension)
+     * Set initial aliases ('image_create_aliases' API extension)
      */
     aliases: AliasDto[];
     /**
@@ -355,4 +355,27 @@ export interface RemoteDto {
      * The id of the remote
      */
     id: number;
+}
+
+export enum SyncState {
+  NOT_STARTED = 0,
+  RUNNING = 1,
+  FAILED = 2,
+  SUCCEEDED = 3,
+}
+
+export type SyncRunListResponseDto = PaginationResponseDto<SyncRunItemDto[]>;
+
+/**
+ * The data transfer object, which represents a 'not detailed'
+ * sync run item. This class is used for larger sync run lists, which do not require
+ * any detailed data of a sync run.
+ */
+export class SyncRunItemDto {
+  id: number;
+  state: SyncState;
+  created: Date;
+  started?: Date;
+  ended?: Date;
+  error?: string;
 }
