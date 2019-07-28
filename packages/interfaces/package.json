@@ -1,6 +1,6 @@
 {
     "name": "@lxdhub/interfaces",
-    "version": "1.9.2-0",
+    "version": "1.10.0",
     "description": "Display, search and copy LXD-images using a web interface.",
     "main": "lib/index.js",
     "scripts": {
