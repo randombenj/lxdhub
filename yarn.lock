@@ -1202,6 +1202,16 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@lxdhub/common@1.9.2-0":
+  version "1.9.2-0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/common/-/common-1.9.2-0.tgz#2316fe79a3f18e02627705cc60b05131c04f8562"
+  integrity sha512-R9eJFQ/gWtL6eGqe7vj47MHRjeSbLC3rNlpkIoeaW0UJQfJwJS0c4U1iy+WzKr8e9ZaTlb6hurQ+ydcWyth4VQ==
+  dependencies:
+    "@lxdhub/interfaces" "^1.9.2-0"
+    "@types/node" "12.6.8"
+    chalk "2.4.2"
+    winston "3.2.1"
+
 "@lxdhub/web@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.10.0.tgz#fd197e88b5f353fbf768db656f026f98c67a9e05"
@@ -1487,10 +1497,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
   integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
 
-"@types/jest@24.0.15":
-  version "24.0.15"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.15.tgz#6c42d5af7fe3b44ffff7cc65de7bf741e8fa427f"
-  integrity sha512-MU1HIvWUme74stAoc3mgAi+aMlgKOudgEvQDIm1v4RkrDudBh1T+NFp5sftpBAdXdx1J0PbdpJ+M2EsSOi1djA==
+"@types/jest@24.0.16":
+  version "24.0.16"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.16.tgz#8d3e406ec0f0dc1688d6711af3062ff9bd428066"
+  integrity sha512-JrAiyV+PPGKZzw6uxbI761cHZ0G7QMOHXPhtSpcl08rZH6CswXaaejckn3goFKmF7M3nzEoJ0lwYCbqLMmjziQ==
   dependencies:
     "@types/jest-diff" "*"
 
