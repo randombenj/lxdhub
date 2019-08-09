@@ -24,7 +24,7 @@
         "js-yaml": "3.13.1",
         "lodash": "4.17.15",
         "node-lxd-client": "0.1.3",
-        "pg": "7.12.0",
+        "pg": "7.12.1",
         "reflect-metadata": "0.1.13",
         "rxjs": "6.5.2",
         "typeorm": "0.2.18"
