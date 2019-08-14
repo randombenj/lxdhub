@@ -24,7 +24,7 @@
     "devDependencies": {
         "@types/node": "12.7.1",
         "lerna": "3.16.4",
-        "rimraf": "2.6.3",
+        "rimraf": "2.7.0",
         "tslint": "5.18.0",
         "typescript": "3.5.3",
         "js-yaml": "3.13.1",
