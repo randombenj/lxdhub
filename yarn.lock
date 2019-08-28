@@ -1311,10 +1311,10 @@
     express "4.17.1"
     multer "1.4.2"
 
-"@nestjs/platform-socket.io@6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-socket.io/-/platform-socket.io-6.5.3.tgz#0c6968c34438ca6bc60b95b76057361d69930b04"
-  integrity sha512-SB9AsaG5Gs7I48YbacudIhU+AbEU6HbElvdx6JSroWlvG711TsNeVPGhe4//KgpZY8ZIMtEW8Ind13PA1rhB/A==
+"@nestjs/platform-socket.io@6.6.2":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-socket.io/-/platform-socket.io-6.6.2.tgz#69207180ec53765f15257c65cb5153f9cf001183"
+  integrity sha512-arfPXExH/zJ8xsJPnfNTdDVIEsFQlifpk/ZyBbvLlEEHQILBOILx9c39oYkNS0oAiKQATkrN5pu0EG3bK1CUMg==
   dependencies:
     socket.io "2.2.0"
 
