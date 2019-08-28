@@ -1292,10 +1292,10 @@
     optional "0.1.4"
     uuid "3.3.3"
 
-"@nestjs/microservices@6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-6.5.3.tgz#0b5cbc8e3588da6f10309508589b46c7306c0ab2"
-  integrity sha512-T9zZf61myahenI4c0qhcYnhnx49L+zL9+8W6fc+LPTarbt1HJDu6iyj6fh2BzewakwNLJRyGMJ9YCYlXhFuvlA==
+"@nestjs/microservices@6.6.2":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-6.6.2.tgz#6efffc1f1457be7039fdd83b2ac857f2a0050e64"
+  integrity sha512-gM6LBIgmmtk1Nd1GR9yXXm0er9J8J4ZX4lIvgKCB/tNRMd+WF7iNFhKuBNcDhKYRSETzCM5wx1cp3KBm/c0qcA==
   dependencies:
     iterare "1.2.0"
     json-socket "0.3.0"
