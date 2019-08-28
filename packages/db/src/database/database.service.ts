@@ -13,7 +13,7 @@ export class DatabaseService {
      * Returns the repository of the given entity
      * @param entity The database entity to get the repository from
      */
-    async getRepository<T>(entity: any): Promise<Repository<T>> {
+    async getRepository(entity: any) {
         return this.connection.getRepository(entity);
     }
 

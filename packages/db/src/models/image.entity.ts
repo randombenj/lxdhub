@@ -25,8 +25,9 @@ export class Image extends BaseEntity {
   @Column({ unique: true, type: 'varchar', nullable: true })
   fingerprint?: string;
 
-  @Column({ type: 'integer', nullable: true })
-  size?: number;
+  /** The size in human-readable form (e.g. '12 kB') */
+  @Column({ type: 'varchar', nullable: true })
+  size?: string;
 
   @Column({ type: 'varchar', nullable: true })
   label?: string;

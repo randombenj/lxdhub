@@ -1,11 +1,12 @@
 import { Image } from '@lxdhub/db';
 import { Injectable } from '@nestjs/common';
+import PrettyBytes = require('pretty-bytes');
 
 @Injectable()
 export class ImageDtoFactory {
     dtoToEntity(remoteImage: any, localImage?: Image): Image {
         localImage = localImage || new Image();
-        localImage.size = remoteImage.size;
+        localImage.size = PrettyBytes(remoteImage.size);
         localImage.serial = remoteImage.properties.serial;
         localImage.description = remoteImage.properties.description;
         localImage.autoUpdate = remoteImage.auto_update;
