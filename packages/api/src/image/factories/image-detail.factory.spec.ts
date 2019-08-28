@@ -78,7 +78,7 @@ describe('ImageDetailFactory', () => {
         image1.osArchitecture = osArch;
         image1.createdAt = date1;
         image1.expiresAt = date1;
-        image1.size = 13;
+        image1.size = '13 B';
         image1.public = true;
         image1.imageAvailabilities = [imageAvailability];
 
@@ -111,10 +111,7 @@ describe('ImageDetailFactory', () => {
         dto1.id = 1;
         dto1.expiresAt = date1;
         dto1.createdAt = date1;
-        dto1.size = {
-            humanReadable: '13 B',
-            raw: 13
-        };
+        dto1.size = '13 B';
         dto1.public = true;
         dto1.cloneable = false;
         dto1.remotes = [

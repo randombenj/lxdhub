@@ -54,10 +54,10 @@ describe('ImageListItemInterceptor', () => {
       );
       streamOutput$.subscribe(response => {
         expect(response.results[0]._links.detail).toBe(
-          'http://localhost:3000/api/v1/image/1'
+          'http://localhost:3000/api/v1/image/fingerprint1'
         );
         expect(response.results[1]._links.detail).toBe(
-          'http://localhost:3000/api/v1/image/2'
+          'http://localhost:3000/api/v1/image/fingerprint2'
         );
         done();
       });

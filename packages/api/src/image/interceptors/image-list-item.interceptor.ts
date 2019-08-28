@@ -3,7 +3,7 @@ import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nes
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { ImageListItemResponse } from '../dtos';
+import { ImageListItemResponse, ImageListItemDto } from '../dtos';
 
 /**
  * Represents the inteceptor, which sets the URL attributes of the _links
@@ -31,10 +31,10 @@ export class ImageListItemInterceptor
         return next.handle().pipe(
             map(response => {
                 // Updates each image _links object
-                response.results.forEach(image =>
+                response.results.forEach((image: ImageListItemDto) =>
                     image._links = {
                         // Set the detail url
-                        detail: `${url}/${image.id}`
+                        detail: `${url}/${image.fingerprint}`
                     });
                 return response;
             })

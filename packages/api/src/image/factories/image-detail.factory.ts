@@ -88,10 +88,7 @@ export class ImageDetailFactory extends Factory<ImageDetailDto> {
         imageDetail.autoUpdate = image.autoUpdate;
         imageDetail.createdAt = image.createdAt;
         imageDetail.expiresAt = image.expiresAt;
-        imageDetail.size = {
-            raw: image.size,
-            humanReadable: PrettyBytes(image.size)
-        };
+        imageDetail.size =  image.size;
         imageDetail.public = image.public;
         imageDetail.remotes = image.imageAvailabilities
             .map(imageAvailability => this.imageAvailabilityToDto(imageAvailability));

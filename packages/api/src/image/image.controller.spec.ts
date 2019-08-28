@@ -50,7 +50,7 @@ describe('ImageController', () => {
           uploadedAt: new Date(),
           id: 1,
           _links: {
-            detail: 'http://localhost:3000/api/v1/image/1'
+            detail: 'http://localhost:3000/api/v1/image/fingerprint1'
           }
         },
         {
@@ -59,7 +59,7 @@ describe('ImageController', () => {
           uploadedAt: new Date(),
           id: 2,
           _links: {
-            detail: 'http://localhost:3000/api/v1/image/2'
+            detail: 'http://localhost:3000/api/v1/image/fingerprint2'
           }
         }
       ];
