@@ -20,7 +20,7 @@
         "@lxdhub/common": "^1.10.0",
         "@lxdhub/db": "^1.10.0",
         "@nestjs/common": "6.5.3",
-        "@nestjs/core": "6.5.3",
+        "@nestjs/core": "6.6.0",
         "@nestjs/microservices": "6.5.3",
         "@nestjs/platform-express": "6.5.3",
         "@nestjs/platform-socket.io": "6.5.3",
