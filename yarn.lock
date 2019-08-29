@@ -1222,6 +1222,16 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@lxdhub/common@1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/common/-/common-1.10.0.tgz#913ffaca1dba0fd3862f3557ca500c56d23d1e51"
+  integrity sha512-LPME3+67J8uK4KSFf0G3TesSXQZ6lJI1fXkW6BVv7XPmQ4ZI3TCF+xPsudcMYwxd4eD4E1QznDVrpXtg3LxJEQ==
+  dependencies:
+    "@lxdhub/interfaces" "^1.10.0"
+    "@types/node" "12.6.8"
+    chalk "2.4.2"
+    winston "3.2.1"
+
 "@lxdhub/web@1.10.1":
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.10.1.tgz#73075203ea5672fbcff79014f33a0aa6f524d52f"
@@ -1261,10 +1271,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nestjs/common@6.6.2":
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.2.tgz#5a1aacd3eb1e2b8e38740f3c9a2233fc19557893"
-  integrity sha512-d7/OLI/f04LX0wgFPGuEO2ApNr4Nosn7r7JFaKQFAH1X1j0xOdXwnknUmA9AP06Nta72EAAWWI2a+hOIQBp+NQ==
+"@nestjs/common@6.6.3":
+  version "6.6.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.3.tgz#b6c04cc175e17f82b9f0b404dbe4ba799b414fdc"
+  integrity sha512-QWMXdb3X6sflDlFvqK7yUa4WCck3cVUrNM0X/rHUharvLMX7Qx15N5x88rtL8oTpXrL9GuxhIiOBbef4ahAyGA==
   dependencies:
     axios "0.19.0"
     cli-color "1.4.0"
@@ -1519,7 +1529,7 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/node@*":
+"@types/node@*", "@types/node@12.6.8":
   version "12.6.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.8.tgz#e469b4bf9d1c9832aee4907ba8a051494357c12c"
   integrity sha512-aX+gFgA5GHcDi89KG5keey2zf0WfZk/HAQotEamsK2kbey+8yGKcson0hbK8E+v0NArlCJQCqMP161YhV6ZXLg==
