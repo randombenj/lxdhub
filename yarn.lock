@@ -1222,6 +1222,16 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@lxdhub/common@1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@lxdhub/common/-/common-1.10.0.tgz#913ffaca1dba0fd3862f3557ca500c56d23d1e51"
+  integrity sha512-LPME3+67J8uK4KSFf0G3TesSXQZ6lJI1fXkW6BVv7XPmQ4ZI3TCF+xPsudcMYwxd4eD4E1QznDVrpXtg3LxJEQ==
+  dependencies:
+    "@lxdhub/interfaces" "^1.10.0"
+    "@types/node" "12.6.8"
+    chalk "2.4.2"
+    winston "3.2.1"
+
 "@lxdhub/web@1.10.1":
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/@lxdhub/web/-/web-1.10.1.tgz#73075203ea5672fbcff79014f33a0aa6f524d52f"
@@ -1282,10 +1292,10 @@
     optional "0.1.4"
     uuid "3.3.3"
 
-"@nestjs/microservices@6.6.2":
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-6.6.2.tgz#6efffc1f1457be7039fdd83b2ac857f2a0050e64"
-  integrity sha512-gM6LBIgmmtk1Nd1GR9yXXm0er9J8J4ZX4lIvgKCB/tNRMd+WF7iNFhKuBNcDhKYRSETzCM5wx1cp3KBm/c0qcA==
+"@nestjs/microservices@6.6.3":
+  version "6.6.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-6.6.3.tgz#9e4b1a5548e237d87da213b73e37a78256cfc36c"
+  integrity sha512-ln6Cj/2EFlR2iol7LuV92Q5tOUg6IlidRQh4f2cCRea0FPd8MO2p9zIl8stNd2BM9GAfCqyeNbNzk2p5WrPHfQ==
   dependencies:
     iterare "1.2.0"
     json-socket "0.3.0"
@@ -1519,7 +1529,7 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/node@*":
+"@types/node@*", "@types/node@12.6.8":
   version "12.6.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.8.tgz#e469b4bf9d1c9832aee4907ba8a051494357c12c"
   integrity sha512-aX+gFgA5GHcDi89KG5keey2zf0WfZk/HAQotEamsK2kbey+8yGKcson0hbK8E+v0NArlCJQCqMP161YhV6ZXLg==
