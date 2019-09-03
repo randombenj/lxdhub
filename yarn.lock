@@ -1301,10 +1301,10 @@
     json-socket "0.3.0"
     optional "0.1.4"
 
-"@nestjs/platform-express@6.6.3":
-  version "6.6.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.6.3.tgz#6d48eeedc6ab518321fbe33ed3be632ac9c9fe35"
-  integrity sha512-Lyc7gSKh5XNnlNNSO8L9WFboVWK46fW0om0x24KZBH/mGrdPvOtW2hvTZNXoj6wBkHn0TyNMf382SR6lFEykYA==
+"@nestjs/platform-express@6.6.6":
+  version "6.6.6"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.6.6.tgz#fd9a873214b8f00bef05cd430f2aa72672ba8485"
+  integrity sha512-hOxFCZb4jSv6QO3Y+fY0clxdOC9LYwyD66gSI0wx77LS2R5VM38QIClexfTB6mi12HmYfopIiM7kaj9Fkb2xtQ==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
