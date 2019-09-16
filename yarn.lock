@@ -1271,19 +1271,19 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nestjs/common@6.6.3":
-  version "6.6.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.3.tgz#b6c04cc175e17f82b9f0b404dbe4ba799b414fdc"
-  integrity sha512-QWMXdb3X6sflDlFvqK7yUa4WCck3cVUrNM0X/rHUharvLMX7Qx15N5x88rtL8oTpXrL9GuxhIiOBbef4ahAyGA==
+"@nestjs/common@6.6.4":
+  version "6.6.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.4.tgz#39add0113330ca832bf47ccfcb13347c47899c60"
+  integrity sha512-auzQruzrI4biF5O23/LM0WosorsGb0aPHA09o7OUPsUiDNklil2wMSaMTxAWOW9suIT6MesM2Lm2p6hHKN6Mvg==
   dependencies:
     axios "0.19.0"
     cli-color "1.4.0"
     uuid "3.3.3"
 
-"@nestjs/core@6.6.3":
-  version "6.6.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.6.3.tgz#d8750ee959cee6440e5f4f03aa5d78ad290daef8"
-  integrity sha512-kQSDpxpfq5O5vjt/51FMxbiy11MFsY0k2IIQpZIXA96G9yV9zbO11tAe/+mulhv3d5CoqGBeEB4wOUjy8xCCcw==
+"@nestjs/core@6.6.2":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-6.6.2.tgz#0b11f834360462faead04c23d0e268edf57955da"
+  integrity sha512-TKA7t/OHQeCf80TQsARH7Gmk7olnFMI3XJPaIDraUbBa/AmuGb4peSiMLn1I+ZYcg6wTgPaGNEiLuDWcRB13hQ==
   dependencies:
     "@nuxtjs/opencollective" "0.2.2"
     fast-safe-stringify "2.0.6"
@@ -1301,10 +1301,10 @@
     json-socket "0.3.0"
     optional "0.1.4"
 
-"@nestjs/platform-express@6.6.3":
-  version "6.6.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.6.3.tgz#6d48eeedc6ab518321fbe33ed3be632ac9c9fe35"
-  integrity sha512-Lyc7gSKh5XNnlNNSO8L9WFboVWK46fW0om0x24KZBH/mGrdPvOtW2hvTZNXoj6wBkHn0TyNMf382SR6lFEykYA==
+"@nestjs/platform-express@6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-6.7.0.tgz#064925ac068dd812680f3b6d48bfb3b480956dab"
+  integrity sha512-ZEpSg1fGSeIYdEhFSAcX77KuukZLQdVvKG90vx5Pgr/FDQmAbopMy0Fwy9bMnlRuQ76Wd06Cqb7GrUAx0v6dwA==
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
