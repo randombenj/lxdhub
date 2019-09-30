@@ -16,7 +16,7 @@
         "@lxdhub/db": "^1.10.1",
         "@nestjs/common": "6.7.2",
         "@nestjs/core": "6.6.2",
-        "@nestjs/testing": "6.6.3",
+        "@nestjs/testing": "6.8.0",
         "@nestjs/typeorm": "6.2.0",
         "aigle": "1.14.1",
         "clime": "0.5.10",
