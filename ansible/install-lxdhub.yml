@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: True
+  roles:
+    - role: lxd_setup
+    - role: node_setup
+      become: yes
+    - role: postgres_setup
+      become: yes
+    - role: lxdhub_config
+      become: yes
+    - role: build
+    - role: lxdhub_service
+      become: yes
