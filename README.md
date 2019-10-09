@@ -61,31 +61,42 @@ LXDHub can also be installed with other technologies:
 
 ## Ansible
 
-Important Note:
-these playbooks were tested in the following environment:
+You can also install lxdhub with ansible on any target (ssh/lxd)
+
+*NOTE:* these playbooks were tested in the following environment:
+
 * ansible >= 2.5.1
 * Ubuntu
 * lxc (snap/native)
 
 one can use the roles in the `ansible` folder to deploy lxdhub on their own server.
 
-```bash
-cd ansible
-ansible-playbook deploy.yml -D -vv
+```sh
+ansible-playbook ansible/install-lxdhub.yml -i REMOTE, [-u USER --key-file SSH_KEY]
 ```
 
-one can also parametrize the container_name and lxdhub_version to be checked out as extra-vars.
+One can also parametrize the `lxdhub_version` to be checked out as extra-vars.
+See the git tags for available versions.
 
+```sh
+ansible-playbook ansible/install-lxdhub.yml -e "lxdhub_version=v1.8.0"
 ```
-ansible-playbook deploy.yml -D -vv -e "container_name=next-lxdhub" -e "lxdhub_version=v1.8.0"
+
+You can also install lxdhub *inside* a lxd container:
+
+```sh
+# setup the continer to install lxdhub in
+lxc launch ubuntu:18.04 lxdhub
+lxc exec lxdhub -- apt update && apt install python
+
+# install lxdhub inside the lxd container
+ansible-playbook ansible/install-lxdhub.yml -c lxd -i lxdhub,
 ```
 
-This call will:
+This playbook will:
 
-  1. create you a local `lxdhub` container (default)
-  1. clone, build lxdhub inside of this container
-  1. setup systemctl services
-  1. publish an image in your local: remote
+  1. clone and build lxdhub inside the target
+  2. setup systemctl services
 
 # Packages
 
