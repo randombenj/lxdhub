@@ -1,5 +1,5 @@
 {
-    "name": "@lxdhub/db",
+    "name": "@randombenj/db",
     "version": "1.10.1",
     "description": "Display, search and copy LXD-images using a web interface.",
     "main": "lib/index.js",
