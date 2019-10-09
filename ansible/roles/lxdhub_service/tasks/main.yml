@@ -14,7 +14,7 @@
 - name: enable and start services
   systemd:
     name: "{{ item }}"
-    state: stopped
+    state: started
     enabled: yes
   with_items:
     - lxdhub-dbsync.service
