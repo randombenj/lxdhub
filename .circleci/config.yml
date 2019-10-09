@@ -64,10 +64,17 @@ jobs:
     working_directory: /tmp/lxdhub
     steps:
       - checkout
+      # purge the already installed old lxd (will fail otherwise)
+      - run: 'sudo apt purge --yes lxd lxd-client'
+      # install the dependencies
       - run: 'sudo apt-add-repository ppa:ansible/ansible -y'
       - run: 'sudo apt update'
-      - run: 'sudo apt install --yes lxd ansible'
-      - run: 'cat ansible/roles/lxd_setup/files/lxd.seed | sudo lxd init --preseed'
+      - run: 'sudo apt install --yes ansible snap'
+      # install lxd using snap (because lxd/xenial-backports fails to install)
+      - run: 'sudo snap install lxd'
+      - run: 'cat ansible/roles/lxd_setup/files/lxd.seed | sudo /snap/bin/lxd init --preseed'
+      - run: echo 'export PATH=/snap/bin:$PATH' >> $BASH_ENV
+      # install lxdhub inside the container
       - run: 'lxc launch ubuntu:18.04 lxdhub'
       - run: 'ansible-playbook ansible/install-lxdhub.yml -c lxd -i lxdhub,'
       - run: 'lxc publish "local:lxdhub" --alias "lxdhub" description="lxdhub $CIRCLE_SHA1 ($(date +%Y%m%d_%H:%M))" --public'
