@@ -28,12 +28,17 @@ The fastest way to run LXDHub on your computer is by pulling the LXDHub LXC imag
 our [public remote](https://lxdhub.xyz/remote/lxdhub/images).
 
 ```bash
-
+# launch lxdhub
 lxc remote add lxdhub https://lxdhub.xyz:8443 --accept-certificate --public
 lxc launch lxdhub:lxdhub mylxdhub
-lxc info mylxdhub | grep "eth0:.*inet" | head -n1 | awk '{print "Open http://"$3":3000 in your browser"}'
+
+# forward the port (let it be accessible from the outside)
+lxc config device add mylxdhub lxdhub-web proxy listen=tcp:0.0.0.0:80 connect=tcp:localhost:3000
 
 ```
+
+You can now access lxdhub from the machine you launched the container on port 80 (http).
+Inside the container lxdhub binds to the port 3000.
 
 Adding your remotes:
 
