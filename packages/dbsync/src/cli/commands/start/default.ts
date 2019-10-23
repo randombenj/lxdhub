@@ -40,14 +40,14 @@ export class StartOptions extends Options {
   @option({
     description: 'The LXD certificate for the remote',
     type: File,
-    required: true
+    default: `${process.env.HOME}/.config/lxc/client.crt`
   })
   cert: File;
 
   @option({
     description: 'The LXC key for the remote',
     type: File,
-    required: true
+    default: `${process.env.HOME}/.config/lxc/client.key`
   })
   key: File;
 
@@ -61,7 +61,6 @@ export class StartOptions extends Options {
 
   @option({
     description: 'Whether it should enforce the database synchronization run',
-    required: false,
     type: Boolean,
     default: false
   })

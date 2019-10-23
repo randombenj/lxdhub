@@ -37,7 +37,7 @@ docker run -p 5432:5432 \
 npm install -g @lxdhub/dbsync
 
 # Run locally
-lxdhub-dbsync start -c ./lxdhub.yml --cert certificates/client.crt --key certificates/client.key
+lxdhub-dbsync start -c ./lxdhub.yml
 ```
 
 ### Programmatically
