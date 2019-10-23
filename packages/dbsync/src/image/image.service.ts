@@ -7,6 +7,7 @@ import { LXDService } from '../lxd';
 import { ImageDtoFactory } from './factories/image-dto.factory';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { IRemoteConfig } from '@lxdhub/interfaces';
 
 @Injectable()
 export class ImageService {
@@ -52,15 +53,19 @@ export class ImageService {
 
     public async synchronize() {
         this.logger.log('-> Starting Image Synchronization');
-        await Aigle
-            .resolve(this.dbSyncSettings.lxdhubConfig.remotes)
-            .forEachSeries(async remote => {
-                const images = await this.lxdService.getRemoteImages(remote);
-                return await Aigle
-                    .resolve(images)
-                    .forEachSeries(async remoteImage => await this.updateOrCreateImage(remoteImage));
 
-            });
+        Promise.all(this.dbSyncSettings.lxdhubConfig.remotes)
+            .catch(err => this.logger.error(err))
+            .then(async (remotes: IRemoteConfig[]) => await this.fetchRemotes(remotes));
+
         this.logger.log('-> Finished Image Synchronization');
+    }
+
+    private async fetchRemotes(remotes: IRemoteConfig[]) {
+        for (const remote of remotes) {
+            Promise.all(await this.lxdService.getRemoteImages(remote))
+                .catch(err => this.logger.error(err))
+                .then((images: any) => images.forEach(async image => await this.updateOrCreateImage(image)));
+        }
     }
 }
