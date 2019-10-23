@@ -61,7 +61,7 @@ export class StartOptions extends Options {
 
   @option({
     description: 'Whether it should enforce the database synchronization run',
-    required: true,
+    required: false,
     type: Boolean,
     default: false
   })
