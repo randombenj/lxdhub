@@ -4,7 +4,6 @@
     src: "{{ item }}"
     dest: "/lib/systemd/system/{{ item }}"
   with_items:
-    - lxdhub-dbsync.service
     - lxdhub.service
 
 - name: just force systemd to reread configs
@@ -17,6 +16,11 @@
     state: started
     enabled: yes
   with_items:
-    - lxdhub-dbsync.service
     - lxdhub.service
 
+- name: trigger the dbsync every quarter hour"
+  cron:
+    name: "run lxdhub dbsync"
+    user: "lxdhub"
+    minute: "0,15,30,45"
+    job: "node /var/lib/lxdhub/lxdhub/packages/dbsync/lib/cli.js start -c /var/lib/lxdhub/lxdhub/lxdhub.yml 2>&1 | /usr/bin/logger -t lxdhub-dbsync"

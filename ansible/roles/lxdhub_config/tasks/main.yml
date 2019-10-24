@@ -49,13 +49,3 @@
   become: yes
   become_user: lxdhub
   ignore_errors: yes
-
-- name: copy client certificates
-  command: 'cp {{ lxdhub_home }}/.config/lxc/client.crt {{ lxdhub_home }}/lxdhub/certificates/'
-  become: yes
-  become_user: lxdhub
-
-- name: copy client certificates key
-  command: 'cp {{ lxdhub_home }}/.config/lxc/client.key {{ lxdhub_home }}/lxdhub/certificates/'
-  become: yes
-  become_user: lxdhub
