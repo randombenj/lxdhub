@@ -52,9 +52,8 @@ lxc exec mylxdhub -- su -l lxdhub -c "cat << EOF >> ~/lxdhub/lxdhub.yml
     readonly: true
 EOF"
 
-# restart the services
-lxc exec mylxdhub -- systemctl restart lxdhub-dbsync.service
-lxc exec mylxdhub -- systemctl restart lxdhub.service
+# run the dbsync
+lxc exec mylxdhub --  node /var/lib/lxdhub/lxdhub/packages/dbsync/lib/cli.js start -c /var/lib/lxdhub/lxdhub/lxdhub.yml
 
 ```
 
