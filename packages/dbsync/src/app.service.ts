@@ -49,7 +49,7 @@ export class AppService implements OnApplicationShutdown {
     } else {
       const currentlyRunningSyncs = await this.syncRunService.getCurrentlyRunningSyncs();
 
-      if (currentlyRunningSyncs.length > 1) {
+      if (currentlyRunningSyncs.length) {
         const logMessage =
           `There are currently ${
             currentlyRunningSyncs.length
