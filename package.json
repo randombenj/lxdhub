@@ -22,7 +22,7 @@
         "prepare": "lerna run prepare"
     },
     "devDependencies": {
-        "@types/node": "12.12.0",
+        "@types/node": "12.12.1",
         "lerna": "3.18.3",
         "rimraf": "3.0.0",
         "tslint": "5.19.0",
